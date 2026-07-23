@@ -44,7 +44,7 @@ const education = [
     location: "Pekanbaru, Riau",
   },
   {
-    degree: "SMA (IPA)",
+    degree: "SMA (Ilmu Pengetahuan Sosial)",
     institution: "SMAN 1 Peranap",
     date: "2020 - 2023",
     location: "Indragiri Hulu, Riau",

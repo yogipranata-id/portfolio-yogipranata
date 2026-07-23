@@ -22,7 +22,7 @@ export default function Hero() {
         >
           <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-400/10 px-4 py-2 text-sm text-cyan-300">
             <Sparkles size={16} />
-            Web Developer Portfolio
+            My Portfolio
           </div>
 
           <h1 className="text-4xl font-bold leading-tight text-white md:text-6xl">
@@ -33,13 +33,13 @@ export default function Hero() {
           </h1>
 
           <h2 className="mt-4 text-xl font-semibold text-slate-200 md:text-2xl">
-            Informatics Management Student • Web Development • Web3 & Crypto Enthusiast
+            Computer Science Fresh Graduate • Web Development • Web3 & Crypto Enthusiast
           </h2>
 
           <p className="mt-6 max-w-xl text-base leading-8 text-slate-300 md:text-lg">
-            Saya memiliki keahlian dalam web development menggunakan PHP, Laravel, 
-            HTML, CSS, dan Bootstrap. Saya adalah seorang <i>fast learner</i>, mampu bekerja sama dalam tim, 
-            serta terbiasa bekerja di bawah tekanan.
+            Lulusan D3 Manajemen Informatika yang berfokus pada pengembangan web
+            dan pelayanan IT. Siap berkontribusi membangun solusi digital yang
+            efisien dan berdampak.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-4">
@@ -114,7 +114,7 @@ export default function Hero() {
                 <div className="rounded-2xl border border-cyan-400/20 bg-cyan-400/10 p-4">
                   <p className="text-sm text-cyan-300">Current Status</p>
                   <h3 className="mt-2 text-2xl font-bold text-white">
-                    Informatics Management Student
+                    Computer Science Fresh Graduate
                   </h3>
                 </div>
 

@@ -70,9 +70,9 @@ export const projects: Project[] = [
       "Excel & PDF Export"
     ],
     githubUrl: "https://github.com/yogipranata-id/student-attendance-qr-barcode-laravel-individual",
-    role: "Full Stack Developer",
+    role: "Individual Project",
     featured: true,
-    status: "code-only",
+    status: "completed",
     objective:
       "Membantu pihak sekolah mencatat, memantau, dan merekap kehadiran siswa secara digital dan terpusat, menggantikan pencatatan manual dengan sistem scan QR/Barcode yang terintegrasi langsung dengan pengelolaan akademik.",
     features: [
@@ -163,7 +163,7 @@ export const projects: Project[] = [
       "AJAX",
     ],
     githubUrl: "https://github.com/yogipranata-id/klinik-booking-native-php-backend-assignment",
-    role: "Backend / Full-Stack Web Developer",
+    role: "Full-Stack Web Developer",
     featured: true,
     status: "completed",
     objective:

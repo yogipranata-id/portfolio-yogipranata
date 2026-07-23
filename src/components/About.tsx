@@ -23,15 +23,24 @@ export default function About() {
           </h2>
 
           <p className="mt-6 leading-8 text-slate-300">
-            Saat ini saya sedang menempuh pendidikan D3 Manajemen Informatika di Universitas Riau. 
-            Saya terus mengembangkan kemampuan secara mandiri melalui berbagai <i>personal projects</i> 
-            dan terbiasa mempelajari teknologi baru dengan cepat.
+            Saya adalah lulusan D3 Manajemen Informatika dari Universitas Riau dengan fokus 
+            kuat pada pengembangan web dan pelayanan IT. Saya memiliki rekam jejak dalam merancang 
+            dan membangun sistem aplikasi web menggunakan PHP, Laravel, Next.js, HTML, CSS, dan Bootstrap, 
+            yang dipadukan dengan pengalaman langsung menangani <i>customer inquiry</i> serta 
+            penyelesaian masalah (<i>troubleshooting</i>) platform digital.
           </p>
 
           <p className="mt-5 leading-8 text-slate-300">
-            Saya sangat terbuka terhadap peluang <i>freelance</i>, magang, maupun posisi <i>entry-level</i> 
-            di bidang teknologi. Fokus saya adalah selalu memberikan solusi yang tidak hanya berfungsi 
-            dengan baik, namun juga berpusat pada kepuasan pengguna.
+            Didorong oleh rasa ingin tahu yang besar, saya adalah pembelajar cepat 
+            (<i>fast learner</i>) yang tanggap dan sangat mudah beradaptasi dengan lingkungan 
+            kerja maupun teknologi baru. Saya terbiasa berkolaborasi dalam tim, komunikatif, 
+            dan selalu antusias merancang solusi teknologi yang efisien, skalabel, serta berdampak positif.
+          </p>
+
+          <p className="mt-5 leading-8 text-slate-300">
+            Saya sangat terbuka terhadap peluang <i>freelance</i>, magang, maupun 
+            posisi <i>entry-level</i> di bidang teknologi. Fokus saya adalah selalu memberikan 
+            solusi yang tidak hanya berfungsi dengan baik, namun juga berpusat pada kepuasan pengguna.
           </p>
         </motion.div>
 
