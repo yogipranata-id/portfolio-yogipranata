@@ -7,6 +7,7 @@ import {
   Award,
   Calendar,
   MapPin,
+  ExternalLink,
 } from "lucide-react";
 
 const workExperience = [
@@ -53,16 +54,25 @@ const education = [
 
 const certifications = [
   {
+    title: "IDCamp Connect Roadshow - Riau",
+    issuer: "Dicoding Indonesia",
+    date: "Nov 2025",
+    type: "Event Participant",
+    certUrl: "/certificates/idcamp-connect-roadshow.pdf",
+  },
+  {
+    title: "Web3 on Campus - Certificate of Appreciation 2025",
+    issuer: "IDNFT | Web3 Education and Adoption Center",
+    date: "Oct 2025",
+    type: "Event Participant",
+    certUrl: "/certificates/web3-on-campus.png",
+  },
+  {
     title: "Belajar Dasar AI",
     issuer: "Dicoding Indonesia",
-  },
-  {
-    title: "IDCamp 2024 — Web Developer Path",
-    issuer: "Indosat Ooredoo Hutchison x Dicoding",
-  },
-  {
-    title: "Pelatihan Web3",
-    issuer: "Universitas Riau",
+    date: "Jan 2026 - Jan 2029",
+    type: "Course",
+    certUrl: "/certificates/belajar-dasar-ai.pdf",
   },
 ];
 
@@ -234,6 +244,26 @@ export default function Experience() {
               >
                 <h4 className="font-bold text-white">{cert.title}</h4>
                 <p className="mt-1 text-sm text-emerald-400">{cert.issuer}</p>
+
+                <div className="mt-3 flex flex-wrap items-center justify-between gap-3">
+                  <div className="flex flex-wrap gap-3 text-xs text-slate-400">
+                    <span className="flex items-center gap-1">
+                      <Calendar size={13} />
+                      {cert.date}
+                    </span>
+                    <span>{cert.type}</span>
+                  </div>
+
+                  <a
+                    href={cert.certUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 rounded-full border border-emerald-400/20 bg-emerald-400/10 px-3 py-1.5 text-xs font-medium text-emerald-300 transition hover:bg-emerald-400/20"
+                  >
+                    <ExternalLink size={12} />
+                    Lihat Sertifikat
+                  </a>
+                </div>
               </motion.div>
             ))}
           </div>

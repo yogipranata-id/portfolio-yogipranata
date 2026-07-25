@@ -53,18 +53,18 @@ export default function About() {
         >
           <div className="grid w-full grid-cols-3 gap-4">
             <div className="rounded-2xl border border-white/10 bg-white/5 p-5 text-center backdrop-blur-xl">
-              <h3 className="text-3xl font-bold text-white">4+</h3>
-              <p className="mt-1 text-sm text-slate-400">Project Web</p>
+              <h3 className="text-3xl font-bold text-white">2+</h3>
+              <p className="mt-1 text-sm text-slate-400">Pengalaman Kerja</p>
             </div>
 
             <div className="rounded-2xl border border-white/10 bg-white/5 p-5 text-center backdrop-blur-xl">
-              <h3 className="text-3xl font-bold text-white">D3</h3>
-              <p className="mt-1 text-sm text-slate-400">Informatika</p>
+              <h3 className="text-3xl font-bold text-white">3</h3>
+              <p className="mt-1 text-sm text-slate-400">Sertifikasi</p>
             </div>
 
             <div className="rounded-2xl border border-white/10 bg-white/5 p-5 text-center backdrop-blur-xl">
               <h3 className="text-3xl font-bold text-white">2+</h3>
-              <p className="mt-1 text-sm text-slate-400">Pengalaman</p>
+              <p className="mt-1 text-sm text-slate-400">Tahun Coding</p>
             </div>
           </div>
         </motion.div>
