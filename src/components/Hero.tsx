@@ -126,7 +126,7 @@ export default function Hero() {
 
                   <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
                     <h4 className="text-2xl font-bold text-white">D3</h4>
-                    <p className="mt-1 text-sm text-slate-400">Unri</p>
+                    <p className="mt-1 text-sm text-slate-400">Manajemen Informatika di Universitas Riau</p>
                   </div>
                 </div>
 
