@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Mail, Sparkles } from "lucide-react";
+import { ArrowRight, FileText, Mail, Sparkles } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import Image from "next/image";
 
@@ -49,6 +49,16 @@ export default function Hero() {
             >
               View Projects
               <ArrowRight size={18} />
+            </a>
+
+            <a
+              href="/CV-ATS-YogiPranata.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-400/10 px-6 py-3 font-semibold text-cyan-300 transition hover:bg-cyan-400/20"
+            >
+              <FileText size={18} />
+              View CV
             </a>
 
             <a
@@ -106,7 +116,7 @@ export default function Hero() {
                   src="/profile.jpeg" 
                   alt="Yogi Pranata"
                   fill
-                  className="object-cover"
+                  className="object-cover object-top"
                 />
               </div>
 
