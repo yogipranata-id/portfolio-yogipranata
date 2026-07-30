@@ -1,13 +1,18 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState, useEffect, useCallback } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import {
   Briefcase,
   GraduationCap,
   Award,
   Calendar,
   MapPin,
-  ExternalLink,
+  Eye,
+  X,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 
 const workExperience = [
@@ -58,25 +63,49 @@ const certifications = [
     issuer: "Dicoding Indonesia",
     date: "Nov 2025",
     type: "Event Participant",
-    certUrl: "/certificates/idcamp-connect-roadshow.pdf",
+    certUrls: ["/certificates/idcamp-connect-roadshow.png"],
   },
   {
     title: "Web3 on Campus - Certificate of Appreciation 2025",
     issuer: "IDNFT | Web3 Education and Adoption Center",
     date: "Oct 2025",
     type: "Event Participant",
-    certUrl: "/certificates/web3-on-campus.png",
+    certUrls: ["/certificates/web3-on-campus.png"],
   },
   {
     title: "Belajar Dasar AI",
     issuer: "Dicoding Indonesia",
     date: "Jan 2026 - Jan 2029",
     type: "Course",
-    certUrl: "/certificates/belajar-dasar-ai.pdf",
+    certUrls: ["/certificates/belajar-dasar-ai.png", "/certificates/belajar-dasar-ai2.png"],
   },
 ];
 
+type CertModal = {
+  title: string;
+  urls: string[];
+} | null;
+
 export default function Experience() {
+  const [activeCert, setActiveCert] = useState<CertModal>(null);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const closeCert = useCallback(() => setActiveCert(null), []);
+
+  useEffect(() => {
+    const handleEsc = (e: KeyboardEvent) => {
+      if (e.key === "Escape") closeCert();
+    };
+    if (activeCert) {
+      document.body.style.overflow = "hidden";
+      window.addEventListener("keydown", handleEsc);
+    }
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", handleEsc);
+    };
+  }, [activeCert, closeCert]);
+
   return (
     <section id="experience" className="relative mx-auto max-w-6xl px-6 py-24">
       <div className="absolute right-0 top-40 h-72 w-72 rounded-full bg-purple-500/10 blur-3xl" />
@@ -254,21 +283,99 @@ export default function Experience() {
                     <span>{cert.type}</span>
                   </div>
 
-                  <a
-                    href={cert.certUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <button
+                    onClick={() => {
+                      setActiveCert({
+                        title: cert.title,
+                        urls: cert.certUrls,
+                      });
+                      setCurrentImageIndex(0);
+                    }}
                     className="inline-flex items-center gap-1.5 rounded-full border border-emerald-400/20 bg-emerald-400/10 px-3 py-1.5 text-xs font-medium text-emerald-300 transition hover:bg-emerald-400/20"
                   >
-                    <ExternalLink size={12} />
+                    <Eye size={12} />
                     Lihat Sertifikat
-                  </a>
+                  </button>
                 </div>
               </motion.div>
             ))}
           </div>
         </motion.div>
       </div>
+
+      {/* Certificate Modal */}
+      <AnimatePresence>
+        {activeCert && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4 backdrop-blur-sm"
+            onClick={closeCert}
+          >
+            <motion.div
+              initial={{ scale: 0.85, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.85, opacity: 0 }}
+              transition={{ type: "spring", stiffness: 300, damping: 25 }}
+              className="relative w-full max-w-3xl overflow-hidden rounded-2xl border border-white/10 bg-[#0a0f24]"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Header */}
+              <div className="flex items-center justify-between border-b border-white/10 p-5">
+                <h3 className="text-lg font-bold text-white">
+                  {activeCert.title}
+                </h3>
+                <button
+                  onClick={closeCert}
+                  className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 text-slate-400 transition hover:bg-white/10 hover:text-white"
+                  aria-label="Tutup"
+                >
+                  <X size={18} />
+                </button>
+              </div>
+
+              {/* Content */}
+              <div className="p-5">
+                <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl bg-black/20">
+                  <Image
+                    src={activeCert.urls[currentImageIndex]}
+                    alt={`${activeCert.title} - Halaman ${currentImageIndex + 1}`}
+                    fill
+                    className="object-contain"
+                  />
+                </div>
+
+                {/* Carousel Controls */}
+                {activeCert.urls.length > 1 && (
+                  <div className="mt-5 flex items-center justify-between px-2">
+                    <button
+                      onClick={() => setCurrentImageIndex((prev) => Math.max(0, prev - 1))}
+                      disabled={currentImageIndex === 0}
+                      className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 text-white transition hover:bg-white/10 disabled:opacity-30 disabled:hover:bg-transparent"
+                      aria-label="Previous page"
+                    >
+                      <ChevronLeft size={20} />
+                    </button>
+                    <span className="text-sm font-medium text-slate-400">
+                      Halaman <span className="text-white">{currentImageIndex + 1}</span> dari {activeCert.urls.length}
+                    </span>
+                    <button
+                      onClick={() => setCurrentImageIndex((prev) => Math.min(activeCert.urls.length - 1, prev + 1))}
+                      disabled={currentImageIndex === activeCert.urls.length - 1}
+                      className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 text-white transition hover:bg-white/10 disabled:opacity-30 disabled:hover:bg-transparent"
+                      aria-label="Next page"
+                    >
+                      <ChevronRight size={20} />
+                    </button>
+                  </div>
+                )}
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }
