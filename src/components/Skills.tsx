@@ -1,22 +1,59 @@
 "use client";
 
 import { motion } from "framer-motion";
+import {
+  SiPhp, SiLaravel, SiHtml5, SiCss, SiBootstrap, SiReact, SiNextdotjs, SiTailwindcss, SiJavascript,
+  SiMysql, SiGit, SiVercel
+} from "react-icons/si";
+import { FaCode } from "react-icons/fa";
 
-const skillCategories = [
+type SkillItem = {
+  name: string;
+  icon?: React.ReactNode;
+};
+
+type SkillCategory = {
+  title: string;
+  description: string;
+  skills: SkillItem[];
+};
+
+const skillCategories: SkillCategory[] = [
   {
     title: "Web Development",
     description: "Teknologi utama untuk membangun sistem dan tampilan website.",
-    skills: ["PHP", "Laravel", "HTML", "CSS", "Bootstrap", "React.js", "Next.js", "Tailwind", "JavaScript"],
+    skills: [
+      { name: "PHP", icon: <SiPhp size={16} color="#777BB4" /> },
+      { name: "Laravel", icon: <SiLaravel size={16} color="#FF2D20" /> },
+      { name: "HTML", icon: <SiHtml5 size={16} color="#E34F26" /> },
+      { name: "CSS", icon: <SiCss size={16} color="#1572B6" /> },
+      { name: "Bootstrap", icon: <SiBootstrap size={16} color="#7952B3" /> },
+      { name: "React.js", icon: <SiReact size={16} color="#61DAFB" /> },
+      { name: "Next.js", icon: <SiNextdotjs size={16} color="#FFFFFF" /> },
+      { name: "Tailwind", icon: <SiTailwindcss size={16} color="#06B6D4" /> },
+      { name: "JavaScript", icon: <SiJavascript size={16} color="#F7DF1E" /> },
+    ],
   },
   {
-    title: "Tools & Interests",
-    description: "Tools pendukung development dan minat teknologi lainnya.",
-    skills: ["MySQL", "Git", "VS Code", "Vercel", "Web3", "Crypto"],
+    title: "Tools",
+    description: "Tools pendukung development yang biasa saya gunakan sehari-hari.",
+    skills: [
+      { name: "MySQL", icon: <SiMysql size={16} color="#4479A1" /> },
+      { name: "Git", icon: <SiGit size={16} color="#F05032" /> },
+      { name: "VS Code", icon: <FaCode size={16} color="#007ACC" /> },
+      { name: "Vercel", icon: <SiVercel size={16} color="#FFFFFF" /> },
+    ],
   },
   {
     title: "Soft Skills & Languages",
     description: "Kemampuan komunikasi, interpersonal, dan bahasa.",
-    skills: ["Communication", "Customer Satisfaction", "Customer Support", "Bahasa Indonesia", "English"],
+    skills: [
+      { name: "Communication" },
+      { name: "Customer Satisfaction" },
+      { name: "Customer Support" },
+      { name: "Bahasa Indonesia" },
+      { name: "English" },
+    ],
   },
 ];
 
@@ -66,10 +103,11 @@ export default function Skills() {
             <div className="mt-6 flex flex-wrap gap-3">
               {category.skills.map((skill) => (
                 <span
-                  key={skill}
-                  className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-300 transition hover:border-cyan-400/50 hover:bg-cyan-400/10 hover:text-cyan-300"
+                  key={skill.name}
+                  className="group flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-300 transition hover:border-cyan-400/50 hover:bg-white/10 hover:text-white"
                 >
-                  {skill}
+                  {skill.icon && <span className="transition-transform group-hover:scale-110">{skill.icon}</span>}
+                  {skill.name}
                 </span>
               ))}
             </div>

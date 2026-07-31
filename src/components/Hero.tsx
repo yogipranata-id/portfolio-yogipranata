@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight, FileText, Mail, Sparkles } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { SiPhp, SiLaravel, SiMysql, SiReact, SiTailwindcss } from "react-icons/si";
 import Image from "next/image";
 
 export default function Hero() {
@@ -144,12 +145,19 @@ export default function Hero() {
                   <p className="mb-3 text-sm text-slate-400">Tech Stack</p>
 
                   <div className="flex flex-wrap gap-2">
-                    {["PHP", "Laravel", "MySQL", "React", "Tailwind"].map((tech) => (
+                    {[
+                      { name: "PHP", icon: <SiPhp size={14} color="#777BB4" /> },
+                      { name: "Laravel", icon: <SiLaravel size={14} color="#FF2D20" /> },
+                      { name: "MySQL", icon: <SiMysql size={14} color="#4479A1" /> },
+                      { name: "React", icon: <SiReact size={14} color="#61DAFB" /> },
+                      { name: "Tailwind", icon: <SiTailwindcss size={14} color="#06B6D4" /> },
+                    ].map((tech) => (
                       <span
-                        key={tech}
-                        className="rounded-full border border-white/10 px-3 py-1 text-xs text-slate-300"
+                        key={tech.name}
+                        className="group flex items-center gap-1.5 rounded-full border border-white/10 px-3 py-1 text-xs text-slate-300 transition hover:border-cyan-400/50 hover:bg-white/5 hover:text-white"
                       >
-                        {tech}
+                        <span className="transition-transform group-hover:scale-110">{tech.icon}</span>
+                        {tech.name}
                       </span>
                     ))}
                   </div>
