@@ -1,8 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 export default function About() {
+  const t = useTranslations("About");
+
   return (
     <section id="about" className="relative mx-auto max-w-6xl px-6 py-24">
       <div className="absolute left-0 top-20 h-64 w-64 rounded-full bg-cyan-500/10 blur-3xl" />
@@ -15,33 +18,27 @@ export default function About() {
           transition={{ duration: 0.7 }}
         >
           <p className="text-sm uppercase tracking-[0.35em] text-cyan-400">
-            About Me
+            {t("label")}
           </p>
 
           <h2 className="mt-4 text-3xl font-bold leading-tight text-white md:text-5xl">
-            Dedikasi untuk terus berkembang.
+            {t("heading")}
           </h2>
 
-          <p className="mt-6 leading-8 text-slate-300">
-            Saya adalah lulusan D3 Manajemen Informatika dari Universitas Riau dengan fokus 
-            kuat pada pengembangan web dan pelayanan IT. Saya memiliki rekam jejak dalam merancang 
-            dan membangun sistem aplikasi web menggunakan PHP, Laravel, Next.js, HTML, CSS, dan Bootstrap, 
-            yang dipadukan dengan pengalaman langsung menangani <i>customer inquiry</i> serta 
-            penyelesaian masalah (<i>troubleshooting</i>) platform digital.
-          </p>
+          <p
+            className="mt-6 leading-8 text-slate-300"
+            dangerouslySetInnerHTML={{ __html: t.raw("p1") }}
+          />
 
-          <p className="mt-5 leading-8 text-slate-300">
-            Didorong oleh rasa ingin tahu yang besar, saya adalah pembelajar cepat 
-            (<i>fast learner</i>) yang tanggap dan sangat mudah beradaptasi dengan lingkungan 
-            kerja maupun teknologi baru. Saya terbiasa berkolaborasi dalam tim, komunikatif, 
-            dan selalu antusias merancang solusi teknologi yang efisien, skalabel, serta berdampak positif.
-          </p>
+          <p
+            className="mt-5 leading-8 text-slate-300"
+            dangerouslySetInnerHTML={{ __html: t.raw("p2") }}
+          />
 
-          <p className="mt-5 leading-8 text-slate-300">
-            Saya sangat terbuka terhadap peluang <i>freelance</i>, magang, maupun 
-            posisi <i>entry-level</i> di bidang teknologi. Fokus saya adalah selalu memberikan 
-            solusi yang tidak hanya berfungsi dengan baik, namun juga berpusat pada kepuasan pengguna.
-          </p>
+          <p
+            className="mt-5 leading-8 text-slate-300"
+            dangerouslySetInnerHTML={{ __html: t.raw("p3") }}
+          />
         </motion.div>
 
         <motion.div
@@ -54,17 +51,17 @@ export default function About() {
           <div className="grid w-full grid-cols-3 gap-4">
             <div className="rounded-2xl border border-white/10 bg-white/5 p-5 text-center backdrop-blur-xl">
               <h3 className="text-3xl font-bold text-white">2+</h3>
-              <p className="mt-1 text-sm text-slate-400">Pengalaman Kerja</p>
+              <p className="mt-1 text-sm text-slate-400">{t("statWork")}</p>
             </div>
 
             <div className="rounded-2xl border border-white/10 bg-white/5 p-5 text-center backdrop-blur-xl">
               <h3 className="text-3xl font-bold text-white">3</h3>
-              <p className="mt-1 text-sm text-slate-400">Sertifikasi</p>
+              <p className="mt-1 text-sm text-slate-400">{t("statCert")}</p>
             </div>
 
             <div className="rounded-2xl border border-white/10 bg-white/5 p-5 text-center backdrop-blur-xl">
               <h3 className="text-3xl font-bold text-white">2+</h3>
-              <p className="mt-1 text-sm text-slate-400">Tahun Coding</p>
+              <p className="mt-1 text-sm text-slate-400">{t("statCoding")}</p>
             </div>
           </div>
         </motion.div>

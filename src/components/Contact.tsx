@@ -3,8 +3,11 @@
 import { motion } from "framer-motion";
 import { Mail, MessageSquare } from "lucide-react";
 import { FaLinkedin } from "react-icons/fa";
+import { useTranslations } from "next-intl";
 
 export default function Contact() {
+  const t = useTranslations("Contact");
+
   return (
     <section id="contact" className="relative mx-auto max-w-4xl px-6 py-24">
       {/* Background Glow */}
@@ -22,13 +25,11 @@ export default function Contact() {
         </div>
 
         <h2 className="text-3xl font-bold text-white md:text-5xl">
-          Mari Bekerja Sama
+          {t("heading")}
         </h2>
 
         <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-300">
-          Saya selalu terbuka untuk mendiskusikan project pembuatan website, 
-          ide-ide menarik, maupun peluang karir sebagai Web Developer. 
-          Jangan ragu untuk menyapa!
+          {t("description")}
         </p>
 
         <div className="mt-10 flex flex-wrap justify-center gap-4">
@@ -37,7 +38,7 @@ export default function Contact() {
             className="inline-flex items-center gap-2 rounded-full bg-cyan-400 px-8 py-4 font-bold text-slate-950 transition hover:scale-105 hover:bg-cyan-300"
           >
             <Mail size={20} />
-            Kirim Email
+            {t("sendEmail")}
           </a>
           
           <a
@@ -47,7 +48,7 @@ export default function Contact() {
             className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-8 py-4 font-bold text-white transition hover:scale-105 hover:bg-white/10"
           >
             <FaLinkedin size={20} />
-            LinkedIn Profile
+            {t("linkedIn")}
           </a>
         </div>
       </motion.div>

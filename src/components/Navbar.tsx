@@ -2,17 +2,20 @@
 
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
-
-const navItems = [
-  { label: "About", href: "#about" },
-  { label: "Skills", href: "#skills" },
-  { label: "Projects", href: "#projects" },
-  { label: "Experience", href: "#experience" },
-  { label: "Contact", href: "#contact" },
-];
+import { useTranslations } from "next-intl";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const t = useTranslations("Navbar");
+
+  const navItems = [
+    { label: t("about"), href: "#about" },
+    { label: t("skills"), href: "#skills" },
+    { label: t("projects"), href: "#projects" },
+    { label: t("experience"), href: "#experience" },
+    { label: t("contact"), href: "#contact" },
+  ];
 
   return (
     <header className="fixed left-0 top-0 z-50 w-full border-b border-white/10 bg-[#050816]/70 backdrop-blur-xl">
@@ -31,6 +34,10 @@ export default function Navbar() {
               {item.label}
             </a>
           ))}
+
+          <div className="ml-2 border-l border-white/10 pl-4">
+            <LanguageSwitcher />
+          </div>
         </div>
 
         <button
@@ -55,6 +62,10 @@ export default function Navbar() {
                 {item.label}
               </a>
             ))}
+
+            <div className="mt-2 border-t border-white/10 pt-4">
+              <LanguageSwitcher />
+            </div>
           </div>
         </div>
       )}

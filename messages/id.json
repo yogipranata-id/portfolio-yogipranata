@@ -1,0 +1,142 @@
+{
+  "Navbar": {
+    "about": "About",
+    "skills": "Skills",
+    "projects": "Projects",
+    "experience": "Experience",
+    "contact": "Contact"
+  },
+  "Hero": {
+    "badge": "My Portfolio",
+    "greeting": "Hi, saya",
+    "name": "Yogi Pranata",
+    "subtitle": "Computer Science Fresh Graduate • Web Development • Web3 & Crypto Enthusiast",
+    "description": "Lulusan D3 Manajemen Informatika yang berfokus pada pengembangan web dan pelayanan IT. Siap berkontribusi membangun solusi digital yang efisien dan berdampak.",
+    "viewProjects": "View Projects",
+    "viewCv": "View CV",
+    "contactMe": "Contact Me",
+    "currentStatus": "Current Status",
+    "statusTitle": "Computer Science Fresh Graduate",
+    "projects": "Projects",
+    "education": "Manajemen Informatika di Universitas Riau",
+    "techStack": "Tech Stack"
+  },
+  "About": {
+    "label": "About Me",
+    "heading": "Dedikasi untuk terus berkembang.",
+    "p1": "Saya adalah lulusan D3 Manajemen Informatika dari Universitas Riau dengan fokus kuat pada pengembangan web dan pelayanan IT. Saya memiliki rekam jejak dalam merancang dan membangun sistem aplikasi web menggunakan PHP, Laravel, Next.js, HTML, CSS, dan Bootstrap, yang dipadukan dengan pengalaman langsung menangani <i>customer inquiry</i> serta penyelesaian masalah (<i>troubleshooting</i>) platform digital.",
+    "p2": "Didorong oleh rasa ingin tahu yang besar, saya adalah pembelajar cepat (<i>fast learner</i>) yang tanggap dan sangat mudah beradaptasi dengan lingkungan kerja maupun teknologi baru. Saya terbiasa berkolaborasi dalam tim, komunikatif, dan selalu antusias merancang solusi teknologi yang efisien, skalabel, serta berdampak positif.",
+    "p3": "Saya sangat terbuka terhadap peluang <i>freelance</i>, magang, maupun posisi <i>entry-level</i> di bidang teknologi. Fokus saya adalah selalu memberikan solusi yang tidak hanya berfungsi dengan baik, namun juga berpusat pada kepuasan pengguna.",
+    "statWork": "Pengalaman Kerja",
+    "statCert": "Sertifikasi",
+    "statCoding": "Tahun Coding"
+  },
+  "Skills": {
+    "label": "Skills",
+    "heading": "Teknologi yang saya gunakan",
+    "description": "Saya menggunakan beberapa teknologi dalam proses pengembangan website, mulai dari frontend, backend, database, hingga tools pendukung development.",
+    "webDev": "Web Development",
+    "webDevDesc": "Teknologi utama untuk membangun sistem dan tampilan website.",
+    "tools": "Tools",
+    "toolsDesc": "Tools pendukung development yang biasa saya gunakan sehari-hari.",
+    "softSkills": "Soft Skills & Languages",
+    "softSkillsDesc": "Kemampuan komunikasi, interpersonal, dan bahasa."
+  },
+  "Experience": {
+    "workTitle": "Pengalaman Kerja",
+    "educationTitle": "Pendidikan",
+    "certTitle": "Sertifikasi & Pelatihan",
+    "viewCert": "Lihat Sertifikat",
+    "page": "Halaman",
+    "of": "dari",
+    "work": [
+      {
+        "role": "Customer Happiness",
+        "company": "Assist.id",
+        "type": "Paid Internship",
+        "date": "Feb 2026 - Apr 2026",
+        "location": "Pekanbaru Kota, Riau",
+        "points": [
+          "Bertindak sebagai titik kontak utama untuk memastikan kepuasan pengguna platform SaaS klinik dan rumah sakit.",
+          "Mengelola keluhan pelanggan, memberikan panduan penggunaan fitur sistem, serta memastikan penyelesaian masalah secara tepat waktu.",
+          "Menjadi jembatan umpan balik antara pengguna dan tim pengembang internal untuk peningkatan produk."
+        ]
+      },
+      {
+        "role": "Software Engineer",
+        "company": "ADIMULIA GROUP (PT. Surya Agrolika Reksa)",
+        "type": "Internship",
+        "date": "Jul 2025 - Agu 2025",
+        "location": "Kuantan Singingi, Riau",
+        "points": [
+          "Membantu transformasi digital data absensi di Departemen K3ML dari pencatatan manual ke sistem terpusat.",
+          "Melakukan riset kebutuhan, merancang prototipe mobile (Flutter), lalu mengembangkan Aplikasi Web Berbasis Geotagging.",
+          "Mengimplementasikan algoritma Haversine untuk validasi lokasi absensi secara real-time."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "D3 Manajemen Informatika",
+        "institution": "Universitas Riau",
+        "date": "2023 - 2026",
+        "location": "Pekanbaru, Riau"
+      },
+      {
+        "degree": "SMA (Ilmu Pengetahuan Sosial)",
+        "institution": "SMAN 1 Peranap",
+        "date": "2020 - 2023",
+        "location": "Indragiri Hulu, Riau"
+      }
+    ],
+    "certifications": [
+      {
+        "title": "IDCamp Connect Roadshow - Riau",
+        "issuer": "Dicoding Indonesia",
+        "date": "Nov 2025",
+        "type": "Event Participant",
+        "certUrls": ["/certificates/idcamp-connect-roadshow.png"]
+      },
+      {
+        "title": "Web3 on Campus - Certificate of Appreciation 2025",
+        "issuer": "IDNFT | Web3 Education and Adoption Center",
+        "date": "Oct 2025",
+        "type": "Event Participant",
+        "certUrls": ["/certificates/web3-on-campus.png"]
+      },
+      {
+        "title": "Belajar Dasar AI",
+        "issuer": "Dicoding Indonesia",
+        "date": "Jan 2026 - Jan 2029",
+        "type": "Course",
+        "certUrls": ["/certificates/belajar-dasar-ai.png", "/certificates/belajar-dasar-ai2.png"]
+      }
+    ]
+  },
+  "Projects": {
+    "label": "Projects",
+    "heading": "Featured Projects",
+    "description": "Berikut beberapa project yang pernah saya kerjakan. Untuk project yang belum dihosting, saya menampilkan tampilan UI, case study, dan source code. Sedangkan project yang sudah online juga memiliki tombol live demo.",
+    "viewDetails": "View Details",
+    "sourceCode": "Source Code"
+  },
+  "Contact": {
+    "heading": "Mari Bekerja Sama",
+    "description": "Saya selalu terbuka untuk mendiskusikan project pembuatan website, ide-ide menarik, maupun peluang karir sebagai Web Developer. Jangan ragu untuk menyapa!",
+    "sendEmail": "Kirim Email",
+    "linkedIn": "LinkedIn Profile"
+  },
+  "Footer": {
+    "copyright": "© {year} Yogi Pranata. All rights reserved."
+  },
+  "ProjectDetail": {
+    "back": "Back to Portfolio",
+    "sourceCode": "Source Code",
+    "liveDemo": "Live Demo",
+    "objective": "Objective",
+    "features": "Key Features",
+    "challenges": "Challenges",
+    "solutions": "Solutions",
+    "screenshots": "Screenshots"
+  }
+}

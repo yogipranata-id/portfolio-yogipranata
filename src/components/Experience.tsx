@@ -1,198 +1,106 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import Image from "next/image";
 import {
   Briefcase,
   GraduationCap,
   Award,
   Calendar,
   MapPin,
-  Eye,
-  X,
   ChevronLeft,
   ChevronRight,
+  Eye,
+  X,
 } from "lucide-react";
-
-const workExperience = [
-  {
-    role: "Customer Happiness",
-    company: "Assist.id",
-    type: "Paid Internship",
-    date: "Feb 2026 - Apr 2026",
-    location: "Pekanbaru Kota, Riau",
-    points: [
-      "Bertindak sebagai titik kontak utama untuk memastikan kepuasan pengguna platform SaaS klinik dan rumah sakit.",
-      "Mengelola keluhan pelanggan, memberikan panduan penggunaan fitur sistem, serta memastikan penyelesaian masalah secara tepat waktu.",
-      "Menjadi jembatan umpan balik antara pengguna dan tim pengembang internal untuk peningkatan produk.",
-    ],
-  },
-  {
-    role: "Software Engineer Intern",
-    company: "ADIMULIA GROUP (PT. Surya Agrolika Reksa)",
-    type: "Internship",
-    date: "Jul 2025 - Agu 2025",
-    location: "Kuantan Singingi, Riau",
-    points: [
-      "Membantu transformasi digital data absensi di Departemen K3ML dari pencatatan manual ke sistem terpusat.",
-      "Melakukan riset kebutuhan, merancang prototipe mobile (Flutter), lalu mengembangkan Aplikasi Web Berbasis Geotagging.",
-      "Mengimplementasikan algoritma Haversine untuk validasi lokasi absensi secara real-time.",
-    ],
-  },
-];
-
-const education = [
-  {
-    degree: "D3 Manajemen Informatika",
-    institution: "Universitas Riau",
-    date: "2023 - 2026",
-    location: "Pekanbaru, Riau",
-  },
-  {
-    degree: "SMA (Ilmu Pengetahuan Sosial)",
-    institution: "SMAN 1 Peranap",
-    date: "2020 - 2023",
-    location: "Indragiri Hulu, Riau",
-  },
-];
-
-const certifications = [
-  {
-    title: "IDCamp Connect Roadshow - Riau",
-    issuer: "Dicoding Indonesia",
-    date: "Nov 2025",
-    type: "Event Participant",
-    certUrls: ["/certificates/idcamp-connect-roadshow.png"],
-  },
-  {
-    title: "Web3 on Campus - Certificate of Appreciation 2025",
-    issuer: "IDNFT | Web3 Education and Adoption Center",
-    date: "Oct 2025",
-    type: "Event Participant",
-    certUrls: ["/certificates/web3-on-campus.png"],
-  },
-  {
-    title: "Belajar Dasar AI",
-    issuer: "Dicoding Indonesia",
-    date: "Jan 2026 - Jan 2029",
-    type: "Course",
-    certUrls: ["/certificates/belajar-dasar-ai.png", "/certificates/belajar-dasar-ai2.png"],
-  },
-];
-
-type CertModal = {
-  title: string;
-  urls: string[];
-} | null;
+import { useTranslations } from "next-intl";
+import Image from "next/image";
 
 export default function Experience() {
-  const [activeCert, setActiveCert] = useState<CertModal>(null);
+  const t = useTranslations("Experience");
+
+  // Arrays must be fetched from translations since they contain translated content
+  const workExperience = t.raw("work");
+  const education = t.raw("education");
+  const certifications = t.raw("certifications");
+
+  // State for image carousel inside the modal
+  const [activeCert, setActiveCert] = useState<{
+    title: string;
+    urls: string[];
+  } | null>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  const closeCert = useCallback(() => setActiveCert(null), []);
+  const closeCert = () => {
+    setActiveCert(null);
+    setCurrentImageIndex(0);
+  };
 
-  useEffect(() => {
-    const handleEsc = (e: KeyboardEvent) => {
-      if (e.key === "Escape") closeCert();
-    };
+  // Prevent background scrolling when modal is open
+  if (typeof window !== "undefined") {
     if (activeCert) {
       document.body.style.overflow = "hidden";
-      window.addEventListener("keydown", handleEsc);
+    } else {
+      document.body.style.overflow = "unset";
     }
-    return () => {
-      document.body.style.overflow = "";
-      window.removeEventListener("keydown", handleEsc);
-    };
-  }, [activeCert, closeCert]);
+  }
 
   return (
     <section id="experience" className="relative mx-auto max-w-6xl px-6 py-24">
-      <div className="absolute right-0 top-40 h-72 w-72 rounded-full bg-purple-500/10 blur-3xl" />
-      <div className="absolute left-10 bottom-20 h-64 w-64 rounded-full bg-cyan-500/10 blur-3xl" />
+      {/* Background Glow */}
+      <div className="absolute left-10 top-1/2 h-64 w-64 -translate-y-1/2 rounded-full bg-blue-500/10 blur-[100px]" />
+      <div className="absolute right-10 top-1/4 h-64 w-64 rounded-full bg-cyan-500/10 blur-[100px]" />
 
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.7 }}
-        className="relative z-10"
-      >
-        <p className="text-sm uppercase tracking-[0.35em] text-cyan-400">
-          Experience
-        </p>
-
-        <h2 className="mt-4 text-3xl font-bold leading-tight text-white md:text-5xl">
-          Perjalanan Profesional
-        </h2>
-
-        <p className="mt-6 max-w-2xl leading-8 text-slate-300">
-          Pengalaman kerja, pendidikan, dan sertifikasi yang membentuk kemampuan
-          saya sebagai seorang Web Developer.
-        </p>
-      </motion.div>
-
-      {/* Work Experience */}
-      <div className="relative z-10 mt-12 space-y-6">
-        <motion.h3
-          initial={{ opacity: 0, x: -20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="flex items-center gap-3 text-lg font-semibold text-white"
-        >
+      {/* ── ATAS: PENGALAMAN KERJA ── */}
+      <div className="relative z-10 mb-16">
+        <h3 className="mb-6 flex items-center gap-3 text-lg font-semibold text-white">
           <span className="flex h-9 w-9 items-center justify-center rounded-xl border border-cyan-400/20 bg-cyan-400/10 text-cyan-400">
             <Briefcase size={18} />
           </span>
-          Pengalaman Kerja
-        </motion.h3>
+          {t("workTitle")}
+        </h3>
 
-        {/* Timeline */}
-        <div className="relative ml-4 border-l-2 border-white/10 pl-8 space-y-8">
-          {workExperience.map((exp, index) => (
+        <div className="space-y-6">
+          {workExperience.map((job: any, index: number) => (
             <motion.div
-              key={exp.company}
-              initial={{ opacity: 0, x: 30 }}
+              key={index}
+              initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.15 }}
-              className="relative"
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="relative pl-8 before:absolute before:left-[11px] before:top-2 before:h-full before:w-[2px] before:bg-white/10 last:before:hidden"
             >
-              {/* Timeline dot */}
-              <div className="absolute -left-[2.55rem] top-1 h-4 w-4 rounded-full border-2 border-cyan-400 bg-[#050816]" />
+              <div className="absolute left-0 top-1.5 h-6 w-6 rounded-full border-4 border-[#050816] bg-cyan-400" />
 
               <div className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl transition hover:border-cyan-400/30 hover:bg-white/[0.07]">
-                <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+                <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
                   <div>
-                    <h4 className="text-lg font-bold text-white">{exp.role}</h4>
-                    <p className="text-sm font-medium text-cyan-400">
-                      {exp.company}
+                    <h4 className="text-xl font-bold text-white">{job.role}</h4>
+                    <p className="mt-1 font-medium text-cyan-400">
+                      {job.company}
                     </p>
                   </div>
-                  <span className="shrink-0 rounded-full border border-cyan-400/20 bg-cyan-400/10 px-3 py-1 text-xs text-cyan-300">
-                    {exp.type}
+                  <span className="inline-block whitespace-nowrap rounded-full bg-white/10 px-3 py-1 text-xs text-slate-300">
+                    {job.type}
                   </span>
                 </div>
 
-                <div className="mt-3 flex flex-wrap gap-4 text-xs text-slate-400">
-                  <span className="flex items-center gap-1">
-                    <Calendar size={13} />
-                    {exp.date}
-                  </span>
-                  <span className="flex items-center gap-1">
-                    <MapPin size={13} />
-                    {exp.location}
-                  </span>
+                <div className="mt-4 flex flex-wrap gap-4 text-sm text-slate-400">
+                  <div className="flex items-center gap-1.5">
+                    <Calendar size={16} />
+                    {job.date}
+                  </div>
+                  <div className="flex items-center gap-1.5">
+                    <MapPin size={16} />
+                    {job.location}
+                  </div>
                 </div>
 
-                <ul className="mt-4 space-y-2">
-                  {exp.points.map((point) => (
-                    <li
-                      key={point}
-                      className="flex items-start gap-2 text-sm leading-7 text-slate-300"
-                    >
-                      <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-cyan-400/60" />
-                      {point}
+                <ul className="mt-5 list-inside space-y-2 text-sm leading-relaxed text-slate-300">
+                  {job.points.map((point: string, idx: number) => (
+                    <li key={idx} className="flex gap-2">
+                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-cyan-400" />
+                      <span>{point}</span>
                     </li>
                   ))}
                 </ul>
@@ -202,8 +110,8 @@ export default function Experience() {
         </div>
       </div>
 
-      {/* Education & Certifications — side by side */}
-      <div className="relative z-10 mt-16 grid gap-8 lg:grid-cols-2">
+      {/* ── BAWAH: PENDIDIKAN & SERTIFIKASI (Side-by-side) ── */}
+      <div className="relative z-10 grid gap-8 lg:grid-cols-2">
         {/* Education */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -215,13 +123,13 @@ export default function Experience() {
             <span className="flex h-9 w-9 items-center justify-center rounded-xl border border-purple-400/20 bg-purple-400/10 text-purple-400">
               <GraduationCap size={18} />
             </span>
-            Pendidikan
+            {t("educationTitle")}
           </h3>
 
           <div className="space-y-4">
-            {education.map((edu, index) => (
+            {education.map((edu: any, index: number) => (
               <motion.div
-                key={edu.institution}
+                key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -258,13 +166,13 @@ export default function Experience() {
             <span className="flex h-9 w-9 items-center justify-center rounded-xl border border-emerald-400/20 bg-emerald-400/10 text-emerald-400">
               <Award size={18} />
             </span>
-            Sertifikasi & Pelatihan
+            {t("certTitle")}
           </h3>
 
           <div className="space-y-4">
-            {certifications.map((cert, index) => (
+            {certifications.map((cert: any, index: number) => (
               <motion.div
-                key={cert.title}
+                key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -283,19 +191,21 @@ export default function Experience() {
                     <span>{cert.type}</span>
                   </div>
 
-                  <button
-                    onClick={() => {
-                      setActiveCert({
-                        title: cert.title,
-                        urls: cert.certUrls,
-                      });
-                      setCurrentImageIndex(0);
-                    }}
-                    className="inline-flex items-center gap-1.5 rounded-full border border-emerald-400/20 bg-emerald-400/10 px-3 py-1.5 text-xs font-medium text-emerald-300 transition hover:bg-emerald-400/20"
-                  >
-                    <Eye size={12} />
-                    Lihat Sertifikat
-                  </button>
+                  {(cert.certUrls && cert.certUrls.length > 0) && (
+                    <button
+                      onClick={() => {
+                        setActiveCert({
+                          title: cert.title,
+                          urls: cert.certUrls,
+                        });
+                        setCurrentImageIndex(0);
+                      }}
+                      className="inline-flex items-center gap-1.5 rounded-full border border-emerald-400/20 bg-emerald-400/10 px-3 py-1.5 text-xs font-medium text-emerald-300 transition hover:bg-emerald-400/20"
+                    >
+                      <Eye size={12} />
+                      {t("viewCert")}
+                    </button>
+                  )}
                 </div>
               </motion.div>
             ))}
@@ -341,7 +251,7 @@ export default function Experience() {
                 <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl bg-black/20">
                   <Image
                     src={activeCert.urls[currentImageIndex]}
-                    alt={`${activeCert.title} - Halaman ${currentImageIndex + 1}`}
+                    alt={`${activeCert.title} - ${t("page")} ${currentImageIndex + 1}`}
                     fill
                     className="object-contain"
                   />
@@ -359,7 +269,7 @@ export default function Experience() {
                       <ChevronLeft size={20} />
                     </button>
                     <span className="text-sm font-medium text-slate-400">
-                      Halaman <span className="text-white">{currentImageIndex + 1}</span> dari {activeCert.urls.length}
+                      {t("page")} <span className="text-white">{currentImageIndex + 1}</span> {t("of")} {activeCert.urls.length}
                     </span>
                     <button
                       onClick={() => setCurrentImageIndex((prev) => Math.min(activeCert.urls.length - 1, prev + 1))}

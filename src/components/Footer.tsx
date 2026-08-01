@@ -1,8 +1,10 @@
 import Link from "next/link";
 import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
+import { useTranslations } from "next-intl";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const t = useTranslations("Footer");
 
   return (
     <footer className="mt-10 border-t border-white/10 bg-black/20">
@@ -13,7 +15,7 @@ export default function Footer() {
             Yogi<span className="text-cyan-400">Pranata</span>
           </Link>
           <p className="mt-2 text-sm text-slate-500">
-            © {currentYear} Yogi Pranata. All rights reserved.
+            {t("copyright", { year: currentYear })}
           </p>
         </div>
 

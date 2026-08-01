@@ -15,6 +15,7 @@ import { projects } from "@/data/projects";
 import { notFound } from "next/navigation";
 import CaseStudySection from "@/components/CaseStudySection";
 import dynamic from "next/dynamic";
+import { getTranslations } from "next-intl/server";
 
 const ScreenshotGallery = dynamic(() => import("@/components/ScreenshotGallery"), {
   loading: () => (
@@ -68,6 +69,8 @@ export default async function ProjectDetail({
     notFound();
   }
 
+  const t = await getTranslations("ProjectDetail");
+
   return (
     <main className="min-h-screen bg-[#050816] text-white">
       {/* ── Hero Section ── */}
@@ -77,7 +80,7 @@ export default async function ProjectDetail({
           className="inline-flex items-center gap-2 text-slate-400 transition hover:text-cyan-400"
         >
           <ArrowLeft size={18} />
-          Back to Portfolio
+          {t("back")}
         </Link>
 
         {/* Hero content — animates on page load */}
@@ -114,7 +117,7 @@ export default async function ProjectDetail({
                 className="inline-flex items-center gap-2 rounded-xl bg-cyan-500 px-6 py-3 font-semibold text-black transition hover:bg-cyan-400"
               >
                 <Code size={18} />
-                Source Code
+                {t("sourceCode")}
               </a>
 
               {project.demoUrl && (
@@ -125,7 +128,7 @@ export default async function ProjectDetail({
                   className="inline-flex items-center gap-2 rounded-xl border border-white/10 px-6 py-3 font-semibold transition hover:border-cyan-400"
                 >
                   <ExternalLink size={18} />
-                  Live Demo
+                  {t("liveDemo")}
                 </a>
               )}
             </div>
@@ -152,7 +155,7 @@ export default async function ProjectDetail({
         {/* Objective */}
         {project.objective && (
           <AnimatedSection>
-            <CaseStudySection icon={<Target size={20} />} title="Objective">
+            <CaseStudySection icon={<Target size={20} />} title={t("objective")}>
               <p className="leading-8 text-slate-300">{project.objective}</p>
             </CaseStudySection>
           </AnimatedSection>
@@ -163,7 +166,7 @@ export default async function ProjectDetail({
           <AnimatedSection>
             <CaseStudySection
               icon={<CheckCircle2 size={20} />}
-              title="Key Features"
+              title={t("features")}
             >
               <ul className="space-y-3">
                 {project.features.map((feature) => (
@@ -188,7 +191,7 @@ export default async function ProjectDetail({
               <AnimatedSection>
                 <CaseStudySection
                   icon={<AlertTriangle size={20} />}
-                  title="Challenges"
+                  title={t("challenges")}
                 >
                   <ul className="space-y-3">
                     {project.challenges.map((challenge) => (
@@ -209,7 +212,7 @@ export default async function ProjectDetail({
               <AnimatedSection delay={0.15}>
                 <CaseStudySection
                   icon={<Lightbulb size={20} />}
-                  title="Solutions"
+                  title={t("solutions")}
                 >
                   <ul className="space-y-3">
                     {project.solutions.map((solution) => (
@@ -234,7 +237,7 @@ export default async function ProjectDetail({
           <AnimatedSection>
             <CaseStudySection
               icon={<Images size={20} />}
-              title="Screenshots"
+              title={t("screenshots")}
             >
               <ScreenshotGallery
                 screenshots={project.screenshots}

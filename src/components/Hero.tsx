@@ -5,8 +5,11 @@ import { ArrowRight, FileText, Mail, Sparkles } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { SiPhp, SiLaravel, SiMysql, SiReact, SiTailwindcss } from "react-icons/si";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 export default function Hero() {
+  const t = useTranslations("Hero");
+
   return (
     <section className="relative flex min-h-screen items-center overflow-hidden px-6 pt-28">
       {/* Background blur effect */}
@@ -23,24 +26,22 @@ export default function Hero() {
         >
           <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-400/10 px-4 py-2 text-sm text-cyan-300">
             <Sparkles size={16} />
-            My Portfolio
+            {t("badge")}
           </div>
 
           <h1 className="text-4xl font-bold leading-tight text-white md:text-6xl">
-            Hi, saya{" "}
+            {t("greeting")}{" "}
             <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-500 bg-clip-text text-transparent">
-              Yogi Pranata
+              {t("name")}
             </span>
           </h1>
 
           <h2 className="mt-4 text-xl font-semibold text-slate-200 md:text-2xl">
-            Computer Science Fresh Graduate • Web Development • Web3 & Crypto Enthusiast
+            {t("subtitle")}
           </h2>
 
           <p className="mt-6 max-w-xl text-base leading-8 text-slate-300 md:text-lg">
-            Lulusan D3 Manajemen Informatika yang berfokus pada pengembangan web
-            dan pelayanan IT. Siap berkontribusi membangun solusi digital yang
-            efisien dan berdampak.
+            {t("description")}
           </p>
 
           <div className="mt-8 flex flex-wrap gap-4">
@@ -48,7 +49,7 @@ export default function Hero() {
               href="#projects"
               className="inline-flex items-center gap-2 rounded-full bg-cyan-400 px-6 py-3 font-semibold text-slate-950 transition hover:bg-cyan-300"
             >
-              View Projects
+              {t("viewProjects")}
               <ArrowRight size={18} />
             </a>
 
@@ -59,14 +60,14 @@ export default function Hero() {
               className="inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-400/10 px-6 py-3 font-semibold text-cyan-300 transition hover:bg-cyan-400/20"
             >
               <FileText size={18} />
-              View CV
+              {t("viewCv")}
             </a>
 
             <a
               href="#contact"
               className="rounded-full border border-white/20 px-6 py-3 font-semibold text-white transition hover:border-cyan-400 hover:text-cyan-400"
             >
-              Contact Me
+              {t("contactMe")}
             </a>
           </div>
 
@@ -123,26 +124,26 @@ export default function Hero() {
 
               <div className="mt-5 space-y-4">
                 <div className="rounded-2xl border border-cyan-400/20 bg-cyan-400/10 p-4">
-                  <p className="text-sm text-cyan-300">Current Status</p>
+                  <p className="text-sm text-cyan-300">{t("currentStatus")}</p>
                   <h3 className="mt-2 text-2xl font-bold text-white">
-                    Computer Science Fresh Graduate
+                    {t("statusTitle")}
                   </h3>
                 </div>
 
                 <div className="grid grid-cols-2 gap-4">
                   <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
                     <h4 className="text-2xl font-bold text-white">4+</h4>
-                    <p className="mt-1 text-sm text-slate-400">Projects</p>
+                    <p className="mt-1 text-sm text-slate-400">{t("projects")}</p>
                   </div>
 
                   <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
                     <h4 className="text-2xl font-bold text-white">D3</h4>
-                    <p className="mt-1 text-sm text-slate-400">Manajemen Informatika di Universitas Riau</p>
+                    <p className="mt-1 text-sm text-slate-400">{t("education")}</p>
                   </div>
                 </div>
 
                 <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                  <p className="mb-3 text-sm text-slate-400">Tech Stack</p>
+                  <p className="mb-3 text-sm text-slate-400">{t("techStack")}</p>
 
                   <div className="flex flex-wrap gap-2">
                     {[

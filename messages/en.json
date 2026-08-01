@@ -1,0 +1,142 @@
+{
+  "Navbar": {
+    "about": "About",
+    "skills": "Skills",
+    "projects": "Projects",
+    "experience": "Experience",
+    "contact": "Contact"
+  },
+  "Hero": {
+    "badge": "My Portfolio",
+    "greeting": "Hi, I'm",
+    "name": "Yogi Pranata",
+    "subtitle": "Computer Science Fresh Graduate • Web Development • Web3 & Crypto Enthusiast",
+    "description": "A graduate of D3 Information Management focused on web development and IT services. Ready to contribute to building efficient and impactful digital solutions.",
+    "viewProjects": "View Projects",
+    "viewCv": "View CV",
+    "contactMe": "Contact Me",
+    "currentStatus": "Current Status",
+    "statusTitle": "Computer Science Fresh Graduate",
+    "projects": "Projects",
+    "education": "Information Management at University of Riau",
+    "techStack": "Tech Stack"
+  },
+  "About": {
+    "label": "About Me",
+    "heading": "Dedicated to continuous growth.",
+    "p1": "I am a graduate of D3 Information Management from the University of Riau with a strong focus on web development and IT services. I have a proven track record in designing and building web application systems using PHP, Laravel, Next.js, HTML, CSS, and Bootstrap, combined with hands-on experience handling <i>customer inquiries</i> and <i>troubleshooting</i> digital platforms.",
+    "p2": "Driven by great curiosity, I am a <i>fast learner</i> who is responsive and highly adaptable to new work environments and technologies. I am accustomed to collaborating in teams, communicative, and always enthusiastic about designing efficient, scalable, and positively impactful technology solutions.",
+    "p3": "I am very open to <i>freelance</i> opportunities, internships, and <i>entry-level</i> positions in the technology field. My focus is always on delivering solutions that not only work well but are also centered on user satisfaction.",
+    "statWork": "Work Experience",
+    "statCert": "Certifications",
+    "statCoding": "Years Coding"
+  },
+  "Skills": {
+    "label": "Skills",
+    "heading": "Technologies I use",
+    "description": "I use various technologies in the web development process, from frontend, backend, database, to development support tools.",
+    "webDev": "Web Development",
+    "webDevDesc": "Core technologies for building web systems and interfaces.",
+    "tools": "Tools",
+    "toolsDesc": "Development support tools I use on a daily basis.",
+    "softSkills": "Soft Skills & Languages",
+    "softSkillsDesc": "Communication, interpersonal skills, and languages."
+  },
+  "Experience": {
+    "workTitle": "Work Experience",
+    "educationTitle": "Education",
+    "certTitle": "Certifications & Training",
+    "viewCert": "View Certificate",
+    "page": "Page",
+    "of": "of",
+    "work": [
+      {
+        "role": "Customer Happiness",
+        "company": "Assist.id",
+        "type": "Paid Internship",
+        "date": "Feb 2026 - Apr 2026",
+        "location": "Pekanbaru City, Riau",
+        "points": [
+          "Served as the primary point of contact to ensure user satisfaction of the clinic and hospital SaaS platform.",
+          "Managed customer complaints, provided guidance on system feature usage, and ensured timely issue resolution.",
+          "Acted as a feedback bridge between users and the internal development team for product improvement."
+        ]
+      },
+      {
+        "role": "Software Engineer Intern",
+        "company": "ADIMULIA GROUP (PT. Surya Agrolika Reksa)",
+        "type": "Internship",
+        "date": "Jul 2025 - Aug 2025",
+        "location": "Kuantan Singingi, Riau",
+        "points": [
+          "Assisted in the digital transformation of attendance data at the K3ML Department from manual recording to a centralized system.",
+          "Conducted needs research, designed a mobile prototype (Flutter), then developed a Geotagging-Based Web Application.",
+          "Implemented the Haversine algorithm for real-time attendance location validation."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "D3 Information Management",
+        "institution": "University of Riau",
+        "date": "2023 - 2026",
+        "location": "Pekanbaru, Riau"
+      },
+      {
+        "degree": "High School (Social Sciences)",
+        "institution": "SMAN 1 Peranap",
+        "date": "2020 - 2023",
+        "location": "Indragiri Hulu, Riau"
+      }
+    ],
+    "certifications": [
+      {
+        "title": "IDCamp Connect Roadshow - Riau",
+        "issuer": "Dicoding Indonesia",
+        "date": "Nov 2025",
+        "type": "Event Participant",
+        "certUrls": ["/certificates/idcamp-connect-roadshow.png"]
+      },
+      {
+        "title": "Web3 on Campus - Certificate of Appreciation 2025",
+        "issuer": "IDNFT | Web3 Education and Adoption Center",
+        "date": "Oct 2025",
+        "type": "Event Participant",
+        "certUrls": ["/certificates/web3-on-campus.png"]
+      },
+      {
+        "title": "Fundamentals of AI",
+        "issuer": "Dicoding Indonesia",
+        "date": "Jan 2026 - Jan 2029",
+        "type": "Course",
+        "certUrls": ["/certificates/belajar-dasar-ai.png", "/certificates/belajar-dasar-ai2.png"]
+      }
+    ]
+  },
+  "Projects": {
+    "label": "Projects",
+    "heading": "Featured Projects",
+    "description": "Here are some projects I have worked on. For projects that are not yet hosted, I showcase the UI, case study, and source code. Projects that are already online also have a live demo button.",
+    "viewDetails": "View Details",
+    "sourceCode": "Source Code"
+  },
+  "Contact": {
+    "heading": "Let's Work Together",
+    "description": "I am always open to discussing website development projects, interesting ideas, or career opportunities as a Web Developer. Don't hesitate to say hello!",
+    "sendEmail": "Send Email",
+    "linkedIn": "LinkedIn Profile"
+  },
+  "Footer": {
+    "copyright": "© {year} Yogi Pranata. All rights reserved."
+  },
+  "ProjectDetail": {
+    "back": "Back to Portfolio",
+    "sourceCode": "Source Code",
+    "liveDemo": "Live Demo",
+    "objective": "Objective",
+    "features": "Key Features",
+    "challenges": "Challenges",
+    "solutions": "Solutions",
+    "screenshots": "Screenshots"
+  }
+}

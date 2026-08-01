@@ -3,6 +3,7 @@
 import { useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { projects } from "@/data/projects";
 import ProjectCard from "@/components/ProjectCard";
 
@@ -10,6 +11,7 @@ export default function Projects() {
   const featuredProjects = projects.filter((project) => project.featured);
   const [activeIndex, setActiveIndex] = useState(0);
   const [direction, setDirection] = useState(0);
+  const t = useTranslations("Projects");
 
   const goTo = useCallback(
     (newIndex: number, dir: number) => {
@@ -43,18 +45,15 @@ export default function Projects() {
         className="relative z-10"
       >
         <p className="text-sm uppercase tracking-[0.35em] text-cyan-400">
-          Projects
+          {t("label")}
         </p>
 
         <h2 className="mt-4 text-3xl font-bold leading-tight text-white md:text-5xl">
-          Featured Projects
+          {t("heading")}
         </h2>
 
         <p className="mt-6 max-w-2xl leading-8 text-slate-300">
-          Berikut beberapa project yang pernah saya kerjakan. Untuk project yang
-          belum dihosting, saya menampilkan tampilan UI, case study, dan source
-          code. Sedangkan project yang sudah online juga memiliki tombol live
-          demo.
+          {t("description")}
         </p>
       </motion.div>
 

@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 import {
   SiPhp, SiLaravel, SiHtml5, SiCss, SiBootstrap, SiReact, SiNextdotjs, SiTailwindcss, SiJavascript,
   SiMysql, SiGit, SiVercel
@@ -13,15 +14,15 @@ type SkillItem = {
 };
 
 type SkillCategory = {
-  title: string;
-  description: string;
+  titleKey: string;
+  descKey: string;
   skills: SkillItem[];
 };
 
 const skillCategories: SkillCategory[] = [
   {
-    title: "Web Development",
-    description: "Teknologi utama untuk membangun sistem dan tampilan website.",
+    titleKey: "webDev",
+    descKey: "webDevDesc",
     skills: [
       { name: "PHP", icon: <SiPhp size={16} color="#777BB4" /> },
       { name: "Laravel", icon: <SiLaravel size={16} color="#FF2D20" /> },
@@ -35,8 +36,8 @@ const skillCategories: SkillCategory[] = [
     ],
   },
   {
-    title: "Tools",
-    description: "Tools pendukung development yang biasa saya gunakan sehari-hari.",
+    titleKey: "tools",
+    descKey: "toolsDesc",
     skills: [
       { name: "MySQL", icon: <SiMysql size={16} color="#4479A1" /> },
       { name: "Git", icon: <SiGit size={16} color="#F05032" /> },
@@ -45,8 +46,8 @@ const skillCategories: SkillCategory[] = [
     ],
   },
   {
-    title: "Soft Skills & Languages",
-    description: "Kemampuan komunikasi, interpersonal, dan bahasa.",
+    titleKey: "softSkills",
+    descKey: "softSkillsDesc",
     skills: [
       { name: "Communication" },
       { name: "Customer Satisfaction" },
@@ -58,6 +59,8 @@ const skillCategories: SkillCategory[] = [
 ];
 
 export default function Skills() {
+  const t = useTranslations("Skills");
+
   return (
     <section id="skills" className="relative mx-auto max-w-6xl px-6 py-24">
       <div className="absolute right-0 top-20 h-72 w-72 rounded-full bg-purple-500/10 blur-3xl" />
@@ -70,34 +73,32 @@ export default function Skills() {
         className="relative z-10"
       >
         <p className="text-sm uppercase tracking-[0.35em] text-cyan-400">
-          Skills
+          {t("label")}
         </p>
 
         <h2 className="mt-4 text-3xl font-bold leading-tight text-white md:text-5xl">
-          Teknologi yang saya gunakan
+          {t("heading")}
         </h2>
 
         <p className="mt-6 max-w-2xl leading-8 text-slate-300">
-          Saya menggunakan beberapa teknologi dalam proses pengembangan website,
-          mulai dari frontend, backend, database, hingga tools pendukung
-          development.
+          {t("description")}
         </p>
       </motion.div>
 
       <div className="relative z-10 mt-12 grid gap-6 md:grid-cols-3">
         {skillCategories.map((category, index) => (
           <motion.div
-            key={category.title}
+            key={category.titleKey}
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: index * 0.15 }}
             className="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl transition hover:-translate-y-2 hover:border-cyan-400/40 hover:bg-white/10"
           >
-            <h3 className="text-xl font-bold text-white">{category.title}</h3>
+            <h3 className="text-xl font-bold text-white">{t(category.titleKey)}</h3>
 
             <p className="mt-3 text-sm leading-7 text-slate-400">
-              {category.description}
+              {t(category.descKey)}
             </p>
 
             <div className="mt-6 flex flex-wrap gap-3">
