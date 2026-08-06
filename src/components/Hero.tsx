@@ -107,62 +107,67 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.9, y: 40 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="relative"
+          className="relative mx-auto w-full max-w-[400px] px-4 md:px-0"
         >
-          <div className="relative rounded-[2rem] border border-white/10 bg-white/5 p-5 shadow-2xl backdrop-blur-xl">
-            <div className="flex flex-col items-center rounded-[1.5rem] border border-white/10 bg-[#080c1f]/80 p-6">
-              
-              {/* Profile Picture */}
-              <div className="relative mb-6 h-32 w-32 overflow-hidden rounded-full border-4 border-cyan-400/20 bg-cyan-400/10">
-                <Image 
-                  src="/profile.jpeg" 
-                  alt="Yogi Pranata"
-                  fill
-                  className="object-cover object-top"
-                />
-              </div>
+          {/* Card Wrapper */}
+          <div className="relative aspect-[3/4.2] w-full overflow-hidden rounded-[2rem] border border-white/10 shadow-2xl bg-slate-900/50">
+            {/* Background Image */}
+            <Image 
+              src="/profile.jpeg" 
+              alt={t("name")}
+              fill
+              className="object-cover object-top transition duration-700 hover:scale-105"
+              priority
+            />
+            
+            {/* Gradient Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/90" />
 
-              <div className="mt-5 space-y-4">
-                <div className="rounded-2xl border border-cyan-400/20 bg-cyan-400/10 p-4">
-                  <p className="text-sm text-cyan-300">{t("currentStatus")}</p>
-                  <h3 className="mt-2 text-2xl font-bold text-white">
-                    {t("statusTitle")}
-                  </h3>
-                </div>
+            {/* Top Text content */}
+            <div className="absolute top-8 left-8 z-10">
+              <h3 className="text-2xl font-bold text-white tracking-wide md:text-3xl drop-shadow-lg">
+                {t("name")}
+              </h3>
+              <p className="text-sm text-slate-300 font-medium mt-1.5 drop-shadow-lg">
+                Web Developer
+              </p>
+            </div>
 
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                    <h4 className="text-2xl font-bold text-white">4+</h4>
-                    <p className="mt-1 text-sm text-slate-400">{t("projects")}</p>
+            {/* Bottom Status Panel */}
+            <div className="absolute bottom-6 left-6 right-6 z-10">
+              <div className="flex items-center justify-between gap-3 rounded-2xl border border-white/10 bg-black/60 p-4 backdrop-blur-md">
+                <div className="flex items-center gap-3">
+                  {/* Avatar */}
+                  <div className="relative h-10 w-10 overflow-hidden rounded-full border border-white/20">
+                    <Image 
+                      src="/profile.jpeg" 
+                      alt={t("name")}
+                      fill
+                      className="object-cover object-top"
+                    />
                   </div>
-
-                  <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                    <h4 className="text-2xl font-bold text-white">D3</h4>
-                    <p className="mt-1 text-sm text-slate-400">{t("education")}</p>
-                  </div>
-                </div>
-
-                <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                  <p className="mb-3 text-sm text-slate-400">{t("techStack")}</p>
-
-                  <div className="flex flex-wrap gap-2">
-                    {[
-                      { name: "PHP", icon: <SiPhp size={14} color="#777BB4" /> },
-                      { name: "Laravel", icon: <SiLaravel size={14} color="#FF2D20" /> },
-                      { name: "MySQL", icon: <SiMysql size={14} color="#4479A1" /> },
-                      { name: "React", icon: <SiReact size={14} color="#61DAFB" /> },
-                      { name: "Tailwind", icon: <SiTailwindcss size={14} color="#06B6D4" /> },
-                    ].map((tech) => (
-                      <span
-                        key={tech.name}
-                        className="group flex items-center gap-1.5 rounded-full border border-white/10 px-3 py-1 text-xs text-slate-300 transition hover:border-cyan-400/50 hover:bg-white/5 hover:text-white"
-                      >
-                        <span className="transition-transform group-hover:scale-110">{tech.icon}</span>
-                        {tech.name}
+                  {/* Status & Username */}
+                  <div className="text-left">
+                    <p className="text-xs font-semibold text-white">@yogipranata_</p>
+                    <div className="flex items-center gap-1.5 mt-0.5">
+                      <span className="relative flex h-2 w-2">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                       </span>
-                    ))}
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-400">
+                        Online
+                      </span>
+                    </div>
                   </div>
                 </div>
+
+                {/* Contact button */}
+                <a
+                  href="#contact"
+                  className="rounded-full border border-white/15 bg-white/5 px-4 py-2 text-xs font-semibold text-white transition hover:border-cyan-400 hover:bg-white/10 hover:text-cyan-400"
+                >
+                  Contact Me
+                </a>
               </div>
             </div>
           </div>
