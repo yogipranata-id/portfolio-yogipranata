@@ -1,14 +1,40 @@
 "use client";
 
+import { useRef, useState, useCallback } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, FileText, Mail, Sparkles } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
-import { SiPhp, SiLaravel, SiMysql, SiReact, SiTailwindcss } from "react-icons/si";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 
 export default function Hero() {
   const t = useTranslations("Hero");
+  const cardRef = useRef<HTMLDivElement>(null);
+  const [tilt, setTilt] = useState({ rotateX: 0, rotateY: 0, glareX: 50, glareY: 50 });
+  const [isHovering, setIsHovering] = useState(false);
+
+  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+    if (!cardRef.current) return;
+    const rect = cardRef.current.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    const maxTilt = 12;
+
+    const rotateY = ((x - centerX) / centerX) * maxTilt;
+    const rotateX = ((centerY - y) / centerY) * maxTilt;
+    const glareX = (x / rect.width) * 100;
+    const glareY = (y / rect.height) * 100;
+
+    setTilt({ rotateX, rotateY, glareX, glareY });
+  }, []);
+
+  const handleMouseEnter = useCallback(() => setIsHovering(true), []);
+  const handleMouseLeave = useCallback(() => {
+    setIsHovering(false);
+    setTilt({ rotateX: 0, rotateY: 0, glareX: 50, glareY: 50 });
+  }, []);
 
   return (
     <section className="relative flex min-h-screen items-center overflow-hidden px-6 pt-28">
@@ -102,29 +128,77 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        {/* Right visual card */}
+        {/* Right visual card — 3D Tilt */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9, y: 40 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="relative mx-auto w-full max-w-[400px] px-4 md:px-0"
+          className="relative mx-auto w-full max-w-[380px] px-4 md:px-0"
+          style={{ perspective: "1000px" }}
         >
-          {/* Card Wrapper */}
-          <div className="relative aspect-[3/4.2] w-full overflow-hidden rounded-[2rem] border border-white/10 shadow-2xl bg-slate-900/50">
+          {/* Behind glow */}
+          <div
+            className="pointer-events-none absolute -inset-4 rounded-[2.5rem] opacity-0 blur-2xl transition-opacity duration-500"
+            style={{
+              opacity: isHovering ? 0.6 : 0,
+              background: `radial-gradient(circle at ${tilt.glareX}% ${tilt.glareY}%, rgba(34,211,238,0.25), rgba(139,92,246,0.15), transparent 70%)`,
+            }}
+          />
+
+          {/* Card Shell */}
+          <div
+            ref={cardRef}
+            onMouseMove={handleMouseMove}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            className="relative aspect-[3/4.2] w-full cursor-grab overflow-hidden rounded-[2rem] border border-white/10 shadow-2xl bg-slate-900/50"
+            style={{
+              transform: `rotateX(${tilt.rotateX}deg) rotateY(${tilt.rotateY}deg)`,
+              transition: isHovering ? "transform 0.1s ease-out" : "transform 0.5s ease-out",
+              transformStyle: "preserve-3d",
+            }}
+          >
             {/* Background Image */}
             <Image 
-              src="/profile.jpeg" 
+              src="/MyProfile.png" 
               alt={t("name")}
               fill
-              className="object-cover object-top transition duration-700 hover:scale-105"
+              className="object-cover object-top"
               priority
             />
             
             {/* Gradient Overlay */}
             <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/90" />
 
+            {/* Shine Effect */}
+            <div
+              className="pointer-events-none absolute inset-0 z-20 opacity-0 transition-opacity duration-300"
+              style={{
+                opacity: isHovering ? 0.15 : 0,
+                background: `linear-gradient(
+                  ${135 + tilt.rotateY * 2}deg,
+                  rgba(255,255,255,0) 0%,
+                  rgba(255,255,255,0.4) ${40 + tilt.glareX * 0.2}%,
+                  rgba(255,255,255,0) 80%
+                )`,
+              }}
+            />
+
+            {/* Glare Effect */}
+            <div
+              className="pointer-events-none absolute inset-0 z-20 opacity-0 transition-opacity duration-300"
+              style={{
+                opacity: isHovering ? 0.1 : 0,
+                background: `radial-gradient(
+                  circle at ${tilt.glareX}% ${tilt.glareY}%,
+                  rgba(255,255,255,0.35) 0%,
+                  transparent 60%
+                )`,
+              }}
+            />
+
             {/* Top Text content */}
-            <div className="absolute top-8 left-8 z-10">
+            <div className="absolute top-8 left-8 z-10" style={{ transform: "translateZ(30px)" }}>
               <h3 className="text-2xl font-bold text-white tracking-wide md:text-3xl drop-shadow-lg">
                 {t("name")}
               </h3>
@@ -134,7 +208,7 @@ export default function Hero() {
             </div>
 
             {/* Bottom Status Panel */}
-            <div className="absolute bottom-6 left-6 right-6 z-10">
+            <div className="absolute bottom-6 left-6 right-6 z-10" style={{ transform: "translateZ(40px)" }}>
               <div className="flex items-center justify-between gap-3 rounded-2xl border border-white/10 bg-black/60 p-4 backdrop-blur-md">
                 <div className="flex items-center gap-3">
                   {/* Avatar */}
@@ -148,7 +222,7 @@ export default function Hero() {
                   </div>
                   {/* Status & Username */}
                   <div className="text-left">
-                    <p className="text-xs font-semibold text-white">@yogipranata_</p>
+                    <p className="text-xs font-semibold text-white">@yogipranataaaa_</p>
                     <div className="flex items-center gap-1.5 mt-0.5">
                       <span className="relative flex h-2 w-2">
                         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
