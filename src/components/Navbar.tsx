@@ -1,13 +1,22 @@
 "use client";
 
 import { Menu, X } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useTranslations } from "next-intl";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const t = useTranslations("Navbar");
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const navItems = [
     { label: t("about"), href: "#about" },
@@ -18,12 +27,19 @@ export default function Navbar() {
   ];
 
   return (
-    <header className="fixed left-0 top-0 z-50 w-full border-b border-white/10 bg-[#050816]/70 backdrop-blur-xl">
+    <header
+      className={`fixed left-0 top-0 z-50 w-full transition-all duration-300 ${
+        scrolled
+          ? "border-b border-white/10 bg-[#050816]/80 backdrop-blur-xl shadow-lg"
+          : "bg-transparent"
+      }`}
+    >
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <a href="#" className="text-lg font-bold tracking-wide text-white">
           Yogi<span className="text-cyan-400">.dev</span>
         </a>
 
+        {/* Center nav links */}
         <div className="hidden items-center gap-8 md:flex">
           {navItems.map((item) => (
             <a
@@ -34,10 +50,11 @@ export default function Navbar() {
               {item.label}
             </a>
           ))}
+        </div>
 
-          <div className="ml-2 border-l border-white/10 pl-4">
-            <LanguageSwitcher />
-          </div>
+        {/* Right side — Language Switcher */}
+        <div className="hidden md:block">
+          <LanguageSwitcher />
         </div>
 
         <button
@@ -50,7 +67,9 @@ export default function Navbar() {
       </nav>
 
       {isOpen && (
-        <div className="border-t border-white/10 bg-[#050816]/95 px-6 py-5 backdrop-blur-xl md:hidden">
+        <div className={`border-t border-white/10 px-6 py-5 backdrop-blur-xl md:hidden ${
+          scrolled ? "bg-[#050816]/95" : "bg-[#050816]/70"
+        }`}>
           <div className="flex flex-col gap-4">
             {navItems.map((item) => (
               <a
