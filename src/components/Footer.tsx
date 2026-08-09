@@ -6,8 +6,17 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
   const t = useTranslations("Footer");
 
+  const socialLinks = [
+    { href: "https://github.com/yogipranata-id", label: "GitHub", icon: <FaGithub size={20} /> },
+    { href: "https://www.linkedin.com/in/yogi-pranata", label: "LinkedIn", icon: <FaLinkedin size={20} /> },
+    { href: "https://instagram.com/yogipranataaaa", label: "Instagram", icon: <FaInstagram size={20} /> },
+  ];
+
   return (
-    <footer className="mt-10 border-t border-white/10 bg-black/20">
+    <footer className="mt-10">
+      {/* Gradient divider instead of solid border */}
+      <div className="gradient-divider" />
+
       <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-6 px-6 py-8 md:flex-row">
         {/* Brand / Copyright */}
         <div className="text-center md:text-left">
@@ -19,35 +28,20 @@ export default function Footer() {
           </p>
         </div>
 
-        {/* Social Links */}
+        {/* Social Links with hover glow */}
         <div className="flex items-center gap-5">
-          <a
-            href="https://github.com/yogipranata-id"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-slate-500 transition hover:text-cyan-400"
-            aria-label="GitHub"
-          >
-            <FaGithub size={20} />
-          </a>
-          <a
-            href="https://www.linkedin.com/in/yogi-pranata"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-slate-500 transition hover:text-cyan-400"
-            aria-label="LinkedIn"
-          >
-            <FaLinkedin size={20} />
-          </a>
-          <a
-            href="https://instagram.com/yogipranataaaa"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-slate-500 transition hover:text-cyan-400"
-            aria-label="Instagram"
-          >
-            <FaInstagram size={20} />
-          </a>
+          {socialLinks.map((social) => (
+            <a
+              key={social.label}
+              href={social.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-slate-500 transition-all duration-300 hover:text-cyan-400 hover:drop-shadow-[0_0_8px_rgba(34,211,238,0.4)]"
+              aria-label={social.label}
+            >
+              {social.icon}
+            </a>
+          ))}
         </div>
       </div>
     </footer>

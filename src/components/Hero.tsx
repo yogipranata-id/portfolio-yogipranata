@@ -7,6 +7,22 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 
+const stagger = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.12, delayChildren: 0.1 },
+  },
+};
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] as const },
+  },
+};
+
 export default function Hero() {
   const t = useTranslations("Hero");
   const cardRef = useRef<HTMLDivElement>(null);
@@ -38,52 +54,63 @@ export default function Hero() {
 
   return (
     <section className="relative flex min-h-screen items-center overflow-hidden px-6 pt-28">
-      {/* Background blur effect */}
-      <div className="absolute left-1/2 top-20 h-72 w-72 -translate-x-1/2 rounded-full bg-cyan-500/20 blur-3xl" />
-      <div className="absolute bottom-20 right-10 h-80 w-80 rounded-full bg-purple-500/20 blur-3xl" />
-      <div className="absolute left-10 top-1/2 h-64 w-64 rounded-full bg-blue-500/10 blur-3xl" />
+      {/* Animated background orbs */}
+      <div
+        className="absolute left-1/2 top-20 h-72 w-72 -translate-x-1/2 rounded-full bg-cyan-500/15 blur-[100px]"
+        style={{ animation: "float 8s ease-in-out infinite" }}
+      />
+      <div
+        className="absolute bottom-20 right-10 h-80 w-80 rounded-full bg-purple-500/15 blur-[100px]"
+        style={{ animation: "float-reverse 10s ease-in-out infinite" }}
+      />
+      <div
+        className="absolute left-10 top-1/2 h-64 w-64 rounded-full bg-blue-500/10 blur-[100px]"
+        style={{ animation: "float 12s ease-in-out infinite 2s" }}
+      />
 
       <div className="relative z-10 mx-auto grid max-w-6xl items-center gap-12 md:grid-cols-2">
-        {/* Left content */}
+        {/* Left content — staggered animation */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          variants={stagger}
+          initial="hidden"
+          animate="visible"
         >
-          <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-400/10 px-4 py-2 text-sm text-cyan-300">
-            <Sparkles size={16} />
-            {t("badge")}
-          </div>
+          <motion.div variants={fadeUp}>
+            <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-400/10 px-4 py-2 text-sm text-cyan-300">
+              <Sparkles size={16} />
+              {t("badge")}
+            </div>
+          </motion.div>
 
-          <h1 className="text-4xl font-bold leading-tight text-white md:text-6xl">
+          <motion.h1 variants={fadeUp} className="text-4xl font-bold leading-tight text-white md:text-6xl">
             {t("greeting")}{" "}
             <span className="text-white">
               {t("name")}
             </span>
-          </h1>
+          </motion.h1>
 
-          <h2 className="mt-4 text-xl font-semibold text-slate-200 md:text-2xl">
+          <motion.h2 variants={fadeUp} className="mt-4 text-xl font-semibold text-slate-200 md:text-2xl">
             {t("subtitle")}
-          </h2>
+          </motion.h2>
 
-          <p className="mt-6 max-w-xl text-base leading-8 text-slate-300 md:text-lg">
+          <motion.p variants={fadeUp} className="mt-6 max-w-xl text-base leading-8 text-slate-300 md:text-lg">
             {t("description")}
-          </p>
+          </motion.p>
 
-          <div className="mt-8 flex flex-wrap gap-4">
+          <motion.div variants={fadeUp} className="mt-8 flex flex-wrap gap-4">
             <a
               href="#projects"
-              className="inline-flex items-center gap-2 rounded-full bg-cyan-400 px-6 py-3 font-semibold text-slate-950 transition hover:bg-cyan-300"
+              className="group inline-flex items-center gap-2 rounded-full bg-cyan-400 px-6 py-3 font-semibold text-slate-950 transition-all duration-300 hover:bg-cyan-300 hover:shadow-[0_0_24px_rgba(34,211,238,0.35)]"
             >
               {t("viewProjects")}
-              <ArrowRight size={18} />
+              <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
             </a>
 
             <a
               href="/CV-ATS-YogiPranata.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-400/10 px-6 py-3 font-semibold text-cyan-300 transition hover:bg-cyan-400/20"
+              className="inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-400/10 px-6 py-3 font-semibold text-cyan-300 transition-all duration-300 hover:bg-cyan-400/20 hover:shadow-[0_0_20px_rgba(34,211,238,0.15)]"
             >
               <FileText size={18} />
               {t("viewCv")}
@@ -91,48 +118,41 @@ export default function Hero() {
 
             <a
               href="#contact"
-              className="rounded-full border border-white/20 px-6 py-3 font-semibold text-white transition hover:border-cyan-400 hover:text-cyan-400"
+              className="rounded-full border border-white/20 px-6 py-3 font-semibold text-white transition-all duration-300 hover:border-cyan-400 hover:text-cyan-400 hover:shadow-[0_0_20px_rgba(34,211,238,0.1)]"
             >
               {t("contactMe")}
             </a>
-          </div>
+          </motion.div>
 
-          <div className="mt-8 flex items-center gap-5 text-slate-400">
-            <a
-              href="https://github.com/yogipranata-id"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="transition hover:-translate-y-1 hover:text-cyan-400"
-              aria-label="GitHub"
-            >
-              <FaGithub size={24} />
-            </a>
-
-            <a
-              href="https://www.linkedin.com/in/yogi-pranata"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="transition hover:-translate-y-1 hover:text-cyan-400"
-              aria-label="LinkedIn"
-            >
-              <FaLinkedin size={24} />
-            </a>
-
-            <a
-              href="mailto:yogi.pranata0021@gmail.com"
-              className="transition hover:-translate-y-1 hover:text-cyan-400"
-              aria-label="Email"
-            >
-              <Mail size={24} />
-            </a>
-          </div>
+          {/* Social icons — staggered */}
+          <motion.div variants={fadeUp} className="mt-8 flex items-center gap-5 text-slate-400">
+            {[
+              { href: "https://github.com/yogipranata-id", label: "GitHub", icon: <FaGithub size={24} /> },
+              { href: "https://www.linkedin.com/in/yogi-pranata", label: "LinkedIn", icon: <FaLinkedin size={24} /> },
+              { href: "mailto:yogi.pranata0021@gmail.com", label: "Email", icon: <Mail size={24} /> },
+            ].map((social, i) => (
+              <motion.a
+                key={social.label}
+                href={social.href}
+                target={social.label !== "Email" ? "_blank" : undefined}
+                rel={social.label !== "Email" ? "noopener noreferrer" : undefined}
+                className="transition-all duration-300 hover:-translate-y-1 hover:text-cyan-400 hover:drop-shadow-[0_0_8px_rgba(34,211,238,0.4)]"
+                aria-label={social.label}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.8 + i * 0.1, duration: 0.4 }}
+              >
+                {social.icon}
+              </motion.a>
+            ))}
+          </motion.div>
         </motion.div>
 
         {/* Right visual card — 3D Tilt */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9, y: 40 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
           className="relative mx-auto w-full max-w-[380px] px-4 md:px-0"
           style={{ perspective: "1000px" }}
         >
@@ -151,7 +171,7 @@ export default function Hero() {
             onMouseMove={handleMouseMove}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
-            className="relative aspect-[3/4.2] w-full cursor-grab overflow-hidden rounded-[2rem] border border-white/10 shadow-2xl bg-slate-900/50"
+            className="relative aspect-[3/4.2] w-full cursor-grab overflow-hidden rounded-[2rem] border border-white/10 shadow-2xl bg-slate-900/50 transition-shadow duration-500 hover:shadow-[0_20px_60px_rgba(34,211,238,0.1)]"
             style={{
               transform: `rotateX(${tilt.rotateX}deg) rotateY(${tilt.rotateY}deg)`,
               transition: isHovering ? "transform 0.1s ease-out" : "transform 0.5s ease-out",
@@ -159,20 +179,20 @@ export default function Hero() {
             }}
           >
             {/* Background Image */}
-            <Image 
-              src="/MyProfile.png" 
+            <Image
+              src="/MyProfile.png"
               alt={t("name")}
               fill
               className="object-cover object-top"
               priority
             />
-            
+
             {/* Gradient Overlay */}
             <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/90" />
 
             {/* Shine Effect */}
             <div
-              className="pointer-events-none absolute inset-0 z-20 opacity-0 transition-opacity duration-300"
+              className="pointer-events-none absolute inset-0 z-20 transition-opacity duration-300"
               style={{
                 opacity: isHovering ? 0.15 : 0,
                 background: `linear-gradient(
@@ -186,7 +206,7 @@ export default function Hero() {
 
             {/* Glare Effect */}
             <div
-              className="pointer-events-none absolute inset-0 z-20 opacity-0 transition-opacity duration-300"
+              className="pointer-events-none absolute inset-0 z-20 transition-opacity duration-300"
               style={{
                 opacity: isHovering ? 0.1 : 0,
                 background: `radial-gradient(
@@ -213,8 +233,8 @@ export default function Hero() {
                 <div className="flex items-center gap-3">
                   {/* Avatar */}
                   <div className="relative h-10 w-10 overflow-hidden rounded-full border border-white/20">
-                    <Image 
-                      src="/profile.jpeg" 
+                    <Image
+                      src="/profile.jpeg"
                       alt={t("name")}
                       fill
                       className="object-cover object-top"
@@ -222,7 +242,7 @@ export default function Hero() {
                   </div>
                   {/* Status & Username */}
                   <div className="text-left">
-                    <p className="text-xs font-semibold text-white">@yogipranataaaa_</p>
+                    <p className="text-xs font-semibold text-white">@yogipranataaaa</p>
                     <div className="flex items-center gap-1.5 mt-0.5">
                       <span className="relative flex h-2 w-2">
                         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>

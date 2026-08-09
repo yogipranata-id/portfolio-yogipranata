@@ -35,7 +35,10 @@ export default function Projects() {
 
   return (
     <section id="projects" className="relative mx-auto max-w-6xl px-6 py-24">
-      <div className="absolute left-1/2 top-10 h-72 w-72 -translate-x-1/2 rounded-full bg-cyan-500/10 blur-3xl" />
+      <div className="gradient-divider mb-16" />
+      <div className="absolute left-1/2 top-10 h-72 w-72 -translate-x-1/2 rounded-full bg-cyan-500/10 blur-[100px]"
+        style={{ animation: "float 10s ease-in-out infinite" as any }}
+      />
 
       <motion.div
         initial={{ opacity: 0, y: 40 }}

@@ -1,5 +1,6 @@
 "use client";
 
+import { useRef, useState, useCallback } from "react";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import {
@@ -17,12 +18,14 @@ type SkillCategory = {
   titleKey: string;
   descKey: string;
   skills: SkillItem[];
+  accentColor: string;
 };
 
 const skillCategories: SkillCategory[] = [
   {
     titleKey: "webDev",
     descKey: "webDevDesc",
+    accentColor: "34,211,238",
     skills: [
       { name: "PHP", icon: <SiPhp size={16} color="#777BB4" /> },
       { name: "Laravel", icon: <SiLaravel size={16} color="#FF2D20" /> },
@@ -38,6 +41,7 @@ const skillCategories: SkillCategory[] = [
   {
     titleKey: "tools",
     descKey: "toolsDesc",
+    accentColor: "168,85,247",
     skills: [
       { name: "MySQL", icon: <SiMysql size={16} color="#4479A1" /> },
       { name: "Git", icon: <SiGit size={16} color="#F05032" /> },
@@ -48,6 +52,7 @@ const skillCategories: SkillCategory[] = [
   {
     titleKey: "softSkills",
     descKey: "softSkillsDesc",
+    accentColor: "52,211,153",
     skills: [
       { name: "Communication" },
       { name: "Customer Satisfaction" },
@@ -58,18 +63,68 @@ const skillCategories: SkillCategory[] = [
   },
 ];
 
+function GlowCard({
+  children,
+  accentColor,
+  className = "",
+  delay = 0,
+}: {
+  children: React.ReactNode;
+  accentColor: string;
+  className?: string;
+  delay?: number;
+}) {
+  const cardRef = useRef<HTMLDivElement>(null);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [isHovering, setIsHovering] = useState(false);
+
+  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+    if (!cardRef.current) return;
+    const rect = cardRef.current.getBoundingClientRect();
+    setMousePos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+  }, []);
+
+  return (
+    <motion.div
+      ref={cardRef}
+      onMouseMove={handleMouseMove}
+      onMouseEnter={() => setIsHovering(true)}
+      onMouseLeave={() => setIsHovering(false)}
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.7, delay, ease: [0.16, 1, 0.3, 1] }}
+      className={`relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 hover:border-white/20 ${className}`}
+    >
+      {/* Mouse-tracking glow */}
+      <div
+        className="pointer-events-none absolute inset-0 z-0 transition-opacity duration-500"
+        style={{
+          opacity: isHovering ? 1 : 0,
+          background: `radial-gradient(300px circle at ${mousePos.x}px ${mousePos.y}px, rgba(${accentColor},0.12), transparent 60%)`,
+        }}
+      />
+      <div className="relative z-10">{children}</div>
+    </motion.div>
+  );
+}
+
 export default function Skills() {
   const t = useTranslations("Skills");
 
   return (
     <section id="skills" className="relative mx-auto max-w-6xl px-6 py-24">
-      <div className="absolute right-0 top-20 h-72 w-72 rounded-full bg-purple-500/10 blur-3xl" />
+      <div className="gradient-divider mb-16" />
+      
+      <div className="absolute right-0 top-20 h-72 w-72 rounded-full bg-purple-500/10 blur-[100px]"
+        style={{ animation: "float-reverse 10s ease-in-out infinite" }}
+      />
 
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.7 }}
+        transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
         className="relative z-10"
       >
         <p className="text-sm uppercase tracking-[0.35em] text-cyan-400">
@@ -87,13 +142,10 @@ export default function Skills() {
 
       <div className="relative z-10 mt-12 grid gap-6 md:grid-cols-3">
         {skillCategories.map((category, index) => (
-          <motion.div
+          <GlowCard
             key={category.titleKey}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: index * 0.15 }}
-            className="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl transition hover:-translate-y-2 hover:border-cyan-400/40 hover:bg-white/10"
+            accentColor={category.accentColor}
+            delay={index * 0.15}
           >
             <h3 className="text-xl font-bold text-white">{t(category.titleKey)}</h3>
 
@@ -105,14 +157,14 @@ export default function Skills() {
               {category.skills.map((skill) => (
                 <span
                   key={skill.name}
-                  className="group flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-300 transition hover:border-cyan-400/50 hover:bg-white/10 hover:text-white"
+                  className="group flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-300 transition-all duration-300 hover:border-white/25 hover:bg-white/10 hover:text-white hover:shadow-[0_0_12px_rgba(34,211,238,0.08)]"
                 >
-                  {skill.icon && <span className="transition-transform group-hover:scale-110">{skill.icon}</span>}
+                  {skill.icon && <span className="transition-transform duration-300 group-hover:scale-125">{skill.icon}</span>}
                   {skill.name}
                 </span>
               ))}
             </div>
-          </motion.div>
+          </GlowCard>
         ))}
       </div>
     </section>
