@@ -36,7 +36,7 @@ export default function Navbar() {
 
   // Active section tracking
   useEffect(() => {
-    const sectionIds = ["about", "skills", "experience", "projects", "contact"];
+    const sectionIds = ["home", "about", "skills", "experience", "projects", "contact"];
     const observers: IntersectionObserver[] = [];
 
     sectionIds.forEach((id) => {
@@ -56,6 +56,7 @@ export default function Navbar() {
   }, []);
 
   const navItems = [
+    { label: t("home"), href: "#home" },
     { label: t("about"), href: "#about" },
     { label: t("skills"), href: "#skills" },
     { label: t("experience"), href: "#experience" },

@@ -7,14 +7,8 @@ import { NumberTicker } from "@/components/ui/number-ticker";
 
 export default function LoadingScreen() {
   const [isLoading, setIsLoading] = useState(true);
-  const [showContent, setShowContent] = useState(false);
 
   useEffect(() => {
-    // Start revealing content slightly before loading screen disappears completely
-    const contentTimer = setTimeout(() => {
-      setShowContent(true);
-    }, 2800);
-
     // Remove loading screen from DOM after 3.5s
     const timer = setTimeout(() => {
       setIsLoading(false);
@@ -22,7 +16,6 @@ export default function LoadingScreen() {
 
     return () => {
       clearTimeout(timer);
-      clearTimeout(contentTimer);
     };
   }, []);
 
@@ -70,8 +63,6 @@ export default function LoadingScreen() {
         )}
       </AnimatePresence>
       
-      {/* We dispatch an event or just let the main page handle it.
-          Since this is a top-level component, we could just render it on top. */}
     </>
   );
 }

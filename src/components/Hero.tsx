@@ -53,7 +53,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative flex min-h-screen items-center overflow-hidden px-6 pt-28">
+    <section id="home" className="relative flex min-h-screen items-center overflow-hidden px-6 pt-28">
       {/* Animated background orbs */}
       <div
         className="absolute left-1/2 top-20 h-72 w-72 -translate-x-1/2 rounded-full bg-cyan-500/15 blur-[100px]"
