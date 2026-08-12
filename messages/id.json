@@ -25,12 +25,9 @@
   "About": {
     "label": "About Me",
     "heading": "Dedikasi untuk terus berkembang.",
-    "p1": "Saya adalah lulusan D3 Manajemen Informatika dari Universitas Riau dengan fokus kuat pada pengembangan web dan pelayanan IT. Saya memiliki rekam jejak dalam merancang dan membangun sistem aplikasi web menggunakan PHP, Laravel, Next.js, HTML, CSS, dan Bootstrap, yang dipadukan dengan pengalaman langsung menangani <i>customer inquiry</i> serta penyelesaian masalah (<i>troubleshooting</i>) platform digital.",
-    "p2": "Didorong oleh rasa ingin tahu yang besar, saya adalah pembelajar cepat (<i>fast learner</i>) yang tanggap dan sangat mudah beradaptasi dengan lingkungan kerja maupun teknologi baru. Saya terbiasa berkolaborasi dalam tim, komunikatif, dan selalu antusias merancang solusi teknologi yang efisien, skalabel, serta berdampak positif.",
-    "p3": "Saya sangat terbuka terhadap peluang <i>freelance</i>, magang, maupun posisi <i>entry-level</i> di bidang teknologi. Fokus saya adalah selalu memberikan solusi yang tidak hanya berfungsi dengan baik, namun juga berpusat pada kepuasan pengguna.",
-    "statWork": "Pengalaman Kerja",
-    "statCert": "Sertifikasi",
-    "statCoding": "Tahun Coding"
+    "p1": "Saya adalah <i>fresh graduate</i> D3 Manajemen Informatika dari Universitas Riau dengan minat kuat dalam pengembangan web. Fokus utama saya adalah merancang dan membangun aplikasi web yang efisien menggunakan teknologi modern seperti Laravel, Next.js, HTML, dan CSS.",
+    "p2": "Sebagai seseorang yang antusias dengan dunia teknologi, saya sangat tanggap dan mudah beradaptasi dengan lingkungan kerja maupun alat pengembangan baru. Saya terbiasa berkolaborasi dalam tim, komunikatif, dan selalu bersemangat untuk menciptakan solusi digital yang bermanfaat.",
+    "p3": "Saat ini, saya sangat terbuka terhadap peluang magang, proyek <i>freelance</i>, maupun posisi <i>entry-level</i> di bidang teknologi untuk terus mengasah keahlian dan memberikan dampak positif."
   },
   "Skills": {
     "label": "Skills",
