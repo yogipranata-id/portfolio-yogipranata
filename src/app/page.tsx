@@ -10,16 +10,21 @@ import LoadingScreen from "@/components/LoadingScreen";
 
 export default function Home() {
   return (
-    <main className="min-h-screen overflow-hidden bg-[#050816] text-white">
+    <main className="min-h-screen bg-[#050816] text-white">
       <LoadingScreen />
       <Navbar />
       <Hero />
-      <About />
-      <Skills />
-      <Experience />
-      <Projects />
-      <Contact />
-      <Footer />
+      {/* This wrapper ensures all sections after Hero scroll OVER the sticky Hero */}
+      <div className="relative z-10">
+        <About />
+        <div className="bg-[#050816]">
+          <Skills />
+          <Experience />
+          <Projects />
+          <Contact />
+          <Footer />
+        </div>
+      </div>
     </main>
   );
 }

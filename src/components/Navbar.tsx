@@ -64,9 +64,15 @@ export default function Navbar() {
     { label: t("contact"), href: "#contact" },
   ];
 
-  const handleNavClick = useCallback((href: string) => {
+  const handleNavClick = useCallback((e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     setIsOpen(false);
     setActiveSection(href);
+    
+    // For Home, scroll to very top since Hero is sticky
+    if (href === "#home") {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
   }, []);
 
   return (
@@ -92,7 +98,7 @@ export default function Navbar() {
                   <a
                     key={item.label}
                     href={item.href}
-                    onClick={() => handleNavClick(item.href)}
+                    onClick={(e) => handleNavClick(e, item.href)}
                     className={`rounded-xl px-4 py-2 text-sm transition-colors duration-200 ${
                       activeSection === item.href
                         ? "text-cyan-400 font-medium"
@@ -173,7 +179,7 @@ export default function Navbar() {
                       <a
                         key={item.label}
                         href={item.href}
-                        onClick={() => handleNavClick(item.href)}
+                        onClick={(e) => handleNavClick(e, item.href)}
                         className={`rounded-full px-4 py-2 text-sm transition-colors duration-200 ${
                           activeSection === item.href
                             ? "bg-white/10 text-cyan-400 font-medium"
@@ -211,7 +217,7 @@ export default function Navbar() {
                 <a
                   key={item.label}
                   href={item.href}
-                  onClick={() => handleNavClick(item.href)}
+                  onClick={(e) => handleNavClick(e, item.href)}
                   className={`rounded-xl px-4 py-2.5 text-sm transition ${
                     activeSection === item.href
                       ? "bg-white/10 text-cyan-400 font-medium"
@@ -241,7 +247,7 @@ export default function Navbar() {
                 <a
                   key={item.label}
                   href={item.href}
-                  onClick={() => handleNavClick(item.href)}
+                  onClick={(e) => handleNavClick(e, item.href)}
                   className={`rounded-xl px-4 py-3 text-sm transition ${
                     activeSection === item.href
                       ? "bg-white/10 text-cyan-400 font-medium"
