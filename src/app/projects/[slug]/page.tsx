@@ -72,12 +72,12 @@ export default async function ProjectDetail({
   const t = await getTranslations("ProjectDetail");
 
   return (
-    <main className="min-h-screen bg-[#050816] text-white">
+    <main className="min-h-screen bg-[#0A0A0B] text-white">
       {/* ── Hero Section ── */}
       <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6 md:py-20">
         <Link
           href="/"
-          className="inline-flex items-center gap-2 text-slate-400 transition hover:text-cyan-400"
+          className="inline-flex items-center gap-2 text-slate-400 transition hover:text-[#F0C05A]"
         >
           <ArrowLeft size={18} />
           {t("back")}
@@ -86,7 +86,7 @@ export default async function ProjectDetail({
         {/* Hero content — animates on page load */}
         <AnimatedSection>
           <div className="mt-10">
-            <span className="rounded-full border border-cyan-500/20 bg-cyan-500/10 px-4 py-2 text-sm text-cyan-300">
+            <span className="rounded-full border border-[#F0C05A]/20 bg-[#F0C05A]/10 px-4 py-2 text-sm text-[#F5D078]">
               {project.role}
             </span>
 
@@ -114,7 +114,7 @@ export default async function ProjectDetail({
                 href={project.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-xl bg-cyan-500 px-6 py-3 font-semibold text-black transition hover:bg-cyan-400"
+                className="inline-flex items-center gap-2 rounded-xl bg-[#F0C05A] px-6 py-3 font-semibold text-black transition hover:bg-[#F5D078]"
               >
                 <Code size={18} />
                 {t("sourceCode")}
@@ -125,7 +125,7 @@ export default async function ProjectDetail({
                   href={project.demoUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-xl border border-white/10 px-6 py-3 font-semibold transition hover:border-cyan-400"
+                  className="inline-flex items-center gap-2 rounded-xl border border-white/10 px-6 py-3 font-semibold transition hover:border-[#F0C05A]"
                 >
                   <ExternalLink size={18} />
                   {t("liveDemo")}
@@ -173,7 +173,7 @@ export default async function ProjectDetail({
                   <li key={feature} className="flex items-start gap-3">
                     <CheckCircle2
                       size={18}
-                      className="mt-0.5 shrink-0 text-cyan-400"
+                      className="mt-0.5 shrink-0 text-[#F0C05A]"
                     />
                     <span className="leading-7 text-slate-300">{feature}</span>
                   </li>
@@ -217,7 +217,7 @@ export default async function ProjectDetail({
                   <ul className="space-y-3">
                     {project.solutions.map((solution) => (
                       <li key={solution} className="flex items-start gap-3">
-                        <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-emerald-400" />
+                        <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[#F0C05A]" />
                         <span className="leading-7 text-slate-300">
                           {solution}
                         </span>

@@ -56,15 +56,15 @@ export default function Hero() {
     <section id="home" className="sticky top-0 z-0 flex min-h-screen items-center overflow-hidden px-6 pt-28">
       {/* Animated background orbs */}
       <div
-        className="absolute left-1/2 top-20 h-72 w-72 -translate-x-1/2 rounded-full bg-cyan-500/15 blur-[100px]"
+        className="absolute left-1/2 top-20 h-72 w-72 -translate-x-1/2 rounded-full bg-amber-500/15 blur-[100px]"
         style={{ animation: "float 8s ease-in-out infinite" }}
       />
       <div
-        className="absolute bottom-20 right-10 h-80 w-80 rounded-full bg-purple-500/15 blur-[100px]"
+        className="absolute bottom-20 right-10 h-80 w-80 rounded-full bg-amber-700/15 blur-[100px]"
         style={{ animation: "float-reverse 10s ease-in-out infinite" }}
       />
       <div
-        className="absolute left-10 top-1/2 h-64 w-64 rounded-full bg-blue-500/10 blur-[100px]"
+        className="absolute left-10 top-1/2 h-64 w-64 rounded-full bg-amber-500/10 blur-[100px]"
         style={{ animation: "float 12s ease-in-out infinite 2s" }}
       />
 
@@ -76,7 +76,7 @@ export default function Hero() {
           animate="visible"
         >
           <motion.div variants={fadeUp}>
-            <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-400/10 px-4 py-2 text-sm text-cyan-300">
+            <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-[#F0C05A]/30 bg-[#F0C05A]/10 px-4 py-2 text-sm text-[#F5D078]">
               <Sparkles size={16} />
               {t("badge")}
             </div>
@@ -100,7 +100,7 @@ export default function Hero() {
           <motion.div variants={fadeUp} className="mt-8 flex flex-wrap gap-4">
             <a
               href="#projects"
-              className="group inline-flex items-center gap-2 rounded-full bg-cyan-400 px-6 py-3 font-semibold text-slate-950 transition-all duration-300 hover:bg-cyan-300 hover:shadow-[0_0_24px_rgba(34,211,238,0.35)]"
+              className="group inline-flex items-center gap-2 rounded-full bg-[#F0C05A] px-6 py-3 font-semibold text-slate-950 transition-all duration-300 hover:bg-[#F5D078] hover:shadow-[0_0_24px_rgba(240,192,90,0.35)]"
             >
               {t("viewProjects")}
               <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
@@ -110,7 +110,7 @@ export default function Hero() {
               href="/CV-ATS-YogiPranata.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-400/10 px-6 py-3 font-semibold text-cyan-300 transition-all duration-300 hover:bg-cyan-400/20 hover:shadow-[0_0_20px_rgba(34,211,238,0.15)]"
+              className="inline-flex items-center gap-2 rounded-full border border-[#F0C05A]/30 bg-[#F0C05A]/10 px-6 py-3 font-semibold text-[#F5D078] transition-all duration-300 hover:bg-[#F0C05A]/20 hover:shadow-[0_0_20px_rgba(240,192,90,0.15)]"
             >
               <FileText size={18} />
               {t("viewCv")}
@@ -118,7 +118,7 @@ export default function Hero() {
 
             <a
               href="#contact"
-              className="rounded-full border border-white/20 px-6 py-3 font-semibold text-white transition-all duration-300 hover:border-cyan-400 hover:text-cyan-400 hover:shadow-[0_0_20px_rgba(34,211,238,0.1)]"
+              className="rounded-full border border-white/20 px-6 py-3 font-semibold text-white transition-all duration-300 hover:border-[#F0C05A] hover:text-[#F0C05A] hover:shadow-[0_0_20px_rgba(240,192,90,0.1)]"
             >
               {t("contactMe")}
             </a>
@@ -136,7 +136,7 @@ export default function Hero() {
                 href={social.href}
                 target={social.label !== "Email" ? "_blank" : undefined}
                 rel={social.label !== "Email" ? "noopener noreferrer" : undefined}
-                className="transition-all duration-300 hover:-translate-y-1 hover:text-cyan-400 hover:drop-shadow-[0_0_8px_rgba(34,211,238,0.4)]"
+                className="transition-all duration-300 hover:-translate-y-1 hover:text-[#F0C05A] hover:drop-shadow-[0_0_8px_rgba(240,192,90,0.4)]"
                 aria-label={social.label}
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -258,7 +258,7 @@ export default function Hero() {
                 {/* Contact button */}
                 <a
                   href="#contact"
-                  className="rounded-full border border-white/15 bg-white/5 px-4 py-2 text-xs font-semibold text-white transition hover:border-cyan-400 hover:bg-white/10 hover:text-cyan-400"
+                  className="rounded-full border border-white/15 bg-white/5 px-4 py-2 text-xs font-semibold text-white transition hover:border-[#F0C05A] hover:bg-white/10 hover:text-[#F0C05A]"
                 >
                   Contact Me
                 </a>

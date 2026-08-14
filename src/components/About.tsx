@@ -16,13 +16,13 @@ export default function About() {
   return (
     <section
       id="about"
-      className="relative z-10 rounded-t-[2.5rem] bg-[#050816] shadow-[0_-20px_60px_rgba(0,0,0,0.6)]"
+      className="relative z-10 rounded-t-[2.5rem] bg-[#0A0A0B] shadow-[0_-20px_60px_rgba(0,0,0,0.6)]"
     >
       <div className="relative mx-auto max-w-6xl px-6 py-24">
         {/* Gradient divider */}
         <div className="gradient-divider mb-16" />
 
-        <div className="absolute left-0 top-20 h-64 w-64 rounded-full bg-cyan-500/10 blur-[100px]"
+        <div className="absolute left-0 top-20 h-64 w-64 rounded-full bg-amber-500/10 blur-[100px]"
           style={{ animation: "float 10s ease-in-out infinite" }}
         />
 
@@ -40,7 +40,7 @@ export default function About() {
               {/* Hover Gradient Border */}
               <div className="pointer-events-none absolute inset-0 rounded-3xl opacity-0 transition-opacity duration-500 hover:opacity-100"
                 style={{
-                  background: "linear-gradient(135deg, rgba(34,211,238,0.5), rgba(168,85,247,0.5))",
+                  background: "linear-gradient(135deg, rgba(240,192,90,0.5), rgba(184,134,11,0.5))",
                   mask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
                   maskComposite: "exclude",
                   WebkitMaskComposite: "xor",
@@ -57,8 +57,8 @@ export default function About() {
             </div>
 
             {/* Decorative elements behind image */}
-            <div className="absolute -bottom-6 -left-6 -z-10 h-32 w-32 rounded-full bg-purple-500/20 blur-[50px]" />
-            <div className="absolute -right-6 -top-6 -z-10 h-32 w-32 rounded-full bg-cyan-500/20 blur-[50px]" />
+            <div className="absolute -bottom-6 -left-6 -z-10 h-32 w-32 rounded-full bg-amber-700/20 blur-[50px]" />
+            <div className="absolute -right-6 -top-6 -z-10 h-32 w-32 rounded-full bg-[#F0C05A]/20 blur-[50px]" />
           </motion.div>
 
           {/* Right Side: Text Content with Word-by-Word Reveal */}
@@ -68,7 +68,7 @@ export default function About() {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="text-sm uppercase tracking-[0.35em] text-cyan-400"
+              className="text-sm uppercase tracking-[0.35em] text-[#F0C05A]"
             >
               {t("label")}
             </motion.p>

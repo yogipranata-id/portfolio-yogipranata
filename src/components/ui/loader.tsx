@@ -104,7 +104,7 @@ export const LoaderThree = () => {
       strokeWidth="1.2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="h-28 w-28 stroke-cyan-400 [--fill-final:rgba(34,211,238,0.15)] [--fill-initial:transparent] drop-shadow-[0_0_15px_rgba(34,211,238,0.6)]"
+      className="h-28 w-28 stroke-[#F0C05A] [--fill-final:rgba(240,192,90,0.15)] [--fill-initial:transparent] drop-shadow-[0_0_15px_rgba(240,192,90,0.6)]"
     >
       <motion.path stroke="none" d="M0 0h24v24H0z" fill="none" />
       <motion.path

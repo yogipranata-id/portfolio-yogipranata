@@ -116,7 +116,7 @@ export default function Skills() {
     <section id="skills" className="relative mx-auto max-w-6xl px-6 py-24">
       <div className="gradient-divider mb-16" />
       
-      <div className="absolute right-0 top-20 h-72 w-72 rounded-full bg-purple-500/10 blur-[100px]"
+      <div className="absolute right-0 top-20 h-72 w-72 rounded-full bg-amber-500/10 blur-[100px]"
         style={{ animation: "float-reverse 10s ease-in-out infinite" }}
       />
 
@@ -127,7 +127,7 @@ export default function Skills() {
         transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
         className="relative z-10"
       >
-        <p className="text-sm uppercase tracking-[0.35em] text-cyan-400">
+        <p className="text-sm uppercase tracking-[0.35em] text-[#F0C05A]">
           {t("label")}
         </p>
 

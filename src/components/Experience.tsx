@@ -50,17 +50,17 @@ export default function Experience() {
       <div className="gradient-divider mb-16" />
 
       {/* Background Glow */}
-      <div className="absolute left-10 top-1/2 h-64 w-64 -translate-y-1/2 rounded-full bg-blue-500/10 blur-[100px]"
+      <div className="absolute left-10 top-1/2 h-64 w-64 -translate-y-1/2 rounded-full bg-amber-500/10 blur-[100px]"
         style={{ animation: "float 12s ease-in-out infinite" }}
       />
-      <div className="absolute right-10 top-1/4 h-64 w-64 rounded-full bg-cyan-500/10 blur-[100px]"
+      <div className="absolute right-10 top-1/4 h-64 w-64 rounded-full bg-amber-500/10 blur-[100px]"
         style={{ animation: "float-reverse 10s ease-in-out infinite 3s" }}
       />
 
       {/* ── ATAS: PENGALAMAN KERJA ── */}
       <div className="relative z-10 mb-16">
         <h3 className="mb-6 flex items-center gap-3 text-lg font-semibold text-white">
-          <span className="flex h-9 w-9 items-center justify-center rounded-xl border border-cyan-400/20 bg-cyan-400/10 text-cyan-400">
+          <span className="flex h-9 w-9 items-center justify-center rounded-xl border border-[#F0C05A]/20 bg-[#F0C05A]/10 text-[#F0C05A]">
             <Briefcase size={18} />
           </span>
           {t("workTitle")}
@@ -74,18 +74,18 @@ export default function Experience() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="relative pl-8 before:absolute before:left-[11px] before:top-2 before:h-full before:w-[2px] before:bg-gradient-to-b before:from-cyan-400/50 before:to-purple-500/20 last:before:hidden"
+              className="relative pl-8 before:absolute before:left-[11px] before:top-2 before:h-full before:w-[2px] before:bg-gradient-to-b before:from-[#F0C05A]/50 before:to-amber-700/20 last:before:hidden"
             >
               {/* Animated dot */}
-              <div className="absolute left-0 top-1.5 h-6 w-6 rounded-full border-4 border-[#050816] bg-cyan-400">
-                <span className="absolute inset-0 animate-ping rounded-full bg-cyan-400 opacity-20" />
+              <div className="absolute left-0 top-1.5 h-6 w-6 rounded-full border-4 border-[#0A0A0B] bg-[#F0C05A]">
+                <span className="absolute inset-0 animate-ping rounded-full bg-[#F0C05A] opacity-20" />
               </div>
 
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl transition-all duration-500 hover:-translate-y-1 hover:border-cyan-400/30 hover:bg-white/[0.07] hover:shadow-[0_8px_30px_rgba(34,211,238,0.06)]">
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl transition-all duration-500 hover:-translate-y-1 hover:border-[#F0C05A]/30 hover:bg-white/[0.07] hover:shadow-[0_8px_30px_rgba(240,192,90,0.06)]">
                 <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
                   <div>
                     <h4 className="text-xl font-bold text-white">{job.role}</h4>
-                    <p className="mt-1 font-medium text-cyan-400">
+                    <p className="mt-1 font-medium text-[#F0C05A]">
                       {job.company}
                     </p>
                   </div>
@@ -108,7 +108,7 @@ export default function Experience() {
                 <ul className="mt-5 list-inside space-y-2 text-sm leading-relaxed text-slate-300">
                   {job.points.map((point: string, idx: number) => (
                     <li key={idx} className="flex gap-2">
-                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-cyan-400" />
+                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#F0C05A]" />
                       <span>{point}</span>
                     </li>
                   ))}
@@ -129,7 +129,7 @@ export default function Experience() {
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         >
           <h3 className="mb-6 flex items-center gap-3 text-lg font-semibold text-white">
-            <span className="flex h-9 w-9 items-center justify-center rounded-xl border border-purple-400/20 bg-purple-400/10 text-purple-400">
+            <span className="flex h-9 w-9 items-center justify-center rounded-xl border border-amber-600/20 bg-amber-600/10 text-amber-500">
               <GraduationCap size={18} />
             </span>
             {t("educationTitle")}
@@ -143,10 +143,10 @@ export default function Experience() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
-                className="rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-xl transition-all duration-500 hover:-translate-y-1 hover:border-purple-400/30 hover:bg-white/[0.07] hover:shadow-[0_8px_30px_rgba(168,85,247,0.06)]"
+                className="rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-xl transition-all duration-500 hover:-translate-y-1 hover:border-amber-500/30 hover:bg-white/[0.07] hover:shadow-[0_8px_30px_rgba(240,192,90,0.06)]"
               >
                 <h4 className="font-bold text-white">{edu.degree}</h4>
-                <p className="mt-1 text-sm font-medium text-purple-400">
+                <p className="mt-1 text-sm font-medium text-amber-500">
                   {edu.institution}
                 </p>
                 <div className="mt-3 flex flex-wrap gap-4 text-xs text-slate-400">
@@ -172,7 +172,7 @@ export default function Experience() {
           transition={{ duration: 0.6, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
         >
           <h3 className="mb-6 flex items-center gap-3 text-lg font-semibold text-white">
-            <span className="flex h-9 w-9 items-center justify-center rounded-xl border border-emerald-400/20 bg-emerald-400/10 text-emerald-400">
+            <span className="flex h-9 w-9 items-center justify-center rounded-xl border border-orange-400/20 bg-orange-400/10 text-orange-400">
               <Award size={18} />
             </span>
             {t("certTitle")}
@@ -186,10 +186,10 @@ export default function Experience() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
-                className="rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-xl transition-all duration-500 hover:-translate-y-1 hover:border-emerald-400/30 hover:bg-white/[0.07] hover:shadow-[0_8px_30px_rgba(52,211,153,0.06)]"
+                className="rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-xl transition-all duration-500 hover:-translate-y-1 hover:border-orange-400/30 hover:bg-white/[0.07] hover:shadow-[0_8px_30px_rgba(251,146,60,0.06)]"
               >
                 <h4 className="font-bold text-white">{cert.title}</h4>
-                <p className="mt-1 text-sm text-emerald-400">{cert.issuer}</p>
+                <p className="mt-1 text-sm text-orange-400">{cert.issuer}</p>
 
                 <div className="mt-3 flex flex-wrap items-center justify-between gap-3">
                   <div className="flex flex-wrap gap-3 text-xs text-slate-400">
@@ -209,7 +209,7 @@ export default function Experience() {
                         });
                         setCurrentImageIndex(0);
                       }}
-                      className="inline-flex items-center gap-1.5 rounded-full border border-emerald-400/20 bg-emerald-400/10 px-3 py-1.5 text-xs font-medium text-emerald-300 transition-all duration-300 hover:bg-emerald-400/20 hover:shadow-[0_0_12px_rgba(52,211,153,0.15)]"
+                      className="inline-flex items-center gap-1.5 rounded-full border border-orange-400/20 bg-orange-400/10 px-3 py-1.5 text-xs font-medium text-orange-300 transition-all duration-300 hover:bg-orange-400/20 hover:shadow-[0_0_12px_rgba(251,146,60,0.15)]"
                     >
                       <Eye size={12} />
                       {t("viewCert")}
@@ -238,7 +238,7 @@ export default function Experience() {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.85, opacity: 0 }}
               transition={{ type: "spring", stiffness: 300, damping: 25 }}
-              className="relative w-full max-w-3xl overflow-hidden rounded-2xl border border-white/10 bg-[#0a0f24]"
+              className="relative w-full max-w-3xl overflow-hidden rounded-2xl border border-white/10 bg-[#0A0A0B]"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Header */}

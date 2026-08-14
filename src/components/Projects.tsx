@@ -36,7 +36,7 @@ export default function Projects() {
   return (
     <section id="projects" className="relative mx-auto max-w-6xl px-6 py-24">
       <div className="gradient-divider mb-16" />
-      <div className="absolute left-1/2 top-10 h-72 w-72 -translate-x-1/2 rounded-full bg-cyan-500/10 blur-[100px]"
+      <div className="absolute left-1/2 top-10 h-72 w-72 -translate-x-1/2 rounded-full bg-amber-500/10 blur-[100px]"
         style={{ animation: "float 10s ease-in-out infinite" as any }}
       />
 
@@ -47,7 +47,7 @@ export default function Projects() {
         transition={{ duration: 0.7 }}
         className="relative z-10"
       >
-        <p className="text-sm uppercase tracking-[0.35em] text-cyan-400">
+        <p className="text-sm uppercase tracking-[0.35em] text-[#F0C05A]">
           {t("label")}
         </p>
 
@@ -109,7 +109,7 @@ export default function Projects() {
                 onClick={() => goTo(index, index > activeIndex ? 1 : -1)}
                 className={`h-2.5 rounded-full transition-all duration-300 ${
                   index === activeIndex
-                    ? "w-8 bg-cyan-400"
+                    ? "w-8 bg-[#F0C05A]"
                     : "w-2.5 bg-white/20 hover:bg-white/40"
                 }`}
                 aria-label={`Go to project ${index + 1}`}
@@ -119,7 +119,7 @@ export default function Projects() {
 
           {/* Project counter */}
           <p className="text-sm text-slate-400">
-            <span className="font-bold text-cyan-400">
+            <span className="font-bold text-[#F0C05A]">
               {String(activeIndex + 1).padStart(2, "0")}
             </span>
             {" / "}
@@ -130,14 +130,14 @@ export default function Projects() {
           <div className="flex items-center gap-3">
             <button
               onClick={goPrev}
-              className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white backdrop-blur-xl transition hover:border-cyan-400/40 hover:bg-white/10 hover:text-cyan-400"
+              className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white backdrop-blur-xl transition hover:border-[#F0C05A]/40 hover:bg-white/10 hover:text-[#F0C05A]"
               aria-label="Previous project"
             >
               <ChevronLeft size={22} />
             </button>
             <button
               onClick={goNext}
-              className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white backdrop-blur-xl transition hover:border-cyan-400/40 hover:bg-white/10 hover:text-cyan-400"
+              className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white backdrop-blur-xl transition hover:border-[#F0C05A]/40 hover:bg-white/10 hover:text-[#F0C05A]"
               aria-label="Next project"
             >
               <ChevronRight size={22} />

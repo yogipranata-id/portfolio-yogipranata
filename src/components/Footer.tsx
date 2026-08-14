@@ -21,7 +21,7 @@ export default function Footer() {
         {/* Brand / Copyright */}
         <div className="text-center md:text-left">
           <Link href="/" className="text-xl font-bold tracking-tight text-white">
-            Yogi<span className="text-cyan-400">Pranata</span>
+            Yogi<span className="text-[#F0C05A]">Pranata</span>
           </Link>
           <p className="mt-2 text-sm text-slate-500">
             {t("copyright", { year: currentYear })}
@@ -36,7 +36,7 @@ export default function Footer() {
               href={social.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-slate-500 transition-all duration-300 hover:text-cyan-400 hover:drop-shadow-[0_0_8px_rgba(34,211,238,0.4)]"
+              className="text-slate-500 transition-all duration-300 hover:text-[#F0C05A] hover:drop-shadow-[0_0_8px_rgba(240,192,90,0.4)]"
               aria-label={social.label}
             >
               {social.icon}

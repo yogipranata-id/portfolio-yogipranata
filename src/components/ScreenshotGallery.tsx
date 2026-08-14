@@ -76,7 +76,7 @@ export default function ScreenshotGallery({
           <button
             key={src}
             onClick={() => openLightbox(index)}
-            className="group relative aspect-video overflow-hidden rounded-2xl border border-white/10 transition hover:border-cyan-400/40"
+            className="group relative aspect-video overflow-hidden rounded-2xl border border-white/10 transition hover:border-[#F0C05A]/40"
           >
             <Image
               src={src}

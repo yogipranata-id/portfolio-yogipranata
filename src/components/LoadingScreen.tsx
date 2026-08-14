@@ -31,21 +31,21 @@ export default function LoadingScreen() {
               y: "-100%", 
               transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] } 
             }}
-            className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#050816]"
+            className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#0A0A0B]"
           >
             {/* The Custom Spider Loader */}
             <div className="relative flex flex-col items-center justify-center gap-6">
               <LoaderThree />
               
               {/* Magic UI Number Ticker */}
-              <div className="flex items-end font-mono text-4xl font-bold text-cyan-400 drop-shadow-[0_0_10px_rgba(34,211,238,0.5)]">
+              <div className="flex items-end font-mono text-4xl font-bold text-[#F0C05A] drop-shadow-[0_0_10px_rgba(240,192,90,0.5)]">
                 <NumberTicker 
                   value={100} 
                   startValue={0}
                   delay={0.2}
-                  className="text-cyan-400 dark:text-cyan-400"
+                  className="text-[#F0C05A] dark:text-[#F0C05A]"
                 />
-                <span className="mb-1 ml-1 text-2xl text-cyan-400/80">%</span>
+                <span className="mb-1 ml-1 text-2xl text-[#F0C05A]/80">%</span>
               </div>
               
               {/* Subtle pulsing loading text */}

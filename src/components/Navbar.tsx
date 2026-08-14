@@ -89,7 +89,7 @@ export default function Navbar() {
           >
             <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
               <a href="#" className="text-lg font-bold tracking-wide text-white">
-                Yogi<span className="text-cyan-400">.dev</span>
+                Yogi<span className="text-[#F0C05A]">.dev</span>
               </a>
 
               {/* Desktop nav links */}
@@ -101,7 +101,7 @@ export default function Navbar() {
                     onClick={(e) => handleNavClick(e, item.href)}
                     className={`rounded-xl px-4 py-2 text-sm transition-colors duration-200 ${
                       activeSection === item.href
-                        ? "text-cyan-400 font-medium"
+                        ? "text-[#F0C05A] font-medium"
                         : "text-slate-400 hover:text-white"
                     }`}
                   >
@@ -149,7 +149,7 @@ export default function Navbar() {
                   exit={{ scale: 0.9, opacity: 0 }}
                   transition={{ duration: 0.2 }}
                   onClick={() => setIsOpen(true)}
-                  className="flex h-11 w-64 items-center justify-center rounded-full border border-white/15 bg-[#050816]/80 text-white shadow-xl backdrop-blur-xl transition-all duration-300 hover:border-cyan-400/40 hover:bg-[#050816]/90 hover:shadow-cyan-500/10 sm:w-80"
+                  className="flex h-11 w-64 items-center justify-center rounded-full border border-white/15 bg-[#0A0A0B]/80 text-white shadow-xl backdrop-blur-xl transition-all duration-300 hover:border-[#F0C05A]/40 hover:bg-[#0A0A0B]/90 hover:shadow-amber-500/10 sm:w-80"
                   aria-label="Open navigation menu"
                 >
                   <Menu size={18} className="text-slate-300" />
@@ -162,7 +162,7 @@ export default function Navbar() {
                   animate={{ scale: 1, opacity: 1 }}
                   exit={{ scale: 0.95, opacity: 0 }}
                   transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] as const }}
-                  className="flex w-max items-center justify-center rounded-full border border-white/15 bg-[#050816]/95 px-2 py-2 shadow-2xl backdrop-blur-xl md:px-4 md:py-2"
+                  className="flex w-max items-center justify-center rounded-full border border-white/15 bg-[#0A0A0B]/95 px-2 py-2 shadow-2xl backdrop-blur-xl md:px-4 md:py-2"
                 >
                   {/* Mobile Close Button (Since links are in dropdown below) */}
                   <button
@@ -182,7 +182,7 @@ export default function Navbar() {
                         onClick={(e) => handleNavClick(e, item.href)}
                         className={`rounded-full px-4 py-2 text-sm transition-colors duration-200 ${
                           activeSection === item.href
-                            ? "bg-white/10 text-cyan-400 font-medium"
+                            ? "bg-white/10 text-[#F0C05A] font-medium"
                             : "text-slate-300 hover:bg-white/5 hover:text-white"
                         }`}
                       >
@@ -210,7 +210,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -10, scale: 0.98 }}
             transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] as const }}
-            className="fixed left-4 right-4 top-20 z-50 rounded-2xl border border-white/10 bg-[#050816]/95 p-4 shadow-2xl backdrop-blur-xl md:hidden"
+            className="fixed left-4 right-4 top-20 z-50 rounded-2xl border border-white/10 bg-[#0A0A0B]/95 p-4 shadow-2xl backdrop-blur-xl md:hidden"
           >
             <div className="flex flex-col gap-1">
               {navItems.map((item) => (
@@ -220,7 +220,7 @@ export default function Navbar() {
                   onClick={(e) => handleNavClick(e, item.href)}
                   className={`rounded-xl px-4 py-2.5 text-sm transition ${
                     activeSection === item.href
-                      ? "bg-white/10 text-cyan-400 font-medium"
+                      ? "bg-white/10 text-[#F0C05A] font-medium"
                       : "text-slate-300 hover:bg-white/5 hover:text-white"
                   }`}
                 >
@@ -240,7 +240,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -10, scale: 0.98 }}
             transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] as const }}
-            className="fixed left-4 right-4 top-[72px] z-50 rounded-2xl border border-white/10 bg-[#050816]/95 p-5 backdrop-blur-xl md:hidden"
+            className="fixed left-4 right-4 top-[72px] z-50 rounded-2xl border border-white/10 bg-[#0A0A0B]/95 p-5 backdrop-blur-xl md:hidden"
           >
             <div className="flex flex-col gap-2">
               {navItems.map((item) => (
@@ -250,7 +250,7 @@ export default function Navbar() {
                   onClick={(e) => handleNavClick(e, item.href)}
                   className={`rounded-xl px-4 py-3 text-sm transition ${
                     activeSection === item.href
-                      ? "bg-white/10 text-cyan-400 font-medium"
+                      ? "bg-white/10 text-[#F0C05A] font-medium"
                       : "text-slate-300 hover:bg-white/5 hover:text-white"
                   }`}
                 >
