@@ -5,7 +5,7 @@ export const projects: Project[] = [
     slug: "absensi-geotagging",
     title: "Sistem Absensi Karyawan Berbasis Geotagging",
     description:
-      "Aplikasi web komprehensif yang dirancang untuk mengelola kehadiran karyawan secara digital. Sistem ini memvalidasi lokasi absensi secara real-time menggunakan teknologi geotagging, serta memfasilitasi proses pengajuan cuti dan otomatisasi pembuatan laporan administrasi karyawan.",
+      "Proyek Tugas Akhir yang lahir dari pengalaman magang sebagai Software Engineer di PT Surya Agrolika Reksa (Adimulia Group). Sistem absensi berbasis web dengan fitur geotagging, dibangun menggunakan Laravel (PHP), dirancang untuk memusatkan data absensi dan memverifikasi lokasi karyawan saat check-in, pendekatan yang lebih sesuai untuk kondisi lapangan dibanding sistem berbasis mobile.",
     image: "/projects/absensi-karwawan-geo/thumb.png",
     screenshots: [
       "/projects/absensi-karwawan-geo/hero.png",
@@ -14,11 +14,11 @@ export const projects: Project[] = [
       "/projects/absensi-karwawan-geo/detail_03.png",
     ],
     stack: [
-      "Laravel 12",
-      "Vue 3",
-      "Alpine.js",
-      "Tailwind CSS",
+      "Laravel",
+      "PHP",
       "MySQL",
+      "Tailwind CSS",
+      "Alpine.js",
       "DomPDF",
     ],
     githubUrl: "https://github.com/yogipranata-id/sistem-absensi-karyawan-geotagging-laravel",
@@ -26,7 +26,7 @@ export const projects: Project[] = [
     featured: true,
     status: "completed",
     objective:
-      "Mendigitalisasi dan menyederhanakan proses HR terkait absensi, mencegah kecurangan absensi dengan memvalidasi lokasi fisik karyawan, serta memberikan kemudahan bagi admin dalam memonitor kehadiran, memproses persetujuan cuti, dan menghasilkan laporan administrasi yang akurat secara otomatis.",
+      "Proyek ini lahir dari hasil interview dengan bagian administrasi perusahaan yang mengungkap tantangan nyata dalam pencatatan absensi karyawan di lingkungan kerja lapangan, termasuk koneksi internet yang tidak stabil dan karyawan yang tersebar di berbagai lokasi. Solusi: memusatkan data absensi dan memverifikasi lokasi karyawan saat check-in menggunakan sistem web dengan geotagging.",
     features: [
       "Geotagging-Based Attendance: Clock-In dan Clock-Out tervalidasi dengan batas radius GPS dari titik kantor",
       "Role-Based Access Control (RBAC): Pemisahan hak akses antara Admin (manajemen divisi/area) dan Karyawan (absensi/cuti)",

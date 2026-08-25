@@ -11,33 +11,36 @@
     "badge": "My Portfolio",
     "greeting": "Hi, I'm",
     "name": "Yogi Pranata",
-    "subtitle": "Computer Science Fresh Graduate • Web Development • Web3 & Crypto Enthusiast",
+    "subtitle": "Informatics Management Fresh Graduate • Junior Web Developer",
     "description": "A graduate of D3 Information Management focused on web development and IT services. Ready to contribute to building efficient and impactful digital solutions.",
     "viewProjects": "View Projects",
     "viewCv": "View CV",
     "contactMe": "Contact Me",
     "currentStatus": "Current Status",
-    "statusTitle": "Computer Science Fresh Graduate",
+    "statusTitle": "Informatics Management Fresh Graduate",
     "projects": "Projects",
-    "education": "Information Management at University of Riau",
+    "education": "Informatics Management at University of Riau",
     "techStack": "Tech Stack"
   },
   "About": {
     "label": "About Me",
-    "heading": "Dedicated to continuous growth.",
-    "textReveal": "A Computer Science fresh graduate from the University of Riau dedicated to building efficient and impactful web solutions.",
-    "p1": "I am a recent Computer Science <i>fresh graduate</i> from the University of Riau with a strong passion for web development. My primary focus is designing and building efficient web applications using modern technologies such as Laravel, Next.js, HTML, and CSS.",
-    "p2": "As an enthusiastic tech individual, I am highly responsive and adaptable to new work environments and development tools. I am accustomed to collaborating in teams, communicative, and always eager to create impactful digital solutions.",
-    "p3": "Currently, I am very open to internship opportunities, <i>freelance</i> projects, and <i>entry-level</i> positions in the tech industry to continue honing my skills and delivering positive impact."
+    "heading": "Where code meets the people who use it.",
+    "textReveal": "Fresh graduate in Informatics Management from Universitas Riau building things people actually need.",
+    "p1": "I'm Yogi Pranata, a fresh graduate who cares about building software that solves real problems. During my Software Engineer internship at PT Surya Agrolika Reksa (Adimulia Group), I helped build a mobile attendance app with Flutter, which later evolved into my thesis: a web-based attendance system with geotagging, shaped by direct interviews with the company's admin team.",
+    "p2": "I've also worked the front lines of user support as a Customer Happiness intern at Assist.id, a healthcare platform. bridging the gap between users and developers. Currently working with PHP, Laravel, Next.js, and MySQL. Open to Web Developer roles or anything where I get to build and understand who it's for."
   },
   "Skills": {
     "label": "Skills",
-    "heading": "Technologies I use",
-    "description": "I use various technologies in the web development process, from frontend, backend, database, to development support tools.",
+    "heading": "Technologies & Skills",
+    "description": "Technical skills, development tools, personal strengths, and languages I bring to every project.",
     "webDev": "Web Development",
     "webDevDesc": "Core technologies for building web systems and interfaces.",
-    "tools": "Tools",
-    "toolsDesc": "Development support tools I use on a daily basis.",
+    "tools": "Tools & Platforms",
+    "toolsDesc": "Development tools and platforms I use daily.",
+    "personalSkills": "Personal Skills",
+    "personalSkillsDesc": "Soft skills that drive collaboration and growth.",
+    "languages": "Languages",
+    "languagesDesc": "Languages I communicate in.",
     "softSkills": "Soft Skills & Languages",
     "softSkillsDesc": "Communication, interpersonal skills, and languages."
   },
@@ -50,15 +53,16 @@
     "of": "of",
     "work": [
       {
-        "role": "Customer Happiness",
+        "role": "Customer Happiness Intern",
         "company": "Assist.id",
-        "type": "Paid Internship",
+        "type": "Internship",
         "date": "Feb 2026 - Apr 2026",
-        "location": "Pekanbaru City, Riau",
+        "location": "Pekanbaru, Riau",
         "points": [
-          "Served as the primary point of contact to ensure user satisfaction of the clinic and hospital SaaS platform.",
-          "Managed customer complaints, provided guidance on system feature usage, and ensured timely issue resolution.",
-          "Acted as a feedback bridge between users and the internal development team for product improvement."
+          "Handled daily user inquiries, complaints, and suggestions for a healthcare platform (doctors & patients) via chat.",
+          "Checked user feature usage and provided correct usage guidelines.",
+          "Created and followed up on technical tickets for bug reports until resolution.",
+          "Acted as a liaison between user feedback and the technical team for service improvements."
         ]
       },
       {
@@ -68,9 +72,10 @@
         "date": "Jul 2025 - Aug 2025",
         "location": "Kuantan Singingi, Riau",
         "points": [
-          "Assisted in the digital transformation of attendance data at the K3ML Department from manual recording to a centralized system.",
-          "Conducted needs research, designed a mobile prototype (Flutter), then developed a Geotagging-Based Web Application.",
-          "Implemented the Haversine algorithm for real-time attendance location validation."
+          "Took the initiative with 4 fellow interns to build an attendance app prototype named AbsenKan.",
+          "Developed the application using Flutter and Dart, collaborating with the team's UI designer (Figma).",
+          "Interviewed administration executives to understand the operational challenges of attendance recording.",
+          "Proposed a web-based attendance system with geotagging as a solution, which now serves as the basis for my final year thesis."
         ]
       }
     ],

@@ -53,7 +53,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section id="home" className="sticky top-0 z-0 flex min-h-screen items-center overflow-hidden px-6 pt-28">
+    <section id="home" className="sticky top-0 z-0 flex min-h-dvh items-center px-6 pb-12 pt-28">
       {/* Animated background orbs */}
       <div
         className="absolute left-1/2 top-20 h-72 w-72 -translate-x-1/2 rounded-full bg-amber-500/15 blur-[100px]"

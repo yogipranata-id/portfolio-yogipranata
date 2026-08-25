@@ -5,9 +5,10 @@ import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import {
   SiPhp, SiLaravel, SiHtml5, SiCss, SiBootstrap, SiReact, SiNextdotjs, SiTailwindcss, SiJavascript,
-  SiMysql, SiGit, SiVercel
+  SiMysql, SiGit, SiVercel, SiGithub, SiFigma
 } from "react-icons/si";
-import { FaCode } from "react-icons/fa";
+import { FaCode, FaMicrosoft } from "react-icons/fa";
+import { Users, Brain, Zap, MessageSquare, ShieldCheck, RefreshCw } from "lucide-react";
 
 type SkillItem = {
   name: string;
@@ -19,23 +20,26 @@ type SkillCategory = {
   descKey: string;
   skills: SkillItem[];
   accentColor: string;
+  gridSpan?: string;
 };
 
 const skillCategories: SkillCategory[] = [
   {
     titleKey: "webDev",
     descKey: "webDevDesc",
-    accentColor: "34,211,238",
+    accentColor: "240,192,90",
+    gridSpan: "md:col-span-2",
     skills: [
       { name: "PHP", icon: <SiPhp size={16} color="#777BB4" /> },
       { name: "Laravel", icon: <SiLaravel size={16} color="#FF2D20" /> },
-      { name: "HTML", icon: <SiHtml5 size={16} color="#E34F26" /> },
-      { name: "CSS", icon: <SiCss size={16} color="#1572B6" /> },
-      { name: "Bootstrap", icon: <SiBootstrap size={16} color="#7952B3" /> },
+      { name: "JavaScript", icon: <SiJavascript size={16} color="#F7DF1E" /> },
       { name: "React.js", icon: <SiReact size={16} color="#61DAFB" /> },
       { name: "Next.js", icon: <SiNextdotjs size={16} color="#FFFFFF" /> },
-      { name: "Tailwind", icon: <SiTailwindcss size={16} color="#06B6D4" /> },
-      { name: "JavaScript", icon: <SiJavascript size={16} color="#F7DF1E" /> },
+      { name: "HTML", icon: <SiHtml5 size={16} color="#E34F26" /> },
+      { name: "CSS", icon: <SiCss size={16} color="#1572B6" /> },
+      { name: "Tailwind CSS", icon: <SiTailwindcss size={16} color="#06B6D4" /> },
+      { name: "Bootstrap", icon: <SiBootstrap size={16} color="#7952B3" /> },
+      { name: "MySQL", icon: <SiMysql size={16} color="#4479A1" /> },
     ],
   },
   {
@@ -43,22 +47,25 @@ const skillCategories: SkillCategory[] = [
     descKey: "toolsDesc",
     accentColor: "168,85,247",
     skills: [
-      { name: "MySQL", icon: <SiMysql size={16} color="#4479A1" /> },
       { name: "Git", icon: <SiGit size={16} color="#F05032" /> },
+      { name: "GitHub", icon: <SiGithub size={16} color="#FFFFFF" /> },
       { name: "VS Code", icon: <FaCode size={16} color="#007ACC" /> },
       { name: "Vercel", icon: <SiVercel size={16} color="#FFFFFF" /> },
+      { name: "Figma", icon: <SiFigma size={16} color="#F24E1E" /> },
+      { name: "Ms. Office", icon: <FaMicrosoft size={16} color="#D83B01" /> },
     ],
   },
   {
-    titleKey: "softSkills",
-    descKey: "softSkillsDesc",
-    accentColor: "52,211,153",
+    titleKey: "personalSkills",
+    descKey: "personalSkillsDesc",
+    accentColor: "240,192,90",
     skills: [
-      { name: "Communication" },
-      { name: "Customer Satisfaction" },
-      { name: "Customer Support" },
-      { name: "Bahasa Indonesia" },
-      { name: "English" },
+      { name: "Teamwork", icon: <Users size={16} className="text-amber-400" /> },
+      { name: "Problem Solving", icon: <Brain size={16} className="text-amber-400" /> },
+      { name: "Quick Learner", icon: <Zap size={16} className="text-amber-400" /> },
+      { name: "Communicative", icon: <MessageSquare size={16} className="text-amber-400" /> },
+      { name: "Responsible", icon: <ShieldCheck size={16} className="text-amber-400" /> },
+      { name: "Adaptive", icon: <RefreshCw size={16} className="text-amber-400" /> },
     ],
   },
 ];
@@ -109,6 +116,8 @@ function GlowCard({
   );
 }
 
+
+
 export default function Skills() {
   const t = useTranslations("Skills");
 
@@ -140,12 +149,14 @@ export default function Skills() {
         </p>
       </motion.div>
 
-      <div className="relative z-10 mt-12 grid gap-6 md:grid-cols-3">
+      {/* Bento-style grid: 2 columns on desktop */}
+      <div className="relative z-10 mt-12 grid gap-6 md:grid-cols-2">
         {skillCategories.map((category, index) => (
           <GlowCard
             key={category.titleKey}
             accentColor={category.accentColor}
-            delay={index * 0.15}
+            delay={index * 0.1}
+            className={category.gridSpan || ""}
           >
             <h3 className="text-xl font-bold text-white">{t(category.titleKey)}</h3>
 
@@ -157,10 +168,11 @@ export default function Skills() {
               {category.skills.map((skill) => (
                 <span
                   key={skill.name}
-                  className="group flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-300 transition-all duration-300 hover:border-white/25 hover:bg-white/10 hover:text-white hover:shadow-[0_0_12px_rgba(34,211,238,0.08)]"
+                  className="group flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-300 transition-all duration-300 hover:border-[#F0C05A]/30 hover:bg-[#F0C05A]/5 hover:text-white hover:shadow-[0_0_12px_rgba(240,192,90,0.08)]"
                 >
                   {skill.icon && <span className="transition-transform duration-300 group-hover:scale-125">{skill.icon}</span>}
                   {skill.name}
+
                 </span>
               ))}
             </div>

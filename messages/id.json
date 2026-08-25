@@ -11,33 +11,36 @@
     "badge": "My Portfolio",
     "greeting": "Hi, saya",
     "name": "Yogi Pranata",
-    "subtitle": "Computer Science Fresh Graduate • Web Development • Web3 & Crypto Enthusiast",
+    "subtitle": "Informatics Management Fresh Graduate • Junior Web Developer",
     "description": "Lulusan D3 Manajemen Informatika yang berfokus pada pengembangan web dan pelayanan IT. Siap berkontribusi membangun solusi digital yang efisien dan berdampak.",
     "viewProjects": "View Projects",
     "viewCv": "View CV",
     "contactMe": "Contact Me",
     "currentStatus": "Current Status",
-    "statusTitle": "Computer Science Fresh Graduate",
+    "statusTitle": "Informatics Management Fresh Graduate",
     "projects": "Projects",
     "education": "Manajemen Informatika di Universitas Riau",
     "techStack": "Tech Stack"
   },
   "About": {
     "label": "About Me",
-    "heading": "Dedikasi untuk terus berkembang.",
-    "textReveal": "Fresh graduate D3 Manajemen Informatika dari Universitas Riau yang berdedikasi untuk membangun solusi web yang efisien dan berdampak.",
-    "p1": "Saya adalah <i>fresh graduate</i> D3 Manajemen Informatika dari Universitas Riau dengan minat kuat dalam pengembangan web. Fokus utama saya adalah merancang dan membangun aplikasi web yang efisien menggunakan teknologi modern seperti Laravel, Next.js, HTML, dan CSS.",
-    "p2": "Sebagai seseorang yang antusias dengan dunia teknologi, saya sangat tanggap dan mudah beradaptasi dengan lingkungan kerja maupun alat pengembangan baru. Saya terbiasa berkolaborasi dalam tim, komunikatif, dan selalu bersemangat untuk menciptakan solusi digital yang bermanfaat.",
-    "p3": "Saat ini, saya sangat terbuka terhadap peluang magang, proyek <i>freelance</i>, maupun posisi <i>entry-level</i> di bidang teknologi untuk terus mengasah keahlian dan memberikan dampak positif."
+    "heading": "Di titik temu kode dan penggunanya.",
+    "textReveal": "Fresh graduate D3 Manajemen Informatika dari Universitas Riau membangun solusi yang benar-benar dibutuhkan.",
+    "p1": "Saya Yogi Pranata, a fresh graduate yang peduli membangun software untuk menyelesaikan masalah nyata. Saat magang sebagai Software Engineer di PT Surya Agrolika Reksa (Adimulia Group), saya membantu membangun aplikasi absensi mobile dengan Flutter, yang kemudian berkembang menjadi Tugas Akhir saya: sistem absensi berbasis web dengan geotagging, dibentuk dari hasil interview langsung dengan tim administrasi perusahaan.",
+    "p2": "Saya juga pernah berada di garis depan layanan pengguna sebagai magang Customer Happiness di Assist.id, platform kesehatan. menjembatani pengguna dan developer. Saat ini bekerja dengan PHP, Laravel, Next.js, dan MySQL. Terbuka untuk peran Web Developer atau posisi apa pun yang memungkinkan saya membangun sesuatu dan memahami siapa penggunanya."
   },
   "Skills": {
     "label": "Skills",
-    "heading": "Teknologi yang saya gunakan",
-    "description": "Saya menggunakan beberapa teknologi dalam proses pengembangan website, mulai dari frontend, backend, database, hingga tools pendukung development.",
+    "heading": "Teknologi & Keahlian",
+    "description": "Kemampuan teknis, tools pengembangan, kekuatan personal, dan bahasa yang saya bawa ke setiap proyek.",
     "webDev": "Web Development",
     "webDevDesc": "Teknologi utama untuk membangun sistem dan tampilan website.",
-    "tools": "Tools",
-    "toolsDesc": "Tools pendukung development yang biasa saya gunakan sehari-hari.",
+    "tools": "Tools & Platform",
+    "toolsDesc": "Tools dan platform pengembangan yang biasa saya gunakan.",
+    "personalSkills": "Personal Skills",
+    "personalSkillsDesc": "Soft skills yang mendorong kolaborasi dan pertumbuhan.",
+    "languages": "Bahasa",
+    "languagesDesc": "Bahasa yang saya gunakan untuk berkomunikasi.",
     "softSkills": "Soft Skills & Languages",
     "softSkillsDesc": "Kemampuan komunikasi, interpersonal, dan bahasa."
   },
@@ -50,27 +53,29 @@
     "of": "dari",
     "work": [
       {
-        "role": "Customer Happiness",
+        "role": "Customer Happiness Intern",
         "company": "Assist.id",
-        "type": "Paid Internship",
+        "type": "Internship",
         "date": "Feb 2026 - Apr 2026",
-        "location": "Pekanbaru Kota, Riau",
+        "location": "Pekanbaru, Riau",
         "points": [
-          "Bertindak sebagai titik kontak utama untuk memastikan kepuasan pengguna platform SaaS klinik dan rumah sakit.",
-          "Mengelola keluhan pelanggan, memberikan panduan penggunaan fitur sistem, serta memastikan penyelesaian masalah secara tepat waktu.",
-          "Menjadi jembatan umpan balik antara pengguna dan tim pengembang internal untuk peningkatan produk."
+          "Menangani pertanyaan, keluhan, dan saran pengguna platform kesehatan (dokter & pasien) melalui chat harian.",
+          "Memeriksa penggunaan fitur pengguna dan memberi panduan penggunaan yang benar.",
+          "Membuat dan menindaklanjuti tiket teknis untuk laporan bug hingga terselesaikan.",
+          "Menjadi penghubung antara masukan pengguna dan tim teknis untuk perbaikan layanan."
         ]
       },
       {
-        "role": "Software Engineer",
+        "role": "Software Engineer Intern",
         "company": "ADIMULIA GROUP (PT. Surya Agrolika Reksa)",
         "type": "Internship",
         "date": "Jul 2025 - Agu 2025",
         "location": "Kuantan Singingi, Riau",
         "points": [
-          "Membantu transformasi digital data absensi di Departemen K3ML dari pencatatan manual ke sistem terpusat.",
-          "Melakukan riset kebutuhan, merancang prototipe mobile (Flutter), lalu mengembangkan Aplikasi Web Berbasis Geotagging.",
-          "Mengimplementasikan algoritma Haversine untuk validasi lokasi absensi secara real-time."
+          "Berinisiatif bersama 4 rekan magang membangun prototipe aplikasi absensi bernama AbsenKan.",
+          "Mengembangkan aplikasi menggunakan Flutter dan Dart, berkolaborasi dengan desainer UI tim (Figma).",
+          "Mewawancarai petinggi bagian administrasi untuk memahami tantangan operasional pencatatan absensi.",
+          "Mengusulkan sistem absensi berbasis web dengan geotagging sebagai solusi, kini menjadi dasar Tugas Akhir."
         ]
       }
     ],

@@ -90,12 +90,6 @@ export default function About() {
                 {stripHtml(t.raw("p2") as string)}
               </InlineWordReveal>
             </p>
-
-            <p className="mt-5 leading-8">
-              <InlineWordReveal className="leading-8 text-slate-300" delay={0.2}>
-                {stripHtml(t.raw("p3") as string)}
-              </InlineWordReveal>
-            </p>
           </div>
 
         </div>
