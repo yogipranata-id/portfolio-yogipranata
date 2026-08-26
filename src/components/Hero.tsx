@@ -53,7 +53,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section id="home" className="sticky top-0 z-0 flex min-h-dvh items-center px-6 pb-12 pt-28">
+    <section id="home" className="top-0 z-0 flex min-h-dvh items-center px-6 pb-12 pt-28 md:sticky">
       {/* Animated background orbs */}
       <div
         className="absolute left-1/2 top-20 h-72 w-72 -translate-x-1/2 rounded-full bg-amber-500/15 blur-[100px]"
@@ -75,12 +75,6 @@ export default function Hero() {
           initial="hidden"
           animate="visible"
         >
-          <motion.div variants={fadeUp}>
-            <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-[#F0C05A]/30 bg-[#F0C05A]/10 px-4 py-2 text-sm text-[#F5D078]">
-              <Sparkles size={16} />
-              {t("badge")}
-            </div>
-          </motion.div>
 
           <motion.h1 variants={fadeUp} className="text-4xl font-bold leading-tight text-white md:text-6xl">
             {t("greeting")}{" "}

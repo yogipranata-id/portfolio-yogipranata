@@ -24,14 +24,14 @@
   },
   "About": {
     "label": "About Me",
-    "heading": "Where code meets the people who use it.",
+    "heading": "Who Am I",
     "textReveal": "Fresh graduate in Informatics Management from Universitas Riau building things people actually need.",
     "p1": "I'm Yogi Pranata, a fresh graduate who cares about building software that solves real problems. During my Software Engineer internship at PT Surya Agrolika Reksa (Adimulia Group), I helped build a mobile attendance app with Flutter, which later evolved into my thesis: a web-based attendance system with geotagging, shaped by direct interviews with the company's admin team.",
     "p2": "I've also worked the front lines of user support as a Customer Happiness intern at Assist.id, a healthcare platform. bridging the gap between users and developers. Currently working with PHP, Laravel, Next.js, and MySQL. Open to Web Developer roles or anything where I get to build and understand who it's for."
   },
   "Skills": {
     "label": "Skills",
-    "heading": "Technologies & Skills",
+    "heading": "What I Can Do",
     "description": "Technical skills, development tools, personal strengths, and languages I bring to every project.",
     "webDev": "Web Development",
     "webDevDesc": "Core technologies for building web systems and interfaces.",
@@ -118,11 +118,12 @@
     ]
   },
   "Projects": {
-    "label": "Projects",
-    "heading": "Featured Projects",
-    "description": "Here are some projects I have worked on. For projects that are not yet hosted, I showcase the UI, case study, and source code. Projects that are already online also have a live demo button.",
-    "viewDetails": "View Details",
-    "sourceCode": "Source Code"
+    "label": "Selected Work",
+    "heading": "Work Gallery",
+    "description": "A collection of systems and digital projects I've built.",
+    "viewDetails": "View Project",
+    "sourceCode": "Source Code",
+    "viewMore": "View More Projects"
   },
   "Contact": {
     "heading": "Let's Work Together",

@@ -24,14 +24,14 @@
   },
   "About": {
     "label": "About Me",
-    "heading": "Di titik temu kode dan penggunanya.",
+    "heading": "Siapa Saya",
     "textReveal": "Fresh graduate D3 Manajemen Informatika dari Universitas Riau membangun solusi yang benar-benar dibutuhkan.",
     "p1": "Saya Yogi Pranata, a fresh graduate yang peduli membangun software untuk menyelesaikan masalah nyata. Saat magang sebagai Software Engineer di PT Surya Agrolika Reksa (Adimulia Group), saya membantu membangun aplikasi absensi mobile dengan Flutter, yang kemudian berkembang menjadi Tugas Akhir saya: sistem absensi berbasis web dengan geotagging, dibentuk dari hasil interview langsung dengan tim administrasi perusahaan.",
     "p2": "Saya juga pernah berada di garis depan layanan pengguna sebagai magang Customer Happiness di Assist.id, platform kesehatan. menjembatani pengguna dan developer. Saat ini bekerja dengan PHP, Laravel, Next.js, dan MySQL. Terbuka untuk peran Web Developer atau posisi apa pun yang memungkinkan saya membangun sesuatu dan memahami siapa penggunanya."
   },
   "Skills": {
     "label": "Skills",
-    "heading": "Teknologi & Keahlian",
+    "heading": "Apa yang Bisa Saya Lakukan",
     "description": "Kemampuan teknis, tools pengembangan, kekuatan personal, dan bahasa yang saya bawa ke setiap proyek.",
     "webDev": "Web Development",
     "webDevDesc": "Teknologi utama untuk membangun sistem dan tampilan website.",
@@ -118,11 +118,12 @@
     ]
   },
   "Projects": {
-    "label": "Projects",
-    "heading": "Featured Projects",
-    "description": "Berikut beberapa project yang pernah saya kerjakan. Untuk project yang belum dihosting, saya menampilkan tampilan UI, case study, dan source code. Sedangkan project yang sudah online juga memiliki tombol live demo.",
-    "viewDetails": "View Details",
-    "sourceCode": "Source Code"
+    "label": "Selected Work",
+    "heading": "Work Gallery",
+    "description": "Kumpulan sistem dan proyek digital yang pernah saya bangun.",
+    "viewDetails": "View Project",
+    "sourceCode": "Source Code",
+    "viewMore": "View More Projects"
   },
   "Contact": {
     "heading": "Mari Bekerja Sama",

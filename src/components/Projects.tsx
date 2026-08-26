@@ -2,111 +2,229 @@
 
 import { useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, ArrowUpRight } from "lucide-react";
+import { FaGithub } from "react-icons/fa";
 import { useTranslations } from "next-intl";
+import Image from "next/image";
+import Link from "next/link";
 import { projects } from "@/data/projects";
-import ProjectCard from "@/components/ProjectCard";
+
+/**
+ * Calculate the visual position of each carousel item relative to the active index.
+ * Returns transform values (translateX, scale, zIndex, opacity) for the 3D perspective effect.
+ */
+function getItemStyle(index: number, activeIndex: number, total: number) {
+  // Calculate shortest distance around the circular array
+  let diff = index - activeIndex;
+  if (diff > total / 2) diff -= total;
+  if (diff < -total / 2) diff += total;
+
+  const absDiff = Math.abs(diff);
+
+  if (absDiff === 0) {
+    // Center (active) item
+    return {
+      translateX: "0px",
+      scale: 1,
+      zIndex: 10,
+      opacity: 1,
+      pointerEvents: "auto" as const,
+    };
+  } else if (absDiff === 1) {
+    // Adjacent items (left/right of center)
+    return {
+      translateX: `${diff * 220}px`,
+      scale: 0.72,
+      zIndex: 8,
+      opacity: 0.85,
+      pointerEvents: "auto" as const,
+    };
+  } else if (absDiff === 2) {
+    // Far items
+    return {
+      translateX: `${diff > 0 ? 360 : -360}px`,
+      scale: 0.55,
+      zIndex: 6,
+      opacity: 0.3,
+      pointerEvents: "auto" as const,
+    };
+  } else {
+    // Hidden items (more than 2 away)
+    return {
+      translateX: `${diff > 0 ? 500 : -500}px`,
+      scale: 0.4,
+      zIndex: 1,
+      opacity: 0,
+      pointerEvents: "none" as const,
+    };
+  }
+}
 
 export default function Projects() {
   const featuredProjects = projects.filter((project) => project.featured);
   const [activeIndex, setActiveIndex] = useState(0);
-  const [direction, setDirection] = useState(0);
   const t = useTranslations("Projects");
 
-  const goTo = useCallback(
-    (newIndex: number, dir: number) => {
-      setDirection(dir);
-      setActiveIndex(newIndex);
-    },
-    []
-  );
+  const activeProject = featuredProjects[activeIndex];
+
+  const goTo = useCallback((newIndex: number) => {
+    setActiveIndex(newIndex);
+  }, []);
 
   const goPrev = () => {
-    const newIndex =
-      activeIndex === 0 ? featuredProjects.length - 1 : activeIndex - 1;
-    goTo(newIndex, -1);
+    setActiveIndex((prev) =>
+      prev === 0 ? featuredProjects.length - 1 : prev - 1
+    );
   };
 
   const goNext = () => {
-    const newIndex =
-      activeIndex === featuredProjects.length - 1 ? 0 : activeIndex + 1;
-    goTo(newIndex, 1);
+    setActiveIndex((prev) =>
+      prev === featuredProjects.length - 1 ? 0 : prev + 1
+    );
   };
 
   return (
     <section id="projects" className="relative mx-auto max-w-6xl px-6 py-24">
       <div className="gradient-divider mb-16" />
-      <div className="absolute left-1/2 top-10 h-72 w-72 -translate-x-1/2 rounded-full bg-amber-500/10 blur-[100px]"
-        style={{ animation: "float 10s ease-in-out infinite" as any }}
+      <div
+        className="absolute left-1/2 top-10 h-72 w-72 -translate-x-1/2 rounded-full bg-amber-500/10 blur-[100px]"
+        style={{ animation: "float 10s ease-in-out infinite" }}
       />
 
+      {/* Header */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.7 }}
-        className="relative z-10"
+        className="relative z-10 flex items-end justify-between"
       >
-        <p className="text-sm uppercase tracking-[0.35em] text-[#F0C05A]">
-          {t("label")}
-        </p>
-
-        <h2 className="mt-4 text-3xl font-bold leading-tight text-white md:text-5xl">
-          {t("heading")}
-        </h2>
-
-        <p className="mt-6 max-w-2xl leading-8 text-slate-300">
-          {t("description")}
-        </p>
+        <div>
+          <p className="text-sm uppercase tracking-[0.35em] text-[#F0C05A]">
+            {t("label")}
+          </p>
+          <h2 className="mt-4 text-3xl font-bold leading-tight text-white md:text-5xl">
+            {t("heading")}
+          </h2>
+          <p className="mt-4 max-w-2xl leading-8 text-slate-400">
+            {t("description")}
+          </p>
+        </div>
       </motion.div>
 
-      {/* Carousel */}
-      <div className="relative z-10 mt-12">
-        {/* Main carousel area */}
-        <div className="relative overflow-hidden rounded-3xl">
-          <AnimatePresence mode="popLayout" initial={false} custom={direction}>
+      {/* 3D Carousel Album */}
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.7, delay: 0.1 }}
+        className="relative z-10 mt-12"
+      >
+        {/* Carousel container */}
+        <div className="relative mx-auto h-[260px] w-full overflow-hidden sm:h-[320px] md:h-[380px]">
+          <div className="absolute inset-0 flex items-center justify-center">
+            {featuredProjects.map((project, index) => {
+              const style = getItemStyle(
+                index,
+                activeIndex,
+                featuredProjects.length
+              );
+
+              return (
+                <button
+                  key={project.slug}
+                  onClick={() => goTo(index)}
+                  className="absolute left-1/2 top-1/2 w-[280px] sm:w-[380px] md:w-[480px]"
+                  style={{
+                    transform: `translate(calc(-50% + ${style.translateX}), -50%) scale(${style.scale})`,
+                    zIndex: style.zIndex,
+                    opacity: style.opacity,
+                    pointerEvents: style.pointerEvents,
+                    transition:
+                      "transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease, z-index 0s",
+                  }}
+                  aria-label={`View ${project.title}`}
+                >
+                  <div
+                    className={`relative aspect-[16/10] w-full overflow-hidden rounded-2xl border shadow-2xl transition-all duration-500 ${
+                      index === activeIndex
+                        ? "border-[#F0C05A]/40 shadow-[0_20px_60px_rgba(240,192,90,0.12)]"
+                        : "border-white/10 hover:border-white/20"
+                    }`}
+                  >
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      sizes="(max-width: 640px) 280px, (max-width: 768px) 380px, 480px"
+                      className="object-cover"
+                      priority={index <= 2}
+                    />
+                    {/* Subtle gradient overlay for non-active items */}
+                    {index !== activeIndex && (
+                      <div className="absolute inset-0 bg-black/20" />
+                    )}
+                  </div>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Project Info below carousel */}
+        <div className="relative mt-8">
+          <AnimatePresence mode="wait">
             <motion.div
               key={activeIndex}
-              custom={direction}
-              variants={{
-                enter: (dir: number) => ({
-                  x: dir > 0 ? 300 : -300,
-                  scale: 0.8,
-                  opacity: 0,
-                }),
-                center: {
-                  x: 0,
-                  scale: 1,
-                  opacity: 1,
-                },
-                exit: (dir: number) => ({
-                  x: dir > 0 ? -300 : 300,
-                  scale: 0.8,
-                  opacity: 0,
-                }),
-              }}
-              initial="enter"
-              animate="center"
-              exit="exit"
-              transition={{
-                x: { type: "spring", stiffness: 200, damping: 28 },
-                scale: { type: "spring", stiffness: 200, damping: 28 },
-                opacity: { duration: 0.3 },
-              }}
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -16 }}
+              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+              className="text-center"
             >
-              <ProjectCard project={featuredProjects[activeIndex]} />
+              <h3 className="text-2xl font-bold text-white md:text-3xl">
+                {activeProject.title}
+              </h3>
+
+              <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-slate-400 md:text-base">
+                {activeProject.description}
+              </p>
+
+              {/* Action buttons */}
+              <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
+                <Link
+                  href={`/projects/${activeProject.slug}`}
+                  className="group/btn inline-flex items-center gap-2 rounded-full bg-[#F0C05A] px-5 py-2.5 text-sm font-semibold text-slate-950 transition-all duration-300 hover:bg-[#F5D078] hover:shadow-[0_0_20px_rgba(240,192,90,0.3)]"
+                >
+                  {t("viewDetails")}
+                  <ArrowUpRight
+                    size={16}
+                    className="transition-transform group-hover/btn:-translate-y-0.5 group-hover/btn:translate-x-0.5"
+                  />
+                </Link>
+
+                <a
+                  href={activeProject.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full border border-white/15 px-5 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:border-[#F0C05A] hover:text-[#F0C05A]"
+                >
+                  <FaGithub size={16} />
+                  {t("sourceCode")}
+                </a>
+              </div>
             </motion.div>
           </AnimatePresence>
         </div>
 
-        {/* Navigation controls */}
+        {/* Navigation */}
         <div className="mt-8 flex items-center justify-between">
           {/* Dot indicators */}
           <div className="flex items-center gap-2">
             {featuredProjects.map((project, index) => (
               <button
                 key={project.slug}
-                onClick={() => goTo(index, index > activeIndex ? 1 : -1)}
+                onClick={() => goTo(index)}
                 className={`h-2.5 rounded-full transition-all duration-300 ${
                   index === activeIndex
                     ? "w-8 bg-[#F0C05A]"
@@ -117,7 +235,7 @@ export default function Projects() {
             ))}
           </div>
 
-          {/* Project counter */}
+          {/* Counter */}
           <p className="text-sm text-slate-400">
             <span className="font-bold text-[#F0C05A]">
               {String(activeIndex + 1).padStart(2, "0")}
@@ -144,7 +262,7 @@ export default function Projects() {
             </button>
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }
