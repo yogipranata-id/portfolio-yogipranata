@@ -101,7 +101,7 @@ function GlowCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.7, delay, ease: [0.16, 1, 0.3, 1] }}
-      className={`relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 hover:border-white/20 ${className}`}
+      className={`relative overflow-hidden rounded-3xl border border-slate-200/90 bg-white/80 p-6 shadow-[0_10px_30px_-5px_rgba(0,0,0,0.04),0_0_1px_rgba(0,0,0,0.06)] backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 hover:border-amber-500/40 hover:shadow-[0_20px_40px_-10px_rgba(217,119,6,0.12)] dark:border-white/10 dark:bg-white/5 dark:shadow-none dark:hover:border-white/20 ${className}`}
     >
       {/* Mouse-tracking glow */}
       <div
@@ -115,8 +115,6 @@ function GlowCard({
     </motion.div>
   );
 }
-
-
 
 export default function Skills() {
   const t = useTranslations("Skills");
@@ -136,15 +134,15 @@ export default function Skills() {
         transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
         className="relative z-10"
       >
-        <p className="text-sm uppercase tracking-[0.35em] text-[#F0C05A]">
+        <p className="text-sm uppercase tracking-[0.35em] text-[#D97706] dark:text-[#F0C05A]">
           {t("label")}
         </p>
 
-        <h2 className="mt-4 text-3xl font-bold leading-tight text-white md:text-5xl">
+        <h2 className="mt-4 text-3xl font-bold leading-tight text-slate-900 md:text-5xl dark:text-white">
           {t("heading")}
         </h2>
 
-        <p className="mt-6 max-w-2xl leading-8 text-slate-300">
+        <p className="mt-6 max-w-2xl leading-8 text-slate-600 dark:text-slate-300">
           {t("description")}
         </p>
       </motion.div>
@@ -158,9 +156,9 @@ export default function Skills() {
             delay={index * 0.1}
             className={category.gridSpan || ""}
           >
-            <h3 className="text-xl font-bold text-white">{t(category.titleKey)}</h3>
+            <h3 className="text-xl font-bold text-slate-900 dark:text-white">{t(category.titleKey)}</h3>
 
-            <p className="mt-3 text-sm leading-7 text-slate-400">
+            <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-400">
               {t(category.descKey)}
             </p>
 
@@ -168,11 +166,10 @@ export default function Skills() {
               {category.skills.map((skill) => (
                 <span
                   key={skill.name}
-                  className="group flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-300 transition-all duration-300 hover:border-[#F0C05A]/30 hover:bg-[#F0C05A]/5 hover:text-white hover:shadow-[0_0_12px_rgba(240,192,90,0.08)]"
+                  className="group flex items-center gap-2 rounded-full border border-slate-200 bg-slate-100/80 px-4 py-2 text-sm text-slate-700 transition-all duration-300 hover:border-[#D97706]/40 hover:bg-[#D97706]/10 hover:text-slate-900 dark:border-white/10 dark:bg-white/5 dark:text-slate-300 dark:hover:border-[#F0C05A]/30 dark:hover:bg-[#F0C05A]/5 dark:hover:text-white dark:hover:shadow-[0_0_12px_rgba(240,192,90,0.08)]"
                 >
                   {skill.icon && <span className="transition-transform duration-300 group-hover:scale-125">{skill.icon}</span>}
                   {skill.name}
-
                 </span>
               ))}
             </div>

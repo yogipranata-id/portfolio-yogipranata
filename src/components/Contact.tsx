@@ -36,28 +36,28 @@ export default function Contact() {
           />
 
           {/* Inner card */}
-          <div className="relative rounded-3xl bg-[#0A0A0B] p-8 text-center sm:p-16">
+          <div className="relative rounded-3xl bg-white p-8 text-center shadow-2xl transition-colors duration-300 dark:bg-[#0A0A0B] sm:p-16">
             {/* Floating icon */}
             <motion.div
-              className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-2xl border border-[#F0C05A]/20 bg-[#F0C05A]/10 text-[#F0C05A]"
+              className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-2xl border border-amber-600/30 bg-amber-500/10 text-[#D97706] dark:border-[#F0C05A]/20 dark:bg-[#F0C05A]/10 dark:text-[#F0C05A]"
               animate={{ y: [0, -6, 0] }}
               transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
             >
               <MessageSquare size={32} />
             </motion.div>
 
-            <h2 className="text-3xl font-bold text-white md:text-5xl">
+            <h2 className="text-3xl font-bold text-slate-900 md:text-5xl dark:text-white">
               {t("heading")}
             </h2>
 
-            <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-300">
+            <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-600 dark:text-slate-300">
               {t("description")}
             </p>
 
             <div className="mt-10 flex flex-wrap justify-center gap-4">
               <a
                 href="mailto:yogi.pranata0021@gmail.com"
-                className="group inline-flex items-center gap-2 rounded-full bg-[#F0C05A] px-8 py-4 font-bold text-slate-950 transition-all duration-300 hover:scale-105 hover:bg-[#F5D078] hover:shadow-[0_0_30px_rgba(240,192,90,0.35)]"
+                className="group inline-flex items-center gap-2 rounded-full bg-[#D97706] px-8 py-4 font-bold text-white transition-all duration-300 hover:scale-105 hover:bg-[#B45309] hover:shadow-[0_0_30px_rgba(217,119,6,0.35)] dark:bg-[#F0C05A] dark:text-slate-950 dark:hover:bg-[#F5D078] dark:hover:shadow-[0_0_30px_rgba(240,192,90,0.35)]"
               >
                 <Mail size={20} />
                 {t("sendEmail")}
@@ -67,7 +67,7 @@ export default function Contact() {
                 href="https://www.linkedin.com/in/yogi-pranata"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-8 py-4 font-bold text-white transition-all duration-300 hover:scale-105 hover:bg-white/10 hover:shadow-[0_0_20px_rgba(255,255,255,0.05)]"
+                className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-slate-100/80 px-8 py-4 font-bold text-slate-800 transition-all duration-300 hover:scale-105 hover:bg-slate-200 dark:border-white/20 dark:bg-white/5 dark:text-white dark:hover:bg-white/10 dark:hover:shadow-[0_0_20px_rgba(255,255,255,0.05)]"
               >
                 <FaLinkedin size={20} />
                 {t("linkedIn")}

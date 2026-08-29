@@ -72,12 +72,12 @@ export default async function ProjectDetail({
   const t = await getTranslations("ProjectDetail");
 
   return (
-    <main className="min-h-screen bg-[#0A0A0B] text-white">
+    <main className="min-h-screen bg-[#F8FAFC] text-slate-900 transition-colors duration-300 dark:bg-[#0A0A0B] dark:text-white">
       {/* ── Hero Section ── */}
       <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6 md:py-20">
         <Link
           href="/"
-          className="inline-flex items-center gap-2 text-slate-400 transition hover:text-[#F0C05A]"
+          className="inline-flex items-center gap-2 text-slate-600 transition hover:text-[#D97706] dark:text-slate-400 dark:hover:text-[#F0C05A]"
         >
           <ArrowLeft size={18} />
           {t("back")}
@@ -86,15 +86,15 @@ export default async function ProjectDetail({
         {/* Hero content — animates on page load */}
         <AnimatedSection>
           <div className="mt-10">
-            <span className="rounded-full border border-[#F0C05A]/20 bg-[#F0C05A]/10 px-4 py-2 text-sm text-[#F5D078]">
+            <span className="rounded-full border border-amber-600/30 bg-amber-500/10 px-4 py-2 text-sm text-amber-700 dark:border-[#F0C05A]/20 dark:bg-[#F0C05A]/10 dark:text-[#F5D078]">
               {project.role}
             </span>
 
-            <h1 className="mt-6 text-3xl font-bold leading-tight sm:text-4xl md:text-5xl">
+            <h1 className="mt-6 text-3xl font-bold leading-tight text-slate-900 sm:text-4xl md:text-5xl dark:text-white">
               {project.title}
             </h1>
 
-            <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">
+            <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-600 dark:text-slate-300">
               {project.description}
             </p>
 
@@ -102,7 +102,7 @@ export default async function ProjectDetail({
               {project.stack.map((tech) => (
                 <span
                   key={tech}
-                  className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm"
+                  className="rounded-full border border-slate-200 bg-slate-100/80 px-4 py-2 text-sm text-slate-700 dark:border-white/10 dark:bg-white/5 dark:text-slate-300"
                 >
                   {tech}
                 </span>
@@ -114,7 +114,7 @@ export default async function ProjectDetail({
                 href={project.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-xl bg-[#F0C05A] px-6 py-3 font-semibold text-black transition hover:bg-[#F5D078]"
+                className="inline-flex items-center gap-2 rounded-xl bg-[#D97706] px-6 py-3 font-semibold text-white transition hover:bg-[#B45309] dark:bg-[#F0C05A] dark:text-slate-950 dark:hover:bg-[#F5D078]"
               >
                 <Code size={18} />
                 {t("sourceCode")}
@@ -125,7 +125,7 @@ export default async function ProjectDetail({
                   href={project.demoUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-xl border border-white/10 px-6 py-3 font-semibold transition hover:border-[#F0C05A]"
+                  className="inline-flex items-center gap-2 rounded-xl border border-slate-300 bg-white/80 px-6 py-3 font-semibold text-slate-800 transition hover:border-[#D97706] dark:border-white/10 dark:bg-transparent dark:text-white dark:hover:border-[#F0C05A]"
                 >
                   <ExternalLink size={18} />
                   {t("liveDemo")}
@@ -137,7 +137,7 @@ export default async function ProjectDetail({
 
         {/* Hero image — slight delay after content */}
         <AnimatedSection delay={0.2}>
-          <div className="relative mt-10 overflow-hidden rounded-2xl border border-white/10 md:mt-16 md:rounded-3xl">
+          <div className="relative mt-10 overflow-hidden rounded-2xl border border-slate-200/80 shadow-2xl dark:border-white/10 md:mt-16 md:rounded-3xl">
             <Image
               src={project.image}
               alt={project.title}
@@ -156,7 +156,7 @@ export default async function ProjectDetail({
         {project.objective && (
           <AnimatedSection>
             <CaseStudySection icon={<Target size={20} />} title={t("objective")}>
-              <p className="leading-8 text-slate-300">{project.objective}</p>
+              <p className="leading-8 text-slate-600 dark:text-slate-300">{project.objective}</p>
             </CaseStudySection>
           </AnimatedSection>
         )}
@@ -173,9 +173,9 @@ export default async function ProjectDetail({
                   <li key={feature} className="flex items-start gap-3">
                     <CheckCircle2
                       size={18}
-                      className="mt-0.5 shrink-0 text-[#F0C05A]"
+                      className="mt-0.5 shrink-0 text-[#D97706] dark:text-[#F0C05A]"
                     />
-                    <span className="leading-7 text-slate-300">{feature}</span>
+                    <span className="leading-7 text-slate-600 dark:text-slate-300">{feature}</span>
                   </li>
                 ))}
               </ul>
@@ -196,8 +196,8 @@ export default async function ProjectDetail({
                   <ul className="space-y-3">
                     {project.challenges.map((challenge) => (
                       <li key={challenge} className="flex items-start gap-3">
-                        <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-yellow-400" />
-                        <span className="leading-7 text-slate-300">
+                        <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-amber-500" />
+                        <span className="leading-7 text-slate-600 dark:text-slate-300">
                           {challenge}
                         </span>
                       </li>
@@ -217,8 +217,8 @@ export default async function ProjectDetail({
                   <ul className="space-y-3">
                     {project.solutions.map((solution) => (
                       <li key={solution} className="flex items-start gap-3">
-                        <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[#F0C05A]" />
-                        <span className="leading-7 text-slate-300">
+                        <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[#D97706] dark:bg-[#F0C05A]" />
+                        <span className="leading-7 text-slate-600 dark:text-slate-300">
                           {solution}
                         </span>
                       </li>

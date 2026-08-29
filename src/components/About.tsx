@@ -16,7 +16,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="relative z-10 rounded-t-[2.5rem] bg-[#0A0A0B] shadow-[0_-20px_60px_rgba(0,0,0,0.6)]"
+      className="relative z-10 rounded-t-[2.5rem] bg-[#FAFAF9] shadow-[0_-20px_60px_rgba(0,0,0,0.04)] transition-colors duration-300 dark:bg-[#0A0A0B] dark:shadow-[0_-20px_60px_rgba(0,0,0,0.6)]"
     >
       <div className="relative mx-auto max-w-6xl px-6 py-24">
         {/* Gradient divider */}
@@ -36,29 +36,21 @@ export default function About() {
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             className="relative mx-auto w-full max-w-md lg:max-w-none"
           >
-            <div className="relative aspect-square overflow-hidden rounded-3xl border border-white/10 bg-white/5 shadow-2xl backdrop-blur-sm">
-              {/* Hover Gradient Border */}
-              <div className="pointer-events-none absolute inset-0 rounded-3xl opacity-0 transition-opacity duration-500 hover:opacity-100"
-                style={{
-                  background: "linear-gradient(135deg, rgba(240,192,90,0.5), rgba(184,134,11,0.5))",
-                  mask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
-                  maskComposite: "exclude",
-                  WebkitMaskComposite: "xor",
-                  padding: "1px",
-                }}
-              />
-              <Image
-                src="/profile.jpeg"
-                alt="Yogi Pranata"
-                fill
-                className="object-cover transition-transform duration-700 hover:scale-105"
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
+            <div className="relative aspect-square overflow-hidden rounded-3xl border border-amber-500/20 bg-gradient-to-tr from-white to-amber-50/40 p-1 shadow-[0_20px_50px_rgba(217,119,6,0.08)] backdrop-blur-sm dark:border-white/10 dark:bg-white/5 dark:shadow-2xl">
+              <div className="relative h-full w-full overflow-hidden rounded-[1.35rem]">
+                <Image
+                  src="/profile.jpeg"
+                  alt="Yogi Pranata"
+                  fill
+                  className="object-cover transition-transform duration-700 hover:scale-105"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </div>
             </div>
 
             {/* Decorative elements behind image */}
-            <div className="absolute -bottom-6 -left-6 -z-10 h-32 w-32 rounded-full bg-amber-700/20 blur-[50px]" />
-            <div className="absolute -right-6 -top-6 -z-10 h-32 w-32 rounded-full bg-[#F0C05A]/20 blur-[50px]" />
+            <div className="absolute -bottom-6 -left-6 -z-10 h-32 w-32 rounded-full bg-amber-600/15 blur-[50px] dark:bg-amber-700/20" />
+            <div className="absolute -right-6 -top-6 -z-10 h-32 w-32 rounded-full bg-amber-400/20 blur-[50px] dark:bg-[#F0C05A]/20" />
           </motion.div>
 
           {/* Right Side: Text Content with Word-by-Word Reveal */}
@@ -68,25 +60,25 @@ export default function About() {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="text-sm uppercase tracking-[0.35em] text-[#F0C05A]"
+              className="text-sm font-semibold uppercase tracking-[0.35em] text-[#D97706] dark:text-[#F0C05A]"
             >
               {t("label")}
             </motion.p>
 
             <h2 className="mt-4 text-3xl font-bold leading-tight md:text-5xl">
-              <InlineWordReveal className="leading-tight text-white" delay={0}>
+              <InlineWordReveal className="leading-tight text-slate-950 dark:text-white" delay={0}>
                 {t("heading")}
               </InlineWordReveal>
             </h2>
 
             <p className="mt-6 leading-8">
-              <InlineWordReveal className="leading-8 text-slate-300" delay={0.1}>
+              <InlineWordReveal className="leading-8 text-slate-700 dark:text-slate-300" delay={0.1}>
                 {stripHtml(t.raw("p1") as string)}
               </InlineWordReveal>
             </p>
 
             <p className="mt-5 leading-8">
-              <InlineWordReveal className="leading-8 text-slate-300" delay={0.15}>
+              <InlineWordReveal className="leading-8 text-slate-700 dark:text-slate-300" delay={0.15}>
                 {stripHtml(t.raw("p2") as string)}
               </InlineWordReveal>
             </p>

@@ -76,25 +76,25 @@ export default function Hero() {
           animate="visible"
         >
 
-          <motion.h1 variants={fadeUp} className="text-4xl font-bold leading-tight text-white md:text-6xl">
+          <motion.h1 variants={fadeUp} className="text-4xl font-bold leading-tight text-slate-900 md:text-6xl dark:text-white">
             {t("greeting")}{" "}
-            <span className="text-white">
+            <span className="text-slate-900 dark:text-white">
               {t("name")}
             </span>
           </motion.h1>
 
-          <motion.h2 variants={fadeUp} className="mt-4 text-xl font-semibold text-slate-200 md:text-2xl">
+          <motion.h2 variants={fadeUp} className="mt-4 text-xl font-semibold text-slate-700 md:text-2xl dark:text-slate-200">
             {t("subtitle")}
           </motion.h2>
 
-          <motion.p variants={fadeUp} className="mt-6 max-w-xl text-base leading-8 text-slate-300 md:text-lg">
+          <motion.p variants={fadeUp} className="mt-6 max-w-xl text-base leading-8 text-slate-600 md:text-lg dark:text-slate-300">
             {t("description")}
           </motion.p>
 
           <motion.div variants={fadeUp} className="mt-8 flex flex-wrap gap-4">
             <a
               href="#projects"
-              className="group inline-flex items-center gap-2 rounded-full bg-[#F0C05A] px-6 py-3 font-semibold text-slate-950 transition-all duration-300 hover:bg-[#F5D078] hover:shadow-[0_0_24px_rgba(240,192,90,0.35)]"
+              className="group inline-flex items-center gap-2 rounded-full bg-[#D97706] px-6 py-3 font-semibold text-white transition-all duration-300 hover:bg-[#B45309] hover:shadow-[0_0_24px_rgba(217,119,6,0.35)] dark:bg-[#F0C05A] dark:text-slate-950 dark:hover:bg-[#F5D078] dark:hover:shadow-[0_0_24px_rgba(240,192,90,0.35)]"
             >
               {t("viewProjects")}
               <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
@@ -104,7 +104,7 @@ export default function Hero() {
               href="/CV-ATS-YogiPranata.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-[#F0C05A]/30 bg-[#F0C05A]/10 px-6 py-3 font-semibold text-[#F5D078] transition-all duration-300 hover:bg-[#F0C05A]/20 hover:shadow-[0_0_20px_rgba(240,192,90,0.15)]"
+              className="inline-flex items-center gap-2 rounded-full border border-amber-600/30 bg-amber-500/10 px-6 py-3 font-semibold text-amber-700 transition-all duration-300 hover:bg-amber-500/20 hover:shadow-[0_0_20px_rgba(217,119,6,0.15)] dark:border-[#F0C05A]/30 dark:bg-[#F0C05A]/10 dark:text-[#F5D078] dark:hover:bg-[#F0C05A]/20"
             >
               <FileText size={18} />
               {t("viewCv")}
@@ -112,14 +112,14 @@ export default function Hero() {
 
             <a
               href="#contact"
-              className="rounded-full border border-white/20 px-6 py-3 font-semibold text-white transition-all duration-300 hover:border-[#F0C05A] hover:text-[#F0C05A] hover:shadow-[0_0_20px_rgba(240,192,90,0.1)]"
+              className="rounded-full border border-slate-300 bg-white/80 px-6 py-3 font-semibold text-slate-800 transition-all duration-300 hover:border-[#D97706] hover:text-[#D97706] hover:shadow-[0_0_20px_rgba(217,119,6,0.1)] dark:border-white/20 dark:bg-transparent dark:text-white dark:hover:border-[#F0C05A] dark:hover:text-[#F0C05A]"
             >
               {t("contactMe")}
             </a>
           </motion.div>
 
           {/* Social icons — staggered */}
-          <motion.div variants={fadeUp} className="mt-8 flex items-center gap-5 text-slate-400">
+          <motion.div variants={fadeUp} className="mt-8 flex items-center gap-5 text-slate-500 dark:text-slate-400">
             {[
               { href: "https://github.com/yogipranata-id", label: "GitHub", icon: <FaGithub size={24} /> },
               { href: "https://www.linkedin.com/in/yogi-pranata", label: "LinkedIn", icon: <FaLinkedin size={24} /> },
@@ -130,7 +130,7 @@ export default function Hero() {
                 href={social.href}
                 target={social.label !== "Email" ? "_blank" : undefined}
                 rel={social.label !== "Email" ? "noopener noreferrer" : undefined}
-                className="transition-all duration-300 hover:-translate-y-1 hover:text-[#F0C05A] hover:drop-shadow-[0_0_8px_rgba(240,192,90,0.4)]"
+                className="transition-all duration-300 hover:-translate-y-1 hover:text-[#D97706] dark:hover:text-[#F0C05A] hover:drop-shadow-[0_0_8px_rgba(240,192,90,0.4)]"
                 aria-label={social.label}
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -155,7 +155,7 @@ export default function Hero() {
             className="pointer-events-none absolute -inset-4 rounded-[2.5rem] opacity-0 blur-2xl transition-opacity duration-500"
             style={{
               opacity: isHovering ? 0.6 : 0,
-              background: `radial-gradient(circle at ${tilt.glareX}% ${tilt.glareY}%, rgba(34,211,238,0.25), rgba(139,92,246,0.15), transparent 70%)`,
+              background: `radial-gradient(circle at ${tilt.glareX}% ${tilt.glareY}%, rgba(217,119,6,0.3), rgba(245,158,11,0.2), transparent 70%)`,
             }}
           />
 
@@ -165,7 +165,7 @@ export default function Hero() {
             onMouseMove={handleMouseMove}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
-            className="relative aspect-[3/4.2] w-full cursor-grab overflow-hidden rounded-[2rem] border border-white/10 shadow-2xl bg-slate-900/50 transition-shadow duration-500 hover:shadow-[0_20px_60px_rgba(34,211,238,0.1)]"
+            className="relative aspect-[3/4.2] w-full cursor-grab overflow-hidden rounded-[2rem] border border-amber-500/25 bg-slate-950/80 shadow-[0_20px_50px_rgba(217,119,6,0.12)] transition-shadow duration-500 hover:shadow-[0_25px_60px_rgba(217,119,6,0.25)] dark:border-white/10 dark:bg-slate-900/50 dark:shadow-2xl dark:hover:shadow-[0_20px_60px_rgba(240,192,90,0.15)]"
             style={{
               transform: `rotateX(${tilt.rotateX}deg) rotateY(${tilt.rotateY}deg)`,
               transition: isHovering ? "transform 0.1s ease-out" : "transform 0.5s ease-out",

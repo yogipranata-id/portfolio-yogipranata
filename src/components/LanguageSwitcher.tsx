@@ -21,10 +21,10 @@ export default function LanguageSwitcher() {
     <button
       onClick={toggleLocale}
       disabled={isPending}
-      className="flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-sm font-medium text-slate-300 transition hover:border-[#F0C05A]/50 hover:bg-white/10 hover:text-white disabled:opacity-50"
+      className="flex items-center gap-1.5 rounded-full border border-slate-300/80 bg-slate-100/80 px-3 py-1.5 text-sm font-medium text-slate-700 transition hover:border-[#D97706]/50 hover:bg-slate-200/80 hover:text-slate-900 disabled:opacity-50 dark:border-white/10 dark:bg-white/5 dark:text-slate-300 dark:hover:border-[#F0C05A]/50 dark:hover:bg-white/10 dark:hover:text-white"
       aria-label="Switch language"
     >
-      <Globe size={16} className="text-[#F0C05A]" />
+      <Globe size={16} className="text-[#D97706] dark:text-[#F0C05A]" />
       <span className="uppercase">{locale}</span>
     </button>
   );

@@ -54,7 +54,7 @@ const InlineWord: FC<InlineWordProps> = ({ children, index, isInView, delay }) =
       <span className="opacity-20">{children}</span>
       {/* Animated revealed text */}
       <motion.span
-        className="absolute left-0 top-0 text-white"
+        className="absolute left-0 top-0 text-current"
         initial={{ opacity: 0, y: 8, filter: "blur(4px)" }}
         animate={
           isInView

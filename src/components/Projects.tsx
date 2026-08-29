@@ -100,13 +100,13 @@ export default function Projects() {
         className="relative z-10 flex items-end justify-between"
       >
         <div>
-          <p className="text-sm uppercase tracking-[0.35em] text-[#F0C05A]">
+          <p className="text-sm uppercase tracking-[0.35em] text-[#D97706] dark:text-[#F0C05A]">
             {t("label")}
           </p>
-          <h2 className="mt-4 text-3xl font-bold leading-tight text-white md:text-5xl">
+          <h2 className="mt-4 text-3xl font-bold leading-tight text-slate-900 md:text-5xl dark:text-white">
             {t("heading")}
           </h2>
-          <p className="mt-4 max-w-2xl leading-8 text-slate-400">
+          <p className="mt-4 max-w-2xl leading-8 text-slate-600 dark:text-slate-400">
             {t("description")}
           </p>
         </div>
@@ -148,8 +148,8 @@ export default function Projects() {
                   <div
                     className={`relative aspect-[16/10] w-full overflow-hidden rounded-2xl border shadow-2xl transition-all duration-500 ${
                       index === activeIndex
-                        ? "border-[#F0C05A]/40 shadow-[0_20px_60px_rgba(240,192,90,0.12)]"
-                        : "border-white/10 hover:border-white/20"
+                        ? "border-[#D97706]/50 shadow-[0_20px_60px_rgba(217,119,6,0.15)] dark:border-[#F0C05A]/40 dark:shadow-[0_20px_60px_rgba(240,192,90,0.12)]"
+                        : "border-slate-200/80 bg-white/80 hover:border-slate-300 dark:border-white/10 dark:bg-white/5 dark:hover:border-white/20"
                     }`}
                   >
                     <Image
@@ -162,7 +162,7 @@ export default function Projects() {
                     />
                     {/* Subtle gradient overlay for non-active items */}
                     {index !== activeIndex && (
-                      <div className="absolute inset-0 bg-black/20" />
+                      <div className="absolute inset-0 bg-black/20 dark:bg-black/30" />
                     )}
                   </div>
                 </button>
@@ -182,11 +182,11 @@ export default function Projects() {
               transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
               className="text-center"
             >
-              <h3 className="text-2xl font-bold text-white md:text-3xl">
+              <h3 className="text-2xl font-bold text-slate-900 md:text-3xl dark:text-white">
                 {activeProject.title}
               </h3>
 
-              <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-slate-400 md:text-base">
+              <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-slate-600 md:text-base dark:text-slate-400">
                 {activeProject.description}
               </p>
 
@@ -194,7 +194,7 @@ export default function Projects() {
               <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
                 <Link
                   href={`/projects/${activeProject.slug}`}
-                  className="group/btn inline-flex items-center gap-2 rounded-full bg-[#F0C05A] px-5 py-2.5 text-sm font-semibold text-slate-950 transition-all duration-300 hover:bg-[#F5D078] hover:shadow-[0_0_20px_rgba(240,192,90,0.3)]"
+                  className="group/btn inline-flex items-center gap-2 rounded-full bg-[#D97706] px-5 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:bg-[#B45309] hover:shadow-[0_0_20px_rgba(217,119,6,0.3)] dark:bg-[#F0C05A] dark:text-slate-950 dark:hover:bg-[#F5D078] dark:hover:shadow-[0_0_20px_rgba(240,192,90,0.3)]"
                 >
                   {t("viewDetails")}
                   <ArrowUpRight
@@ -207,7 +207,7 @@ export default function Projects() {
                   href={activeProject.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full border border-white/15 px-5 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:border-[#F0C05A] hover:text-[#F0C05A]"
+                  className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white/80 px-5 py-2.5 text-sm font-semibold text-slate-800 transition-all duration-300 hover:border-[#D97706] hover:text-[#D97706] dark:border-white/15 dark:bg-transparent dark:text-white dark:hover:border-[#F0C05A] dark:hover:text-[#F0C05A]"
                 >
                   <FaGithub size={16} />
                   {t("sourceCode")}
@@ -227,8 +227,8 @@ export default function Projects() {
                 onClick={() => goTo(index)}
                 className={`h-2.5 rounded-full transition-all duration-300 ${
                   index === activeIndex
-                    ? "w-8 bg-[#F0C05A]"
-                    : "w-2.5 bg-white/20 hover:bg-white/40"
+                    ? "w-8 bg-[#D97706] dark:bg-[#F0C05A]"
+                    : "w-2.5 bg-slate-300 hover:bg-slate-400 dark:bg-white/20 dark:hover:bg-white/40"
                 }`}
                 aria-label={`Go to project ${index + 1}`}
               />
@@ -236,8 +236,8 @@ export default function Projects() {
           </div>
 
           {/* Counter */}
-          <p className="text-sm text-slate-400">
-            <span className="font-bold text-[#F0C05A]">
+          <p className="text-sm text-slate-500 dark:text-slate-400">
+            <span className="font-bold text-[#D97706] dark:text-[#F0C05A]">
               {String(activeIndex + 1).padStart(2, "0")}
             </span>
             {" / "}
@@ -248,14 +248,14 @@ export default function Projects() {
           <div className="flex items-center gap-3">
             <button
               onClick={goPrev}
-              className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white backdrop-blur-xl transition hover:border-[#F0C05A]/40 hover:bg-white/10 hover:text-[#F0C05A]"
+              className="flex h-12 w-12 items-center justify-center rounded-full border border-slate-300/80 bg-white/80 text-slate-800 backdrop-blur-xl transition hover:border-[#D97706]/40 hover:bg-slate-100 hover:text-[#D97706] dark:border-white/10 dark:bg-white/5 dark:text-white dark:hover:border-[#F0C05A]/40 dark:hover:bg-white/10 dark:hover:text-[#F0C05A]"
               aria-label="Previous project"
             >
               <ChevronLeft size={22} />
             </button>
             <button
               onClick={goNext}
-              className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white backdrop-blur-xl transition hover:border-[#F0C05A]/40 hover:bg-white/10 hover:text-[#F0C05A]"
+              className="flex h-12 w-12 items-center justify-center rounded-full border border-slate-300/80 bg-white/80 text-slate-800 backdrop-blur-xl transition hover:border-[#D97706]/40 hover:bg-slate-100 hover:text-[#D97706] dark:border-white/10 dark:bg-white/5 dark:text-white dark:hover:border-[#F0C05A]/40 dark:hover:bg-white/10 dark:hover:text-[#F0C05A]"
               aria-label="Next project"
             >
               <ChevronRight size={22} />

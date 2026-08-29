@@ -20,8 +20,8 @@ export default function Footer() {
       <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-6 px-6 py-8 md:flex-row">
         {/* Brand / Copyright */}
         <div className="text-center md:text-left">
-          <Link href="/" className="text-xl font-bold tracking-tight text-white">
-            Yogi<span className="text-[#F0C05A]">Pranata</span>
+          <Link href="/" className="text-xl font-bold tracking-tight text-slate-900 dark:text-white">
+            Yogi<span className="text-[#D97706] dark:text-[#F0C05A]">Pranata</span>
           </Link>
           <p className="mt-2 text-sm text-slate-500">
             {t("copyright", { year: currentYear })}
@@ -36,7 +36,7 @@ export default function Footer() {
               href={social.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-slate-500 transition-all duration-300 hover:text-[#F0C05A] hover:drop-shadow-[0_0_8px_rgba(240,192,90,0.4)]"
+              className="text-slate-500 transition-all duration-300 hover:text-[#D97706] dark:hover:text-[#F0C05A] hover:drop-shadow-[0_0_8px_rgba(240,192,90,0.4)]"
               aria-label={social.label}
             >
               {social.icon}
