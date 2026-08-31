@@ -36,13 +36,14 @@ export default function About() {
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             className="relative mx-auto w-full max-w-md lg:max-w-none"
           >
-            <div className="relative aspect-square overflow-hidden rounded-3xl border border-amber-500/20 bg-gradient-to-tr from-white to-amber-50/40 p-1 shadow-[0_20px_50px_rgba(217,119,6,0.08)] backdrop-blur-sm dark:border-white/10 dark:bg-white/5 dark:shadow-2xl">
+            <div className="relative aspect-square overflow-hidden rounded-3xl bg-gradient-to-tr from-white to-amber-50/30 shadow-[0_18px_40px_rgba(15,23,42,0.08)] backdrop-blur-sm dark:bg-white/5 dark:shadow-2xl">
               <div className="relative h-full w-full overflow-hidden rounded-[1.35rem]">
                 <Image
                   src="/profile.jpeg"
                   alt="Yogi Pranata"
                   fill
                   className="object-cover transition-transform duration-700 hover:scale-105"
+                  style={{ objectPosition: "center 18%" }}
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>

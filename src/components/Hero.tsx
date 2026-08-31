@@ -36,7 +36,7 @@ export default function Hero() {
     const y = e.clientY - rect.top;
     const centerX = rect.width / 2;
     const centerY = rect.height / 2;
-    const maxTilt = 12;
+    const maxTilt = 8;
 
     const rotateY = ((x - centerX) / centerX) * maxTilt;
     const rotateX = ((centerY - y) / centerY) * maxTilt;
@@ -56,15 +56,15 @@ export default function Hero() {
     <section id="home" className="top-0 z-0 flex min-h-dvh items-center px-6 pb-12 pt-28 md:sticky">
       {/* Animated background orbs */}
       <div
-        className="absolute left-1/2 top-20 h-72 w-72 -translate-x-1/2 rounded-full bg-amber-500/15 blur-[100px]"
+        className="absolute left-1/2 top-20 h-56 w-56 -translate-x-1/2 rounded-full bg-amber-500/10 blur-[90px]"
         style={{ animation: "float 8s ease-in-out infinite" }}
       />
       <div
-        className="absolute bottom-20 right-10 h-80 w-80 rounded-full bg-amber-700/15 blur-[100px]"
+        className="absolute bottom-20 right-10 h-60 w-60 rounded-full bg-amber-700/10 blur-[90px]"
         style={{ animation: "float-reverse 10s ease-in-out infinite" }}
       />
       <div
-        className="absolute left-10 top-1/2 h-64 w-64 rounded-full bg-amber-500/10 blur-[100px]"
+        className="absolute left-10 top-1/2 h-48 w-48 rounded-full bg-amber-500/8 blur-[80px]"
         style={{ animation: "float 12s ease-in-out infinite 2s" }}
       />
 
@@ -154,8 +154,8 @@ export default function Hero() {
           <div
             className="pointer-events-none absolute -inset-4 rounded-[2.5rem] opacity-0 blur-2xl transition-opacity duration-500"
             style={{
-              opacity: isHovering ? 0.6 : 0,
-              background: `radial-gradient(circle at ${tilt.glareX}% ${tilt.glareY}%, rgba(217,119,6,0.3), rgba(245,158,11,0.2), transparent 70%)`,
+              opacity: isHovering ? 0.25 : 0,
+              background: `radial-gradient(circle at ${tilt.glareX}% ${tilt.glareY}%, rgba(217,119,6,0.18), rgba(245,158,11,0.1), transparent 70%)`,
             }}
           />
 
@@ -165,9 +165,9 @@ export default function Hero() {
             onMouseMove={handleMouseMove}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
-            className="relative aspect-[3/4.2] w-full cursor-grab overflow-hidden rounded-[2rem] border border-amber-500/25 bg-slate-950/80 shadow-[0_20px_50px_rgba(217,119,6,0.12)] transition-shadow duration-500 hover:shadow-[0_25px_60px_rgba(217,119,6,0.25)] dark:border-white/10 dark:bg-slate-900/50 dark:shadow-2xl dark:hover:shadow-[0_20px_60px_rgba(240,192,90,0.15)]"
+            className="relative aspect-[3/4.2] w-full cursor-grab overflow-hidden rounded-[2rem] bg-slate-950/80 shadow-[0_18px_40px_rgba(15,23,42,0.18)] transition-shadow duration-500 hover:shadow-[0_22px_50px_rgba(217,119,6,0.16)] dark:bg-slate-900/50 dark:shadow-2xl dark:hover:shadow-[0_20px_50px_rgba(240,192,90,0.12)]"
             style={{
-              transform: `rotateX(${tilt.rotateX}deg) rotateY(${tilt.rotateY}deg)`,
+              transform: `rotateX(${tilt.rotateX * 0.75}deg) rotateY(${tilt.rotateY * 0.75}deg)`,
               transition: isHovering ? "transform 0.1s ease-out" : "transform 0.5s ease-out",
               transformStyle: "preserve-3d",
             }}
