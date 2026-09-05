@@ -86,10 +86,6 @@ export default function Projects() {
   return (
     <section id="projects" className="relative mx-auto max-w-6xl px-6 py-24">
       <div className="gradient-divider mb-16" />
-      <div
-        className="absolute left-1/2 top-10 h-72 w-72 -translate-x-1/2 rounded-full bg-amber-500/10 blur-[100px]"
-        style={{ animation: "float 10s ease-in-out infinite" }}
-      />
 
       {/* Header */}
       <motion.div
@@ -192,26 +188,43 @@ export default function Projects() {
 
               {/* Action buttons */}
               <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
-                <Link
-                  href={`/projects/${activeProject.slug}`}
-                  className="group/btn inline-flex items-center gap-2 rounded-full bg-[#D97706] px-5 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:bg-[#B45309] hover:shadow-[0_0_20px_rgba(217,119,6,0.3)] dark:bg-[#F0C05A] dark:text-slate-950 dark:hover:bg-[#F5D078] dark:hover:shadow-[0_0_20px_rgba(240,192,90,0.3)]"
-                >
-                  {t("viewDetails")}
-                  <ArrowUpRight
-                    size={16}
-                    className="transition-transform group-hover/btn:-translate-y-0.5 group-hover/btn:translate-x-0.5"
-                  />
-                </Link>
+                {activeProject.demoUrl ? (
+                  <a
+                    href={activeProject.demoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group/btn inline-flex items-center gap-2 rounded-full bg-[#D97706] px-5 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:bg-[#B45309] hover:shadow-[0_0_20px_rgba(217,119,6,0.3)] dark:bg-[#F0C05A] dark:text-slate-950 dark:hover:bg-[#F5D078] dark:hover:shadow-[0_0_20px_rgba(240,192,90,0.3)]"
+                  >
+                    Live Demo
+                    <ArrowUpRight
+                      size={16}
+                      className="transition-transform group-hover/btn:-translate-y-0.5 group-hover/btn:translate-x-0.5"
+                    />
+                  </a>
+                ) : (
+                  <Link
+                    href={`/projects/${activeProject.slug}`}
+                    className="group/btn inline-flex items-center gap-2 rounded-full bg-[#D97706] px-5 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:bg-[#B45309] hover:shadow-[0_0_20px_rgba(217,119,6,0.3)] dark:bg-[#F0C05A] dark:text-slate-950 dark:hover:bg-[#F5D078] dark:hover:shadow-[0_0_20px_rgba(240,192,90,0.3)]"
+                  >
+                    {t("viewDetails")}
+                    <ArrowUpRight
+                      size={16}
+                      className="transition-transform group-hover/btn:-translate-y-0.5 group-hover/btn:translate-x-0.5"
+                    />
+                  </Link>
+                )}
 
-                <a
-                  href={activeProject.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white/80 px-5 py-2.5 text-sm font-semibold text-slate-800 transition-all duration-300 hover:border-[#D97706] hover:text-[#D97706] dark:border-white/15 dark:bg-transparent dark:text-white dark:hover:border-[#F0C05A] dark:hover:text-[#F0C05A]"
-                >
-                  <FaGithub size={16} />
-                  {t("sourceCode")}
-                </a>
+                {activeProject.githubUrl && (
+                  <a
+                    href={activeProject.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white/80 px-5 py-2.5 text-sm font-semibold text-slate-800 transition-all duration-300 hover:border-[#D97706] hover:text-[#D97706] dark:border-white/15 dark:bg-transparent dark:text-white dark:hover:border-[#F0C05A] dark:hover:text-[#F0C05A]"
+                  >
+                    <FaGithub size={16} />
+                    {t("sourceCode")}
+                  </a>
+                )}
               </div>
             </motion.div>
           </AnimatePresence>

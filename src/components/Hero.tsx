@@ -54,19 +54,7 @@ export default function Hero() {
 
   return (
     <section id="home" className="top-0 z-0 flex min-h-dvh items-center px-6 pb-12 pt-28 md:sticky">
-      {/* Animated background orbs */}
-      <div
-        className="absolute left-1/2 top-20 h-56 w-56 -translate-x-1/2 rounded-full bg-amber-500/10 blur-[90px]"
-        style={{ animation: "float 8s ease-in-out infinite" }}
-      />
-      <div
-        className="absolute bottom-20 right-10 h-60 w-60 rounded-full bg-amber-700/10 blur-[90px]"
-        style={{ animation: "float-reverse 10s ease-in-out infinite" }}
-      />
-      <div
-        className="absolute left-10 top-1/2 h-48 w-48 rounded-full bg-amber-500/8 blur-[80px]"
-        style={{ animation: "float 12s ease-in-out infinite 2s" }}
-      />
+
 
       <div className="relative z-10 mx-auto grid max-w-6xl items-center gap-12 md:grid-cols-2">
         {/* Left content — staggered animation */}

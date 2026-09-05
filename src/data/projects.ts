@@ -185,4 +185,39 @@ export const projects: Project[] = [
       "Membuat validasi session tersentralisasi di `config/session.php` yang dipanggil di baris paling atas pada semua file halaman yang dilindungi.",
     ],
   },
+  {
+    slug: "portfolio-yogipranata",
+    title: "Personal Portfolio Website",
+    description:
+      "Website portofolio pribadi yang dirancang dengan desain modern, interaktif, dan responsif. Dibangun menggunakan Next.js App Router, Tailwind CSS, dan Framer Motion dengan fitur Light/Dark mode serta dukungan multi-bahasa (i18n).",
+    image: "/MyProfile.png",
+    screenshots: [],
+    stack: [
+      "Next.js 16",
+      "TypeScript",
+      "Tailwind CSS",
+      "Framer Motion",
+      "next-intl"
+    ],
+    demoUrl: "https://yogipranata.vercel.app",
+    role: "Front-End Web Developer",
+    featured: true,
+    status: "live",
+    objective:
+      "Membangun personal branding melalui website portofolio yang profesional, memiliki performa tinggi, dan merepresentasikan keahlian dalam web development modern.",
+    features: [
+      "Modern UI/UX: Desain bersih dengan sentuhan animasi halus menggunakan Framer Motion",
+      "Dual Theme: Dukungan Light dan Dark mode yang terintegrasi secara mulus",
+      "Internationalization: Multi-bahasa (Indonesia & Inggris) menggunakan next-intl",
+      "Responsive Design: Tampilan optimal di berbagai perangkat (Mobile-First)",
+    ],
+    challenges: [
+      "Mengintegrasikan animasi yang kompleks tanpa mengorbankan performa website.",
+      "Menyusun struktur data yang mudah di-maintain dan di-extend untuk proyek-proyek di masa depan.",
+    ],
+    solutions: [
+      "Memanfaatkan komponen Server dan Client dari Next.js App Router secara efisien.",
+      "Menerapkan sistem styling dan token desain yang konsisten dengan Tailwind CSS.",
+    ],
+  },
 ];

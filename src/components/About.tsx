@@ -16,15 +16,11 @@ export default function About() {
   return (
     <section
       id="about"
-      className="relative z-10 rounded-t-[2.5rem] bg-[#FAFAF9] shadow-[0_-20px_60px_rgba(0,0,0,0.04)] transition-colors duration-300 dark:bg-[#0A0A0B] dark:shadow-[0_-20px_60px_rgba(0,0,0,0.6)]"
+      className="relative z-10 rounded-t-[2.5rem] bg-[#F8FAFC] shadow-[0_-20px_60px_rgba(0,0,0,0.04)] transition-colors duration-300 dark:bg-[#0A0A0B] dark:shadow-[0_-20px_60px_rgba(0,0,0,0.6)]"
     >
       <div className="relative mx-auto max-w-6xl px-6 py-24">
         {/* Gradient divider */}
         <div className="gradient-divider mb-16" />
-
-        <div className="absolute left-0 top-20 h-64 w-64 rounded-full bg-amber-500/10 blur-[100px]"
-          style={{ animation: "float 10s ease-in-out infinite" }}
-        />
 
         <div className="relative z-10 grid items-center gap-12 lg:grid-cols-[1fr_1.2fr]">
 
@@ -36,7 +32,7 @@ export default function About() {
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             className="relative mx-auto w-full max-w-md lg:max-w-none"
           >
-            <div className="relative aspect-square overflow-hidden rounded-3xl bg-gradient-to-tr from-white to-amber-50/30 shadow-[0_18px_40px_rgba(15,23,42,0.08)] backdrop-blur-sm dark:bg-white/5 dark:shadow-2xl">
+            <div className="relative aspect-square overflow-hidden rounded-3xl border border-slate-200/80 bg-white shadow-[0_18px_40px_rgba(15,23,42,0.08)] backdrop-blur-sm dark:border-white/10 dark:bg-white/5 dark:shadow-2xl">
               <div className="relative h-full w-full overflow-hidden rounded-[1.35rem]">
                 <Image
                   src="/profile.jpeg"
@@ -48,10 +44,6 @@ export default function About() {
                 />
               </div>
             </div>
-
-            {/* Decorative elements behind image */}
-            <div className="absolute -bottom-6 -left-6 -z-10 h-32 w-32 rounded-full bg-amber-600/15 blur-[50px] dark:bg-amber-700/20" />
-            <div className="absolute -right-6 -top-6 -z-10 h-32 w-32 rounded-full bg-amber-400/20 blur-[50px] dark:bg-[#F0C05A]/20" />
           </motion.div>
 
           {/* Right Side: Text Content with Word-by-Word Reveal */}

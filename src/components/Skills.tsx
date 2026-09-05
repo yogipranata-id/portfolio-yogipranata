@@ -122,10 +122,6 @@ export default function Skills() {
   return (
     <section id="skills" className="relative mx-auto max-w-6xl px-6 py-24">
       <div className="gradient-divider mb-16" />
-      
-      <div className="absolute right-0 top-20 h-72 w-72 rounded-full bg-amber-500/10 blur-[100px]"
-        style={{ animation: "float-reverse 10s ease-in-out infinite" }}
-      />
 
       <motion.div
         initial={{ opacity: 0, y: 40 }}

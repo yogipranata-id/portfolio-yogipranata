@@ -95,6 +95,27 @@
     ],
     "certifications": [
       {
+        "title": "Fundamental of Assistant Web Developer Nasional",
+        "issuer": "Digital Talent Scholarship",
+        "date": "Sep 2026",
+        "type": "Certification",
+        "certUrls": ["/certificates/fundamental-of-assistant-web-developer-nasional-1.png", "/certificates/fundamental-of-assistant-web-developer-nasional-2.png"]
+      },
+      {
+        "title": "Programming Concepts",
+        "issuer": "Digital Talent Scholarship",
+        "date": "Aug 2026",
+        "type": "Certification",
+        "certUrls": ["/certificates/konsep-pemrograman-1.png", "/certificates/konsep-pemrograman-2.png"]
+      },
+      {
+        "title": "Fundamentals of AI",
+        "issuer": "Dicoding Indonesia",
+        "date": "Jan 2026 - Jan 2029",
+        "type": "Course",
+        "certUrls": ["/certificates/belajar-dasar-ai.png", "/certificates/belajar-dasar-ai2.png"]
+      },
+      {
         "title": "IDCamp Connect Roadshow - Riau",
         "issuer": "Dicoding Indonesia",
         "date": "Nov 2025",
@@ -107,13 +128,6 @@
         "date": "Oct 2025",
         "type": "Event Participant",
         "certUrls": ["/certificates/web3-on-campus.png"]
-      },
-      {
-        "title": "Fundamentals of AI",
-        "issuer": "Dicoding Indonesia",
-        "date": "Jan 2026 - Jan 2029",
-        "type": "Course",
-        "certUrls": ["/certificates/belajar-dasar-ai.png", "/certificates/belajar-dasar-ai2.png"]
       }
     ]
   },

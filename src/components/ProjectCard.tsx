@@ -64,33 +64,36 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         </div>
 
         <div className="mt-6 flex flex-wrap gap-3">
-          <Link
-            href={`/projects/${project.slug}`}
-            className="group/btn inline-flex items-center gap-2 rounded-full bg-[#D97706] px-4 py-2 text-sm font-semibold text-white transition-all duration-300 hover:bg-[#B45309] hover:shadow-[0_0_20px_rgba(217,119,6,0.3)] dark:bg-[#F0C05A] dark:text-slate-950 dark:hover:bg-[#F5D078] dark:hover:shadow-[0_0_20px_rgba(240,192,90,0.3)]"
-          >
-            View Case Study
-            <ArrowUpRight size={16} className="transition-transform group-hover/btn:-translate-y-0.5 group-hover/btn:translate-x-0.5" />
-          </Link>
-
-          <a
-            href={project.githubUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white/80 px-4 py-2 text-sm font-semibold text-slate-800 transition-all duration-300 hover:border-[#D97706] hover:text-[#D97706] dark:border-white/15 dark:bg-transparent dark:text-white dark:hover:border-[#F0C05A] dark:hover:text-[#F0C05A]"
-          >
-            <FaGithub size={16} />
-            Source Code
-          </a>
-
-          {project.demoUrl && (
+          {project.demoUrl ? (
             <a
               href={project.demoUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-400/10 px-4 py-2 text-sm font-semibold text-emerald-700 transition-all duration-300 hover:bg-emerald-400/20 dark:text-emerald-300 dark:hover:shadow-[0_0_16px_rgba(52,211,153,0.15)]"
+              className="group/btn inline-flex items-center gap-2 rounded-full bg-[#D97706] px-4 py-2 text-sm font-semibold text-white transition-all duration-300 hover:bg-[#B45309] hover:shadow-[0_0_20px_rgba(217,119,6,0.3)] dark:bg-[#F0C05A] dark:text-slate-950 dark:hover:bg-[#F5D078] dark:hover:shadow-[0_0_20px_rgba(240,192,90,0.3)]"
             >
               <MonitorPlay size={16} />
               Live Demo
+              <ArrowUpRight size={16} className="transition-transform group-hover/btn:-translate-y-0.5 group-hover/btn:translate-x-0.5" />
+            </a>
+          ) : (
+            <Link
+              href={`/projects/${project.slug}`}
+              className="group/btn inline-flex items-center gap-2 rounded-full bg-[#D97706] px-4 py-2 text-sm font-semibold text-white transition-all duration-300 hover:bg-[#B45309] hover:shadow-[0_0_20px_rgba(217,119,6,0.3)] dark:bg-[#F0C05A] dark:text-slate-950 dark:hover:bg-[#F5D078] dark:hover:shadow-[0_0_20px_rgba(240,192,90,0.3)]"
+            >
+              View Case Study
+              <ArrowUpRight size={16} className="transition-transform group-hover/btn:-translate-y-0.5 group-hover/btn:translate-x-0.5" />
+            </Link>
+          )}
+
+          {project.githubUrl && (
+            <a
+              href={project.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white/80 px-4 py-2 text-sm font-semibold text-slate-800 transition-all duration-300 hover:border-[#D97706] hover:text-[#D97706] dark:border-white/15 dark:bg-transparent dark:text-white dark:hover:border-[#F0C05A] dark:hover:text-[#F0C05A]"
+            >
+              <FaGithub size={16} />
+              Source Code
             </a>
           )}
         </div>

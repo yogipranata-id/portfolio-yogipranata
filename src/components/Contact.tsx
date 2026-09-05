@@ -12,11 +12,6 @@ export default function Contact() {
     <section id="contact" className="relative mx-auto max-w-4xl px-6 py-24">
       <div className="gradient-divider mb-16" />
 
-      {/* Background Glow */}
-      <div className="absolute left-1/2 top-1/2 h-64 w-64 -translate-x-1/2 -translate-y-1/2 rounded-full bg-amber-500/10 blur-[100px]"
-        style={{ animation: "float 10s ease-in-out infinite" }}
-      />
-
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}

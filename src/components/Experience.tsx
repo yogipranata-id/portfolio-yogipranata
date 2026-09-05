@@ -49,14 +49,6 @@ export default function Experience() {
     <section id="experience" className="relative mx-auto max-w-6xl px-6 py-24">
       <div className="gradient-divider mb-16" />
 
-      {/* Background Glow */}
-      <div className="absolute left-10 top-1/2 h-64 w-64 -translate-y-1/2 rounded-full bg-amber-500/10 blur-[100px]"
-        style={{ animation: "float 12s ease-in-out infinite" }}
-      />
-      <div className="absolute right-10 top-1/4 h-64 w-64 rounded-full bg-amber-500/10 blur-[100px]"
-        style={{ animation: "float-reverse 10s ease-in-out infinite 3s" }}
-      />
-
       {/* ── ATAS: PENGALAMAN KERJA ── */}
       <div className="relative z-10 mb-16">
         <h3 className="mb-6 flex items-center gap-3 text-lg font-semibold text-slate-900 dark:text-white">
@@ -255,7 +247,6 @@ export default function Experience() {
                 </button>
               </div>
 
-              {/* Content */}
               <div className="p-5">
                 <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl bg-slate-100 dark:bg-black/20">
                   <Image

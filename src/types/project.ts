@@ -9,7 +9,7 @@ export type Project = {
 
   stack: string[];
 
-  githubUrl: string;
+  githubUrl?: string;
   demoUrl?: string;
 
   role: string;
