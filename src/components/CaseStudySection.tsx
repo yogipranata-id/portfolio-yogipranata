@@ -12,16 +12,18 @@ export default function CaseStudySection({
   children,
 }: CaseStudySectionProps) {
   return (
-    <section className="rounded-2xl border border-slate-200/80 bg-white/80 p-5 shadow-lg backdrop-blur-xl transition-colors duration-300 dark:border-white/10 dark:bg-white/[0.03] sm:p-8">
+    <section className="group relative overflow-hidden rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-900/5 transition-all duration-300 hover:shadow-md dark:bg-[#111113] dark:ring-white/10 sm:p-8">
       <div className="flex items-center gap-3">
-        <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-500/10 text-[#D97706] dark:bg-[#F0C05A]/10 dark:text-[#F0C05A]">
+        <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-100 text-slate-700 dark:bg-white/5 dark:text-slate-300 transition-colors group-hover:bg-amber-500/10 group-hover:text-[#D97706] dark:group-hover:bg-[#F0C05A]/10 dark:group-hover:text-[#F0C05A]">
           {icon}
         </span>
 
-        <h2 className="text-xl font-bold text-slate-900 dark:text-white">{title}</h2>
+        <h2 className="text-xl font-bold tracking-tight text-slate-900 dark:text-white">{title}</h2>
       </div>
 
-      <div className="mt-6">{children}</div>
+      <div className="mt-6 text-base leading-relaxed text-slate-600 dark:text-slate-300">
+        {children}
+      </div>
     </section>
   );
 }

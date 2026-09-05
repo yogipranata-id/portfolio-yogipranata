@@ -137,7 +137,7 @@ export default async function ProjectDetail({
 
         {/* Hero image — slight delay after content */}
         <AnimatedSection delay={0.2}>
-          <div className="relative mt-10 overflow-hidden rounded-2xl border border-slate-200/80 shadow-2xl dark:border-white/10 md:mt-16 md:rounded-3xl">
+          <div className="relative mt-10 overflow-hidden rounded-2xl shadow-xl ring-1 ring-slate-900/5 dark:ring-white/10 md:mt-16 md:rounded-3xl">
             <Image
               src={project.image}
               alt={project.title}
@@ -235,15 +235,10 @@ export default async function ProjectDetail({
       {project.screenshots && project.screenshots.length > 0 && (
         <section className="mx-auto max-w-6xl px-4 pb-16 sm:px-6 md:pb-24">
           <AnimatedSection>
-            <CaseStudySection
-              icon={<Images size={20} />}
-              title={t("screenshots")}
-            >
-              <ScreenshotGallery
-                screenshots={project.screenshots}
-                projectTitle={project.title}
-              />
-            </CaseStudySection>
+            <ScreenshotGallery
+              screenshots={project.screenshots}
+              projectTitle={project.title}
+            />
           </AnimatedSection>
         </section>
       )}
